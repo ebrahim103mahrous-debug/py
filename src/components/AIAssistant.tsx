@@ -40,27 +40,41 @@ export function AIAssistant({ context }: AIAssistantProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chat', {
+      // Direct call to Gemini from client to avoid 405 on static hosting
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        throw new Error("لم يتم العثور على مفتاح واجهة برمجة التطبيقات (API Key).");
+      }
+
+      const systemInstruction = `You are a helpful programming tutor AI for a platform called 'Python Pro'. 
+You are given the current lesson/problem context the user is looking at. 
+Answer their question clearly, in Arabic, using friendly and encouraging language.
+
+Current context:
+${context || 'No specific context provided'}`;
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          prompt: userMessage,
-          context: context,
-        }),
+          systemInstruction: { parts: [{ text: systemInstruction }] },
+          contents: [{ parts: [{ text: userMessage }] }]
+        })
       });
 
       const data = await response.json();
       
       if (response.ok) {
-        setMessages(prev => [...prev, { role: 'assistant', content: data.result }]);
+        const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "لا توجد استجابة.";
+        setMessages(prev => [...prev, { role: 'assistant', content: text }]);
       } else {
-        setMessages(prev => [...prev, { role: 'assistant', content: `حدث خطأ: ${data.error}` }]);
+        setMessages(prev => [...prev, { role: 'assistant', content: `حدث خطأ: ${data.error?.message || 'Unknown'}` }]);
       }
     } catch (error: any) {
       console.error(error);
-      setMessages(prev => [...prev, { role: 'assistant', content: `عذراً، لم أتمكن من الاتصال بالخادم. المشكلة: ${error?.message}` }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: `عذراً، لم أتمكن من الاتصال. المشكلة: ${error?.message}` }]);
     } finally {
       setIsLoading(false);
     }

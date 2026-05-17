@@ -561,6 +561,7 @@ export const SECTIONS: Section[] = [
         descriptionEn:
           "Calculate average and format the output using % method.",
         explanation: "استخدام % لعمل Format.",
+        flowchartData: "Start -> s1=10, s2=12 -> Avg=(s1+s2)/2 -> print(Avg) -> End",
         code: 's1 = 10\ns2 = 12\nAvg = (10+12) / 2\nprint("Average = %i" % Avg) # -> 10',
         algorithmAr:
           "1. تسجيل القيمة المبدئيه للمتغيرات s1 و s2.\n2. حساب المتوسط (Avg) عن طريق جمع الرقمين والقسمة على 2.\n3. طباعة النص باستخدام Format %i لتمثيل الرقم الصحيح.",
