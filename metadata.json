@@ -1,0 +1,8 @@
+{
+  "name": "Python Learning Hub - Sec 1",
+  "description": "An interactive educational app covering Python basics, variables, and data types with detailed Arabic explanations and flowcharts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
