@@ -1,0 +1,147 @@
+{
+  "id": "sec2",
+  "title": "Section 2: Control Flow & Loops",
+  "lessons": [
+    {
+      "id": "conditionals",
+      "titleAr": "الجمل الشرطية (Conditional Statements)",
+      "titleEn": "Conditional Statements",
+      "content": "تُستخدم الجمل الشرطية لاتخاذ القرارات في الكود بناءً على شروط معينة:\n- `if`: تُنفذ الكود إذا كان الشرط صحيحاً (True).\n- `if else`: تُنفذ كوداً إذا كان الشرط صحيحاً، وكوداً آخر إذا كان خاطئاً (لو حالاتين بس).\n- `if elif else`: تُستخدم لاختبار أكثر من شرط (أو / OR).",
+      "code": "# 1. if\na = 3\nb = 5\nif a > b:\n    print(\"true\")\n\n# 2. if else\nif a > b:\n    print(\"true\")\nelse:\n    print(\"False\")\n\n# 3. if elif else\na = 5\nb = 3\nif a > b:\n    print(\"true\")\nelif b > a:\n    print(\"false\")\nelse:\n    print(\"equal\")\n\n# مثال آخر على if elif else\n# elif b > a:\n#     print(\"False\")\n# elif b == a:\n#     print(\"equal\")\n# else:\n#     print(\"invalid\")",
+      "algorithmAr": "1. الجملة الشرطية الأولى `if` تختبر شرطاً واحداً.\n2. الجملة `if else` تتعامل مع مسارين محتملين.\n3. السلسلة `if elif else` تسمح بفحص شروط متعددة تباعاً.",
+      "lineByLineAr": [
+        { "line": "if a > b:", "explanation": "اختبار ما إذا كان a أكبر من b." },
+        { "line": "elif b > a:", "explanation": "الشرط البديل، يختبر ما إذا كان b أكبر من a." },
+        { "line": "else:", "explanation": "تُنفذ في حالة عدم تحقق أي من الشروط السابقة." }
+      ]
+    },
+    {
+      "id": "loops",
+      "titleAr": "حلقات التكرار (Loop Statements)",
+      "titleEn": "Loop Statements",
+      "content": "هناك نوعان رئيسيان من حلقات التكرار:\n- `for`: تُستخدم للتكرار لعدد معين من المرات (Iteration).\n- `while`: تُستخدم للتكرار طالما أن الشرط صحيح (Condition).",
+      "code": "# Loop Statement -> for : Iteration\nfor i in range(1, 6):\n    print(i)\n\n# Loop Statement -> while : Condition\ni = 1\nwhile i < 6:\n    print(i)\n    i = i + 1",
+      "algorithmAr": "1. في حلقة `for`، الدالة `range(1, 6)` تولد الأرقام من 1 إلى 5.\n2. في حلقة `while`، يتم التحقق من الشرط في البداية، ويجب تحديث العداد داخل الحلقة لتجنب التكرار اللانهائي.",
+      "lineByLineAr": [
+        { "line": "for i in range(1, 6):", "explanation": "حلقة من 1 إلى 5 (الرقم 6 لا يدخل في التسلسل)." },
+        { "line": "while i < 6:", "explanation": "حلقة طالما الشرط متحقق." },
+        { "line": "i = i + 1", "explanation": "تحديث العداد لمنع حلقة لا نهائية." }
+      ]
+    },
+    {
+      "id": "jump-stmts",
+      "titleAr": "عبارات التخطي (Jump Statements)",
+      "titleEn": "Jump Statements",
+      "content": "تُستخدم للتحكم في مسار التكرار داخل الحلقات:\n- `continue`: بيعمل Skip فقط (يتخطى الدورة الحالية ويكمل الحلقة).\n- `break`: بيعمل Stop loop (يوقف الحلقة تماماً).\n\nمثال: لو مثلا بيقولك اطبع من 1 لـ 5، استخدام `continue` عند 3 هيطبع كل الأرقام ماعدا 3 (يعني 1, 2, 4, 5) بيعمل Skip. أما استخدام `break` بيعمل Stop عند 3 و لا يكمل.",
+      "code": "# a = 3 \n# continue\n\n# a = 3\n# break\n",
+      "algorithmAr": "1. القفز أو التخطي: `continue` يمنع تنفيذ ما تبقى من الدورة الحالية ويبدأ الدورة التالية.\n2. الإنهاء: `break` يُخرج البرنامج من حلقة التكرار بالكامل.",
+      "lineByLineAr": []
+    }
+  ],
+  "problems": [
+    {
+      "id": "p-pos-neg",
+      "titleAr": "تحديد الرقم الموجب والسالب",
+      "titleEn": "Positive or Negative",
+      "descriptionAr": "لو عايز اعمل برنامج واحد اذا كان Positive او Negative.\nPositive > 0\nNegative < 0\n1. أعمل متغير.",
+      "descriptionEn": "Check whether a number is positive, negative, or zero.",
+      "explanation": "استخدام `if else` و `if elif else` لفحص قيمة المتغير.",
+      "flowchartData": "Start -> Input Number -> Number > 0? -> Yes: Positive -> No: Number < 0? -> Yes: Negative -> No: Zero -> End",
+      "code": "Number = int(input(\"Enter your number\"))\n\n# او\nif Number > 0:\n    print(\"Positive\")\nelse:\n    print(\"Negative\")\n\n# او (or)\nif Number > 0:\n    print(\"Positive\")\nelif Number < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+      "algorithmAr": "1. عمل متغير Number واستقبال قيمته من المستخدم.\n2. استخدام if لاختبار ما إذا كان أكبر من الصفر.\n3. استخدام elif لاختبار أرقام أقل من الصفر.\n4. استخدام else لحالة الصفر.",
+      "lineByLineAr": [
+        { "line": "Number = int(input(\"Enter your number\"))", "explanation": "استقبال الرقم كمدخل من المستخدم وتحويله إلى نوع صحيح (int)." }
+      ]
+    },
+    {
+      "id": "p-even-odd",
+      "titleAr": "تحديد الرقم الزوجي والفردي",
+      "titleEn": "Even or Odd",
+      "descriptionAr": "لو عايز اعمل برنامج احدد الرقم اذا كان even او odd.",
+      "descriptionEn": "Check if a number is even or odd.",
+      "explanation": "استخدام باقي القسمة % للتحقق من النوع.",
+      "flowchartData": "Start -> Input Number -> Number % 2 != 0? -> Yes: odd -> No: even -> End",
+      "code": "Number = int(input(\"input Number\"))\n\nif Number % 2 != 0:\n    print(\"odd\")\nelse:\n    print(\"even\")\n\n# او (or)\nNumber = int(input(\"input N\"))\nif Number % 2 != 0:\n    print(\"odd\")\nelif Number % 2 == 0:\n    print(\"even\")\nelse:\n    print(\"Zero\")",
+      "algorithmAr": "1. استقبال الرقم المدخل.\n2. فحص باقي القسمة على 2 (Number % 2).\n3. إذا كان لا يساوي 0، الرقم فردي (odd).\n4. إذا كان يساوي 0، الرقم زوجي (even).",
+      "lineByLineAr": [
+        { "line": "if Number % 2 != 0:", "explanation": "التحقق مما إذا كان باقي القسمة على 2 لا يساوي صفر." }
+      ]
+    },
+    {
+      "id": "p-calculator",
+      "titleAr": "آلة حاسبة مبسطة",
+      "titleEn": "Simple Calculator",
+      "descriptionAr": "لو عايز اعمل آلة حاسبة لعمليات: Addition, Subtraction, Multiplication, Division. تستقبل N1 و N2 والعملية.",
+      "descriptionEn": "A program to perform basic arithmetic operations based on user input.",
+      "explanation": "تستقبل العملية ثم تقوم بتنفيذ الشروط.",
+      "flowchartData": "Start -> Input oper -> Input N1, N2 -> oper == 1? -> Yes: Add -> No: oper == 2? -> Yes: Sub -> End",
+      "code": "print(\"chase the operation\")\nprint(\"1- Addition\")\nprint(\"2- Subtraction\")\nprint(\"3- Multiplication\")\nprint(\"4- Division\")\n\noper = input(\"Chose the operation\")\nN1 = int(input(\"Enter the first Number\"))\nN2 = int(input(\"Enter the second Number\"))\n\nif oper == \"1\":\n    print(\"Result = \", N1 + N2)\nelif oper == \"2\":\n    print(\"Result = \", N1 - N2)\nelif oper == \"3\":\n    print(\"Result = \", N1 * N2)\nelif oper == \"4\":\n    print(\"Result = \", N1 / N2)\nelse:\n    print(\"invalid choice\")",
+      "algorithmAr": "1. عرض قائمة بالعمليات الحسابية.\n2. استقبال نوع العملية كمتغير oper.\n3. استقبال الرقمين N1 و N2.\n4. تنفيذ العملية الحسابية بناءً على الشروط وإخراج الناتج.",
+      "lineByLineAr": []
+    },
+    {
+      "id": "p-atm",
+      "titleAr": "برنامج بنك ATM",
+      "titleEn": "ATM Program",
+      "descriptionAr": "برنامج ATM يتيح: Balance (استعلام), Deposit (إيداع), Withdraw (سحب).",
+      "descriptionEn": "An ATM simulation providing balance inquiry, deposit, and withdraw options.",
+      "explanation": "برنامج لعمل عمليات إيداع أو سحب والتأثير على الرصيد الأساسي (Balance).",
+      "flowchartData": "Start -> Balance=1000 -> Input choice -> choice=1? -> Print Balance -> choice=2? -> Add to Balance -> choice=3? -> Sub from Balance -> End",
+      "code": "print(\"Welcome To Atm Plse chose the operation\")\nprint(\"1. Balance\")\nprint(\"2. Deposit\")\nprint(\"3. Withdraw\")\n\nBalance = 1000\nchoice = input(\"enter your choice\")\n\nif choice == \"1\":\n    print(\"Your Balance = \", Balance)\nelif choice == \"2\":\n    deposit = int(input(\"enter the value\"))\n    print(\"New Balance = \", Balance + deposit)\nelif choice == \"3\":\n    withdraw = int(input(\"Pls enter the Need value\"))\n    print(\"New balance = \", Balance - withdraw)\nelse:\n    print(\"inValied choice\")",
+      "algorithmAr": "1. طباعة رسائل الترحيب والخيارات.\n2. تعريف الرصيد البدئي Balance بـ 1000.\n3. استقبال خيار المستخدم.\n4. لو كان الاستعلام (1)، يتم طبع الرصيد.\n5. لو إيداع (2)، تُضاف القيمة المدخلة ويُطبع الرصيد الجديد.\n6. لو سحب (3)، تُطرح القيمة. وإلا يطبع خيار غير صالح.",
+      "lineByLineAr": []
+    },
+    {
+      "id": "p-multi-table",
+      "titleAr": "جدول الضرب",
+      "titleEn": "Multiplication Table",
+      "descriptionAr": "برنامج لحساب جدول الضرب الرقم. باستخدام for مرة و while مرة.",
+      "descriptionEn": "Print the multiplication table of a number.",
+      "explanation": "تكرار عملية الضرب واستخراج النتيجة.",
+      "flowchartData": "Start -> Input Number -> i=1 -> i<=10? -> Yes: Print Number * i -> i=i+1 -> End",
+      "code": "Number = int(input(\"Pls enter the Multiplication\"))\n\n# 1. For\nfor i in range(1, 11):\n    Result = Number * i\n    print(Number, \"*\", i, \"=\", Result)\n\n# 2. While\ni = 1\nwhile i <= 10:\n    Result = Number * i\n    print(Result)\n    print(Number, \"*\", i, \"=\", Result)\n    i = i + 1",
+      "algorithmAr": "1. استقبال الرقم.\n2. حلقة التكرار تدور لضرب الأرقام وإخراج النتيجة.\n",
+      "lineByLineAr": []
+    },
+    {
+      "id": "p-factorial",
+      "titleAr": "المضروب",
+      "titleEn": "Factorial",
+      "descriptionAr": "إيجاد المضروب للرقم (Factorial).",
+      "descriptionEn": "Calculate the factorial of a number.",
+      "explanation": "المضروب هو حاصل ضرب الأرقام تسلسلياً.",
+      "flowchartData": "Start -> f=1, i=1 -> i<=Number? -> Yes: f=f*i -> i=i+1 -> No: Print f -> End",
+      "code": "Number = int(input(\"Enter the number\"))\nf = 1\ni = 1\nwhile i <= Number:\n    f = f * i\n    i = i + 1\nprint(\"the fact\", f)",
+      "algorithmAr": "1. وضع قيمة ابتدائية 1 للمتغير f والعداد i.\n2. الحلقة تضرب قيم i في f تباعاً طالما لم نصل للرقم.\n",
+      "lineByLineAr": [
+        { "line": "f = f * i", "explanation": "تخزين حاصل الضرب التراكمي." }
+      ]
+    },
+    {
+      "id": "p-break-pass",
+      "titleAr": "استخدم Break علشان اعمل Check على Password",
+      "titleEn": "Password Check using Break",
+      "descriptionAr": "استخدام الـ Break للخروج لو الباسورد صحيح.",
+      "descriptionEn": "Check a password and break.",
+      "explanation": "حسب الملف المرفق، يوضح هذا الكود فكرة إيقاف التشغيل بكلمة Break.",
+      "flowchartData": "Start -> Input NewPass -> Password==NewPass? -> Yes: Break -> Print Correct -> No: Print Wrong -> End",
+      "code": "Password = 1234\nNewPass = int(input(\"Enter the Pass\"))\nif Password == NewPass:\n    break\n    print(\"Correct Password\")\nelse:\n    print(\"Wrong Password\")",
+      "algorithmAr": "مقارنة الباسورد والقفز من التنفيذ بحال تطابق الكلمة.",
+      "lineByLineAr": []
+    },
+    {
+      "id": "p-continue-even",
+      "titleAr": "استخدم Continue عشان تشيك على odd و even",
+      "titleEn": "Filter Even Numbers with Continue",
+      "descriptionAr": "استخدام Continue مع الأرقام الفردية لتخطيها وطباعة الزوجية.",
+      "descriptionEn": "Use continue statement to filter even numbers in a loop.",
+      "explanation": "يتخطى ما في الكتلة الحالية لو تحقق الشرط العكسي، ليكمل في الدورة القادمة.",
+      "flowchartData": "Start -> Loop 1 to 99 -> i % 2 == 0? -> Yes: Print i -> No: Continue -> End loop -> End",
+      "code": "for i in range(1, 100):\n    if i % 2 == 0:\n        print(i)\n    else:\n        continue",
+      "algorithmAr": "1. حلقة تكرار من 1 إلى 99.\n2. لو الرقم يقبل القسمة على 2، اطبعه.\n3. لو لا، اعمل continue.",
+      "lineByLineAr": [
+        { "line": "continue", "explanation": "بيعمل Skip فقط." }
+      ]
+    }
+  ]
+}

@@ -41,9 +41,9 @@ export function AIAssistant({ context }: AIAssistantProps) {
 
     try {
       // Direct call to Gemini from client to avoid 405 on static hosting
-      const apiKey = process.env.GEMINI_API_KEY;
+      const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY || "AIzaSyDrMl3r1ftrj7_t8dwQpBMX2ic3PS-9Yhk";
       if (!apiKey) {
-        throw new Error("لم يتم العثور على مفتاح واجهة برمجة التطبيقات (API Key).");
+        throw new Error("يجب إضافة VITE_GEMINI_API_KEY.");
       }
 
       const systemInstruction = `You are a helpful programming tutor AI for a platform called 'Python Pro'. 
