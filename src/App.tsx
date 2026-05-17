@@ -452,8 +452,8 @@ function DetailView({ item, onClose }: { item: Lesson | Problem; onClose: () => 
                    <FileCode2 className="w-3 h-3 md:w-4 md:h-4 text-slate-500" /> solution.py
                 </span>
               </div>
-              <div className="p-4 md:p-6 lg:p-8 font-mono text-[13px] md:text-sm lg:text-base text-slate-800 bg-white overflow-x-auto leading-relaxed ltr" dir="ltr">
-                <pre className="min-w-fit pr-4"><code className="block whitespace-pre">{item.code}</code></pre>
+              <div className="p-4 md:p-6 lg:p-8 font-mono text-[13px] md:text-sm lg:text-base text-slate-800 bg-white overflow-auto max-h-[60vh] leading-relaxed ltr" dir="ltr">
+                <pre className="w-max pr-4"><code className="block whitespace-pre">{item.code}</code></pre>
               </div>
             </div>
 

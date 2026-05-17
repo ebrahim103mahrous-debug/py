@@ -1,0 +1,50 @@
+  {
+    id: "sec3",
+    title: "Section 3: Strings & Formats",
+    lessons: [
+      {
+        id: "str-ops",
+        titleAr: "عمليات النصوص (String Operations)",
+        titleEn: "String Operations",
+        content: "النصوص (Strings) في بايثون يمكن إجراء عمليات مختلفة عليها:\n- `+`: لدمج النصوص.\n- `*`: لتكرار النصوص.\n- `[]`: لجلب أحرف معينة أو تقطيع النص بـ `[:]`.\n- `in`, `not in`: للتحقق من وجود حرف أو نص بداخل نص.\n- `%`: لتنسيق النص (Format).",
+        code: "str1 = \"Hello Paython\"\nstr2 = \"Paython\"\n\n# التكرار والدمج\nprint(str1 * 3) # تكرار الكلمة ٣ مرات\nprint(str1 + str2) # ادمجهم\n\n# الفهرس (Index) والتقطيع (Slice)\nprint(str1[2]) # L\nprint(str1[2:4]) # llo\n\n# التحقق من الوجود (in و not in)\n# هل الحرف w موجود في Hello\nprint('w' in str1) # False\nprint('e' in str1) # True",
+        algorithmAr: "1. الدمج (+): جمع نصين معاً.\n2. التكرار (*): تكرار النص لعدد من المرات.\n3. الفهرس (Index): الوصول لأحرف معينة عن طريق الرقم.\n4. التحقق (in): اختبار ما إذا كان الحرف موجود أم لا في النص.",
+        lineByLineAr: [
+          { line: "str1 * 3", explanation: "تكرار الكلمة 3 مرات." },
+          { line: "str1 + str2", explanation: "ادمجهم (دمج النصوص مع بعضها)." },
+          { line: "str1[2]", explanation: "الوصول للحرف الموجود بالفهرس 2." },
+          { line: "print('w' in str1)", explanation: "هل الحرف w موجود في Hello؟ النتيجة False." }
+        ]
+      },
+      {
+        id: "str-funcs",
+        titleAr: "دوال النصوص (Functions)",
+        titleEn: "String Functions",
+        content: "بايثون توفر دوال للمساعدة في التعامل مع النصوص:\n- `len()`: Lenght لمعرفة عدد الحروف.\n- `upper()` / `lower()`: تحويل حالة الأحرف.\n- `split()`: تقسيم النص.\n- `replace(old, new)`: للتبديل بتمرير النص القديم والجديد.\n- `find()` / `index()`: البحث وإرجاع عدد الـ index بتوعها.\n- `isalnum()`: بتتاكد حروف + ارقام و رموز لا.\n- `islower()` / `isupper()`: فحص حالة الأحرف.",
+        code: "str1 = \"HEllo\"\nstr2 = \"Paython\"\n\n# len() - Lenght عدد الحروف\nprint(len(str1)) # 5\n\n# upper() / lower()\nprint(str1.upper()) # HEllo (او HELLO)\nprint(str2.lower()) # paython\n\n# split() \nprint(str1.split())\n\n# replace(old, new) - للتبديل\nprint(str1.replace('HEllo', \"Hi\"))\n\n# find() / index() \nprint(str1.find(\"Paython\"))\nprint(str1.index(\"Paython\")) # بترجع عدد ال index بتوعها\n\n# isalnum() - بتتاكد حروف + ارقام و رموز لا\n\n# islower() / isupper()\nprint(str1.islower())\nprint(str1.isupper())",
+        algorithmAr: "1. len: Lenght لمعرفة عدد الحروف.\n2. upper / lower: تغيير حالة أحرف النص إما لكبيرة أو صغيرة.\n3. split: تقسيم السلسلة النصية.\n4. replace: للتبديل (old, new).\n5. find و index: أخذ كلمة والبحث عن أول موضع يبدأ منه وإرجاع index.\n6. isalnum : بتتاكد حروف + ارقام و رموز لا.",
+        lineByLineAr: [
+          { line: "len(str1)", explanation: "عدد الحروف (Lenght)." },
+          { line: "print(str1.upper())", explanation: "تحويل حروف النص لتكون كبيرة." },
+          { line: "str1.replace('HEllo', \"Hi\")", explanation: "(old, new) للتبديل وتغيير الكلمة." },
+          { line: "str1.index(\"Paython\")", explanation: "بترجع عدد ال index بتوعها." }
+        ]
+      }
+    ],
+    problems: [
+      {
+        id: "p10",
+        titleAr: "تنسيق مخرجات النصوص",
+        titleEn: "String Formatting",
+        descriptionAr: "احسب المتوسط الحسابي واطبعه باستخدام طريقة التنسيق % لمخرجات النصوص.",
+        descriptionEn: "Calculate average and format the output using % method.",
+        explanation: "استخدام % لعمل Format.",
+        code: "s1 = 10\ns2 = 12\nAvg = (10+12) / 2\nprint(\"Average = %i\" % Avg) # -> 10",
+        algorithmAr: "1. تسجيل القيمة المبدئيه للمتغيرات s1 و s2.\n2. حساب المتوسط (Avg) عن طريق جمع الرقمين والقسمة على 2.\n3. طباعة النص باستخدام Format %i لتمثيل الرقم الصحيح.",
+        lineByLineAr: [
+          { line: "Avg = (10+12) / 2", explanation: "حساب المتوسط" },
+          { line: "print(\"Average = %i\" % Avg)", explanation: "طريقة التنسيق لعرض القيمة كتمثيل %i داخل الجملة." }
+        ]
+      }
+    ]
+  },
