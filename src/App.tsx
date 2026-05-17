@@ -22,10 +22,21 @@ export default function App() {
   const [selectedSection, setSelectedSection] = useState<Section | null>(null);
   const [view, setView] = useState<'home' | 'lessons' | 'problems'>('home');
   const [activeItem, setActiveItem] = useState<Lesson | Problem | null>(null);
+  const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [targetSection, setTargetSection] = useState<Section | null>(null);
 
   const handleSelectSection = (section: Section) => {
-    setSelectedSection(section);
-    setView('lessons');
+    setTargetSection(section);
+    setShowDisclaimer(true);
+  };
+
+  const handleConfirmDisclaimer = () => {
+    if (targetSection) {
+      setSelectedSection(targetSection);
+      setView('lessons');
+      setShowDisclaimer(false);
+      setTargetSection(null);
+    }
   };
 
   const handleGoBack = () => {
@@ -244,6 +255,55 @@ export default function App() {
           </button>
         </div>
       </nav>
+
+      {/* Disclaimer Modal */}
+      <AnimatePresence>
+        {showDisclaimer && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-md"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="bg-white rounded-[2.5rem] p-8 md:p-10 max-w-lg w-full shadow-2xl border border-indigo-100 flex flex-col gap-6"
+            >
+              <div className="w-16 h-16 bg-amber-50 text-amber-500 rounded-2xl flex items-center justify-center border border-amber-100">
+                <Lightbulb className="w-8 h-8" />
+              </div>
+              
+              <div>
+                <h3 className="text-2xl font-black text-slate-800 mb-3">تنبيه وإخلاء مسؤولية</h3>
+                <p className="text-slate-600 leading-relaxed font-medium">
+                  هذا المحتوى تم تصميمه بغرض المساعدة التعليمية فقط. 
+                  <br /><br />
+                  يرجى ملاحظة أن الشرح قد يكون ناقصاً في بعض الأجزاء، وقد توجد أخطاء لغوية أو برمجية غير مقصودة، أو مسائل هامة لم يتم إدراجها هنا. 
+                  نحن ننصح دائماً بمراجعة المراجع الرسمية والمصادر المعتمدة لضمان الدقة الكاملة.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <button 
+                  onClick={handleConfirmDisclaimer}
+                  className="w-full py-5 bg-indigo-600 text-white font-black rounded-3xl hover:bg-indigo-700 transition-all shadow-lg text-lg flex items-center justify-center gap-2"
+                >
+                  <span>فهمت وموافق</span>
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button 
+                  onClick={() => { setShowDisclaimer(false); setTargetSection(null); }}
+                  className="w-full py-4 bg-slate-50 text-slate-500 font-bold rounded-2xl hover:bg-slate-100 transition-all text-sm"
+                >
+                  إلغاء
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
