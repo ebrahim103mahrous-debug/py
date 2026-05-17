@@ -13,10 +13,13 @@ import {
   FileCode2, 
   Lightbulb, 
   GitBranch,
-  Home
+  Home,
+  ListOrdered
 } from 'lucide-react';
 import { SECTIONS, Section, Lesson, Problem } from './content';
 import { Flowchart } from './components/Flowchart';
+
+import { AIAssistant } from './components/AIAssistant';
 
 export default function App() {
   const [selectedSection, setSelectedSection] = useState<Section | null>(null);
@@ -393,6 +396,17 @@ function DetailView({ item, onClose }: { item: Lesson | Problem; onClose: () => 
                   </div>
                 </div>
 
+                {item.algorithmAr && (
+                  <div className="bento-card p-6 bg-slate-50 border border-slate-200 mt-4">
+                    <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2">
+                       <ListOrdered className="w-6 h-6 text-indigo-500" /> خوارزمية الحل (Algorithm)
+                    </h3>
+                    <div className="text-slate-700 leading-relaxed whitespace-pre-wrap font-bold text-sm rtl" dir="rtl">
+                      {item.algorithmAr}
+                    </div>
+                  </div>
+                )}
+
                 {/* Flowchart Tile Inside */}
                 <div className="bento-card p-6 bg-white overflow-hidden border-indigo-100 bg-indigo-50/20">
                   <h3 className="text-xl font-black text-slate-800 mb-6 flex items-center gap-2">
@@ -409,6 +423,16 @@ function DetailView({ item, onClose }: { item: Lesson | Problem; onClose: () => 
                 <div className="text-lg text-slate-600 leading-loose whitespace-pre-wrap">
                   {(item as Lesson).content}
                 </div>
+                {item.algorithmAr && (
+                  <div className="bento-card p-6 bg-slate-50 border border-slate-200 mt-4">
+                    <h3 className="text-xl font-black text-slate-800 mb-4 flex items-center gap-2">
+                       <ListOrdered className="w-6 h-6 text-indigo-500" /> الخطوات المنطقية (Algorithm)
+                    </h3>
+                    <div className="text-slate-700 leading-relaxed whitespace-pre-wrap font-bold text-sm rtl" dir="rtl">
+                      {item.algorithmAr}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -481,6 +505,8 @@ function DetailView({ item, onClose }: { item: Lesson | Problem; onClose: () => 
           انتقل للتالي
         </button>
       </div>
+      
+      <AIAssistant context={JSON.stringify(item)} />
     </motion.div>
   );
 }

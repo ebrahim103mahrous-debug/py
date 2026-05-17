@@ -9,6 +9,7 @@ export interface Lesson {
   titleEn: string;
   content: string;
   code?: string;
+  algorithmAr?: string;
   lineByLineAr?: { line: string; explanation: string }[];
 }
 
@@ -20,6 +21,7 @@ export interface Problem {
   descriptionEn: string;
   explanation: string;
   code: string;
+  algorithmAr?: string;
   flowchartData: string;
   lineByLineAr?: { line: string; explanation: string }[];
 }
@@ -41,7 +43,8 @@ export const SECTIONS: Section[] = [
         titleAr: "مقدمة عن لغة بايثون",
         titleEn: "Introduction to Python",
         content: "بايثون هي لغة برمجة عالية المستوى (High-level)، تتميز بأنها سهلة التعلم (Easy) ومفتوحة المصدر (Free). تعتمد بايثون على نظام 'Interpreted' مما يعني أن الكود يُنفذ سطراً بسطر.\n\nمن مميزاتها:\n- سهولة الكتابة والقراءة مقارنة بـ C++ و Java.\n- لغة مفسرة (Interpreted) تجعل التطوير أسرع.\n- سهولة التحويل من لغات أخرى مثل Java و C++ إليها.",
-        code: "print('Hello World')",
+        code: "# هذه دالة الطباعة الخاصة بإظهار النصوص على الشاشة\nprint('Hello World') # ستظهر الكلمة Hello World كالتالي",
+        algorithmAr: "1. بداية البرنامج.\n2. استدعاء الدالة المدمجة print.\n3. تمرير النص المراد طباعته (Hello World).\n4. نهاية البرنامج.",
         lineByLineAr: [
           { line: "print('Hello World')", explanation: "دالة الطباعة تقوم بإظهار النص 'Hello World' على الشاشة." }
         ]
@@ -51,7 +54,8 @@ export const SECTIONS: Section[] = [
         titleAr: "التعليقات (Comments)",
         titleEn: "Comments",
         content: "تُستخدم التعليقات لشرح الكود ولا يتم تنفيذها من قبل المترجم.\n\n1. **تعليق سطر واحد (Single line):** يبدأ بعلامة الهاشتاج (#).\n2. **تعليق متعدد الأسطر (Multi-line):** يُوضع بين ثلاث علامات تنصيص (\"\"\" كود هنا \"\"\").",
-        code: "# Single line: We print Hello\nprint(\"Hello\")\n\n\"\"\"\nMulti-line comment:\nWe print Hello\n\"\"\"\nprint(\"Hello\")",
+        code: "# تعليق سطر واحد: لن يتم تنفيذه من قبل النظام\nprint(\"Hello\") # هذا السطر سيتم تنفيذه لطباعة الكلمة\n\n\"\"\"\nهذا تعليق متعدد الأسطر\nيمكنك كتابة شروحات طويلة هنا بحرية تامة\nلن يقرؤه البرنامج أبداً\n\"\"\"\nprint(\"Hello\")",
+        algorithmAr: "1. يبدأ البرنامج بتخطي السطر الأول لأنه تعليق (يبدأ بـ #).\n2. يُنفذ السطر الثاني لطباعة كلمة Hello.\n3. يتخطى المفسر الفقرة المحاطة بـ \"\"\" لأنها تعليق طويل.\n4. يُنفذ السطر الأخير ويطبع جملة Hello مرة أخرى.",
         lineByLineAr: [
           { line: "# Single line...", explanation: "تعليق يتم تجاهله من قبل بايثون، يُستخدم لتوضيح الغرض من السطر التالي." },
           { line: "print(\"Hello\")", explanation: "طباعة كلمة 'Hello' البسيطة." },
@@ -63,7 +67,8 @@ export const SECTIONS: Section[] = [
         titleAr: "المتغيرات (Variables)",
         titleEn: "Variables",
         content: "المتغير هو مكان في الذاكرة لتخزين القيمة (Variable = Value). بايثون هي لغة 'Loosely Typed' مما يعني أنك لا تحتاج لتحديد نوع المتغير يدوياً، بايثون تفهم النوع تلقائياً من القيمة المسندة.",
-        code: "x = 10      # int (صحيح)\ny = \"Python\" # str (نصي)\nz = 10.2    # float (عشري)",
+        code: "x = 10      # تعريف متغير يحتوي على رقم صحيح\ny = \"Python\" # تعريف متغير يحتوي على قيمة نصية\nz = 10.2    # تعريف متغير يحتوي على رقم عشري (بالفاصلة)",
+        algorithmAr: "1. حجز مكان في الذاكرة للمتغير x ووضع القيمة 10 بداخله (نوعه صحيح).\n2. حجز مكان آخر للمتغير y وتخزين النص 'Python' بداخله.\n3. حجز مكان للمتغير z وتخزين الرقم الكسري 10.2.\n4. في بايثون، لا نحتاج للتصريح المسبق عن نوع المتغير.",
         lineByLineAr: [
           { line: "x = 10", explanation: "تخزين الرقم الصحيح 10 في متغير اسمه x." },
           { line: "y = \"Python\"", explanation: "تخزين النص 'Python' في متغير اسمه y." },
@@ -75,7 +80,8 @@ export const SECTIONS: Section[] = [
         titleAr: "تحويل الأنواع (Casting)",
         titleEn: "Type Casting",
         content: "يمكننا تحويل قيمة من نوع لآخر يدوياً باستخدام دوال التحويل مثل int(), float(), str().\nمثلاً تحويل رقم عشري لرقم صحيح يتجاهل الكسر.",
-        code: "x = int(10)\ny = int(10.2)\nprint(y) # Output: 10",
+        code: "x = int(10)\n# التحويل لرقم صحيح يحذف الأجزاء العشرية تماما\ny = int(10.2)\nprint(y) # Output: 10",
+        algorithmAr: "1. أخذ الرقم 10 وتمريره لدالة int للحفاظ عليه كـ رقم صحيح (x).\n2. تمرير الرقم العشري 10.2 لدالة int() والتي تقوم باقتطاع الجزء العشري.\n3. تخزين النتيجة الصحيحة في المتغير y.\n4. طباعة النتيجة النهائية التي ستكون 10.",
         lineByLineAr: [
           { line: "x = int(10)", explanation: "بما أن القيمة 10 هي صحيح فسيظل المتغير x من النوع int." },
           { line: "y = int(10.2)", explanation: "تحويل الرقم 10.2 لعنصر صحيح، مما يعني حذف الرقم العشري ليصبح 10." },
@@ -87,7 +93,8 @@ export const SECTIONS: Section[] = [
         titleAr: "إسناد القيم المتعددة",
         titleEn: "Multi-Variable Assignment",
         content: "بايثون تسمح بإسناد قيم لعدة متغيرات في سطر واحد بطريقتين:\n\n1. **Multi-Multi:** إسناد عدة قيم لعدة متغيرات بالترتيب.\n2. **Multi-Single:** إسناد نفس القيمة لكل المتغيرات.",
-        code: "x, y, z = 10, 20, 30\na = b = c = 50",
+        code: "# الطريقة الأولى: إسناد عدة قيم لعدة متغيرات تباعا بالترتيب الصحيح\nx, y, z = 10, 20, 30\n\n# الطريقة الثانية: إسناد نفس القيمة (50) للجميع في نفس السطر\na = b = c = 50",
+        algorithmAr: "1. يقوم بايثون بترتيب المتغيرات x, y, z بالقيم المقابلة 10, 20, 30 على التوالي في خطوة واحدة.\n2. في السطر الثاني، يقوم بأخذ القيمة 50 وإسنادها إلى c.\n3. ومن ثم يقوم بإسناد قيمة c إلى b.\n4. ثم ينسخ قيمة b إلى a، ليصبح للثلاثة نفس القيمة 50.",
         lineByLineAr: [
           { line: "x, y, z = 10, 20, 30", explanation: "إسناد 10 لـ x، و 20 لـ y، و 30 لـ z في سطر واحد." },
           { line: "a = b = c = 50", explanation: "إسناد القيمة 50 دفعة واحدة لجميع المتغيرات a و b و c." }
@@ -98,7 +105,8 @@ export const SECTIONS: Section[] = [
         titleAr: "الدوال والعمليات (Functions & Ops)",
         titleEn: "Functions & Operations",
         content: "أهم الدوال الأساسية للتعامل مع البيانات والمدخلات:\n- `print()`: لعرض المخرجات.\n- `input()`: لاستلام بيانات نصية من المستخدم.\n- `type()`: للتحقق من نوع البيانات المخزنة.",
-        code: "x = 10\ny = 20\nprint(\"the Sum =\", x + y)\n\nz = input(\"Enter: \")\nprint(type(x))",
+        code: "# إعطاء المتغيرات قيم ثابتة لعمل اختبار الجمع\nx = 10\ny = 20\nprint(\"the Sum =\", x + y) # نقوم بالجمع مباشرة داخل دالة الطباعة لتوفير سطر جديد\n\n# دالة الإدخال تقوم بإيقاف البرنامج حتى يكتب المستخدم البيانات\nz = input(\"Enter: \")\n# التحقق من النوع وطباعته لمعرفة نوع متغير x\nprint(type(x))",
+        algorithmAr: "1. تخزين القيم 10 و 20 في المتغيرات x و y.\n2. استخدام دالة print لعرض النص 'the Sum =' متبوعاً بنتيجة جمع المتغيرين.\n3. إظهار رسالة الإدخال للمستخدم والانتظار حتى يعطي إجابة.\n4. استقبال النص المُدخل وتخزينه في z.\n5. سؤال النظام عن نوع متغير x (وهو صحيح int) وإرسال النتيجة إلى الشاشة للطباعة.",
         lineByLineAr: [
           { line: "print(\"the Sum =\", x + y)", explanation: "طباعة نص ثابت بجانبه ناتج عملية الجمع (10+20 = 30)." },
           { line: "input(\"Enter: \")", explanation: "تنتظر هذه الدالة من المستخدم كتابة شيء وتخزنه كنص." },
@@ -114,7 +122,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "اكتب برنامجاً يقوم بطباعة اسمك وعمرك بطريقتين: مباشرة أو بالمدخلات.",
         descriptionEn: "Print your name and age directly or via user input.",
         explanation: "نستخدم print للثوابت و input للحصول على بيانات ديناميكية من المستخدم.",
-        code: "print(\"Doha Elsharkawy\")\nprint(\"22\")\n\nname = input(\"the name: \")\nage = input(\"the age: \")\nprint(name, age)",
+        code: "# الطريقة الأولى: الطباعة المباشرة من البرنامج\nprint(\"Doha Elsharkawy\")\nprint(\"22\")\n\n# الطريقة الثانية: طلب بيانات حقيقية من المستخدِم وتخزينها\nname = input(\"the name: \")\nage = input(\"the age: \")\n# طباعتها بعد الاستقبال بجانب بعضهما للفصل بينهما بمسافة تلقائية\nprint(name, age)",
+        algorithmAr: "1. بداية البرنامج.\n2. طباعة نص مباشر يحتوي على الاسم.\n3. طباعة العمر كرقم أو نص بشكل مباشر.\n4. عرض رسالة تطالب المستخدم بكتابة الاسم وحفظ المدخل بالمتغير name.\n5. عرض رسالة أخرى لطلب العمر وحفظه في age.\n6. دمج الاسم والعمر معاً داخل print للظهور على سطر واحد.\n7. نهاية البرنامج.",
         flowchartData: "Start -> Input Name -> Input Age -> Print Both -> End",
         lineByLineAr: [
           { line: "print(\"Doha Elsharkawy\")", explanation: "طباعة الاسم مباشرة كنص ثابت." },
@@ -129,7 +138,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "احسب مساحة المستطيل بمعلومية الطول (L=30) والعرض (W=40).",
         descriptionEn: "Calculate rectangle area using L=30 and W=40.",
         explanation: "القانون: المساحة = الطول × العرض.",
-        code: "l = 30\nw = 40\nArea = l * w\nprint(\"the Area =\", Area)",
+        code: "# إعداد الطول والعرض الخاص بالمستطيل لحساب المساحة\nl = 30\nw = 40\n# تطبيق القانون الرياضي في متغير لحفظ الناتج\nArea = l * w\n# طباعة المساحة لكي تظهر على الشاشة\nprint(\"the Area =\", Area)",
+        algorithmAr: "1. ابدأ البرنامج بتعريف الطول L وإعطائه القيمة الثابتة 30.\n2. ثم عَرّف متغير العرض W واعطه القيمة 40.\n3. قم بضرب المتغيرين وتخزين ناتجهما في مكان جديد يسمى Area.\n4. استخدم دالة الطباعة لعرض النتيجة النهائية للمستخدم مصحوبة بنص توضيحي.\n5. انتهاء التشغيل.",
         flowchartData: "Start -> Set L=30, W=40 -> Area = L * W -> Print Area -> End",
         lineByLineAr: [
           { line: "l = 30", explanation: "تحديد قيمة الطول بـ 30." },
@@ -145,7 +155,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "احسب المتوسط الحسابي لثلاثة أرقام مدخلة من المستخدم.",
         descriptionEn: "Calculate the average of 3 numbers from input.",
         explanation: "المتوسط = (مجموع الأرقام) / 3.",
-        code: "x = int(input(\"first number: \"))\ny = int(input(\"sec. number: \"))\nz = int(input(\"third number: \"))\ns = (x + y + z) / 3\nprint(\"Avg =\", s)",
+        code: "# قراءة الأرقام من واجهة التشغيل وتحويلها على الفور لأرقام صحيحة لإجراء عمليات حسابية لاحقا\nx = int(input(\"first number: \"))\ny = int(input(\"sec. number: \"))\nz = int(input(\"third number: \"))\n# استخدام الأقواس لإجبار بايثون على حساب الجمع قبل قسمته على العدد الكلي 3\ns = (x + y + z) / 3\n# عرض النتيجة النهائية للمتوسط الحسابي\nprint(\"Avg =\", s)",
+        algorithmAr: "1. إظهار رسالة للمستخدم تطلب الرقم الأول، استقبال النص وتحويله فورا לרقم وتخزينه في x.\n2. فعل نفس الشيء لطلب وتخزين الرقم الثاني في y.\n3. إعادة الأمر للمرة الثالثة للرقم z.\n4. حساب المجموع الكلي عن طريق جمع المتغيرات الثلاثة بين أقواس رياضية.\n5. قسمة المجموع على عدد الأرقام (3) للحصول على المتوسط وتخزينه في s.\n6. طباعة المخرجات وعرض المتوسط s.\n7. نهاية مسار المعالجة.",
         flowchartData: "Start -> Input X, Y, Z -> (X+Y+Z)/3 -> Print Result -> End",
         lineByLineAr: [
           { line: "x = int(input(...))", explanation: "نقرأ المدخل ونحوله لرقم صحيح (int) لأن الـ input بطبعها نصية." },
@@ -164,7 +175,8 @@ export const SECTIONS: Section[] = [
         titleAr: "الجمل الشرطية (Conditional Statements)",
         titleEn: "Conditional Statements",
         content: "تُستخدم الجمل الشرطية لاتخاذ القرارات في البرنامج بناءً على تحقق شرط معين.\n\n1. **if statement:** للتنفيذ في حالة تحقق الشرط فقط.\n2. **if-else:** للتنفيذ في الحالتين (صح أو خطأ).\n3. **if-elif-else:** لفحص عدة شروط متتالية واختيار واحد فقط.",
-        code: "a = 5\nb = 3\n\nif a > b:\n    print(\"true\")\nelif b > a:\n    print(\"false\")\nelse:\n    print(\"equal\")",
+        code: "# إعطاء قيم للبدء في المقارنة\na = 5\nb = 3\n\n# شرط أول: هل a أكبر من b؟\nif a > b:\n    print(\"true\")\n# لو فشل الأول، هل b أكبر من a؟\nelif b > a:\n    print(\"false\")\n# لو فشلت كل الشروط السابقة ننفذ هذا السطر حتما\nelse:\n    print(\"equal\")",
+        algorithmAr: "1. تخزين القيمة 5 في المتغير a والقيمة 3 في المتغير b.\n2. فحص الشرط الأول (هل 5 أكبر من 3؟). إذا كان صحيحاً تتم طباعة true ويتخطى البرنامج باقي الشروط.\n3. إذا كان الشرط الأول خاطئاً، ينتقل للشرط الثاني (elif) ليرى إن كانت b هي الأكبر.\n4. إذا لم يتحقق أي شرط من الشروط السابقة، يتم تلقائياً تنفيذ قسم else وطباعة equal.",
         lineByLineAr: [
           { line: "if a > b:", explanation: "يفحص البرنامج هل قيمة a أكبر من b؟" },
           { line: "print(\"true\")", explanation: "إذا كان الشرط الأول صحيحاً، يطبع كلمة true." },
@@ -177,7 +189,8 @@ export const SECTIONS: Section[] = [
         titleAr: "حلقات التكرار (Loop Statements)",
         titleEn: "Loops",
         content: "تُستخدم الحلقات لتكرار تنفيذ كود معين لعدد من المرات.\n\n1. **for loop:** تُستخدم للتكرار عبر تسلسل (مثل range) وتعتمد على التكرار (Iteration).\n2. **while loop:** تُستخدم للتكرار طالما أن الشرط صحيح وتعتمد على الحالة (Condition).",
-        code: "# For Loop\nfor i in range(1, 6):\n    print(i)\n\n# While Loop\ni = 1\nwhile i <= 5:\n    print(i)\n    i += 1",
+        code: "# For Loop - حلقة من 1 إلى 5 (الرقم 6 لا يدخل في التسلسل)\nfor i in range(1, 6):\n    print(i)\n\n# While Loop - حلقة طالما الشرط متحقق\ni = 1 # قيمة مبدئية للعداد قبل بدء الحلقة\nwhile i <= 5:\n    print(i)\n    i += 1 # تحديث العداد لمنع حلقة لا نهائية",
+        algorithmAr: "1. بالنسبة لـ for: يتم إعداد نطاق تكراري من الرقم 1 حتى الرقم 5.\n2. في كل خطوة، يتم نسخ الرقم الحالي وتخزينه في i، ثم طباعته على الشاشة.\n3. بالنسبة لـ while: يتم تهيئة المتغير i بقيمة 1.\n4. يتم التحقق من الشرط (هل i أقل من أو يساوي 5؟).\n5. إذا كان الشرط صحيحاً يتم طباعة الرقم ثم زيادته بواحد، وتتكرر الخطوات حتى يصبح 6 فيفشل الشرط وتتوقف الحلقة.",
         lineByLineAr: [
           { line: "for i in range(1, 6):", explanation: "حلقة تبدأ من 1 وتنتهي عند 5 (الرقم 6 لا يدخل)." },
           { line: "while i <= 5:", explanation: "استمر في التكرار طالما أن قيمة i أصغر من أو تساوي 5." },
@@ -189,7 +202,8 @@ export const SECTIONS: Section[] = [
         titleAr: "جمل القفز (Jump Statements)",
         titleEn: "Jump Statements",
         content: "تستخدم للتحكم في مسار الحلقة:\n- **Continue:** تقوم بعمل (Skip) للدورة الحالية فقط وتنتقل للدورة التالية.\n- **Break:** تقوم بعمل (Stop) للحلقة تماماً وتخرج منها.",
-        code: "for i in range(1, 6):\n    if i == 3:\n        continue\n    print(i)",
+        code: "# حلقة تطبع الأرقام من 1 لـ 5 مع استثناء رقم 3\nfor i in range(1, 6):\n    if i == 3: # هل وصلنا للرقم 3؟\n        continue # تجاهل باقي الأوامر في هذه الدورة وانتقل للرقم 4 مباشرة\n    print(i)",
+        algorithmAr: "1. بدء حلقة تكرار for من الأرقام 1 إلى 5.\n2. يتم اختبار الرقم الحالي في الدورة (i)، هل هو يساوي 3؟\n3. في حالة توافق الرقم مع 3، سيتم تفعيل الأمر continue الذي يتخطى كل ما تحته في نفس الدورة (لذلك لن يُطبع).\n4. في حالة عدم التوافق سيتم متابعة الدورة وطباعة الرقم كالمعتاد.\n5. النتيجة: 1، 2، ثم 4، ثم 5.",
         lineByLineAr: [
           { line: "if i == 3:", explanation: "يفحص البرنامج هل وصلنا للدورة التي قيمتها 3؟" },
           { line: "continue", explanation: "إذا كانت i تساوي 3، 'اقفز' فوقها ولا تنفذ سطر الطباعة التالي لها." },
@@ -205,7 +219,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "اطلب رقماً من المستخدم وحدد حالته (Positive, Negative, Zero).",
         descriptionEn: "Check if a number is positive, negative, or zero based on user input.",
         explanation: "نستخدم if-elif لمقارنة المدخل بالصفر.",
-        code: "num = int(input(\"Enter number: \"))\nif num > 0:\n    print(\"Positive\")\nelif num < 0:\n    print(\"Negative\")\nelse:\n    print(\"Zero\")",
+        code: "# طلب رقم وتخزينه كـ رقم صحيح (int)\nnum = int(input(\"Enter number: \"))\n# هل الرقم أكبر من الصفر؟\nif num > 0:\n    print(\"Positive\") # طباعة أنه موجب\nelif num < 0:\n    print(\"Negative\") # طباعة أنه سالب\nelse:\n    print(\"Zero\") # خلاف ذلك فهو الصفر نفسه",
+        algorithmAr: "1. إيقاف البرنامج لطلب إدخال رقم من المستخدم، وتحويل المدخل لرقم صحيح.\n2. يفحص الشرط الأول ما إذا كان الرقم أكبر تماماً من الصفر.\n3. إذا تحقق فإنه يعرض رسالة تفيد بأنه عدد موجب، وينتهي التنفيذ.\n4. وإلا، يتم الانتقال لشرط آخر لفحص هل الرقم أقل من الصفر.\n5. إذا تحقق فإنه يعرض رسالة تفيد بأنه عدد سالب.\n6. إذا فشلت كل هذه المحاولات فإن الرقم المدخل بكل تأكيد هو صفر، ونعرض رسالة تفيد بذلك.",
         flowchartData: "Start -> Input num -> Is num > 0? -> Yes: Positive -> No: Is num < 0? -> Yes: Negative -> No: Zero -> End",
         lineByLineAr: [
           { line: "num = int(input(...))", explanation: "استقبال رقم وتحويله لنوع صحيح (Integer)." },
@@ -220,7 +235,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "برنامج يحدد إذا كان الرقم زوجياً أم فردياً باستخدام باقي القسمة %.",
         descriptionEn: "A program to determine if a number is even or odd using modulo.",
         explanation: "الرقم الزوجي هو الذي يكون باقي قسمته على 2 يساوي صفراً.",
-        code: "num = int(input(\"Enter num: \"))\nif num % 2 != 0:\n    print(\"Odd\")\nelse:\n    print(\"Even\")",
+        code: "# قراءة الرقم المراد فحصه من المستخدم\nnum = int(input(\"Enter num: \"))\n# استخدام معامل باقي القسمة (%)\n# لو كان باقي قسمته على 2 لا يساوي صفرا\nif num % 2 != 0:\n    print(\"Odd\") # فردي\nelse:\n    print(\"Even\") # زوجي",
+        algorithmAr: "1. أخذ الرقم من شاشة الأوامر وتخزينه كعدد صحيح في num.\n2. تطبيق عملية باقي القسمة (Modulo) على الرقم المدخل بالقسمة على 2.\n3. مقارنة نتيجة باقي القسمة ليرى ما إذا كانت لا تساوي الصفر.\n4. إن كانت لا تساوي الصفر فهو رقم فردي (Odd).\n5. عدا ذلك (إذا كان الباقي صفراً) يتم الحكم عليه كرقم زوجي (Even) وطباعة النتيجة.",
         flowchartData: "Start -> Input num -> num % 2 != 0? -> Yes: Odd -> No: Even -> End",
         lineByLineAr: [
           { line: "if num % 2 != 0:", explanation: "هل باقي قسمة الرقم على 2 لا يساوي صفراً؟ (علامة != تعني لا يساوي)." },
@@ -234,7 +250,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "حاسبة تطلب رقمين وعملية وتطبع الناتج.",
         descriptionEn: "Calculator taking two numbers and an operator choice.",
         explanation: "نربط كل خيار (1, 2, 3, 4) بعملية حسابية معينة.",
-        code: "op = input(\"1-Add, 2-Sub, 3-Mul, 4-Div: \")\nn1 = int(input(\"N1: \"))\nn2 = int(input(\"N2: \"))\n\nif op == '1':\n    print(\"Sum =\", n1 + n2)\nelif op == '2':\n    print(\"Sub =\", n1 - n2)\nelse:\n    print(\"Other ops...\")",
+        code: "# طلب نوع العملية الحسابية كمدخل نصي\nop = input(\"1-Add, 2-Sub, 3-Mul, 4-Div: \")\n# طلب الأرقام المطلوبة لإجراء العملية عليها\nn1 = int(input(\"N1: \"))\nn2 = int(input(\"N2: \"))\n\n# تحديد العملية المطلوبة وتنفيذها\nif op == '1':\n    print(\"Sum =\", n1 + n2) # الجمع\nelif op == '2':\n    print(\"Sub =\", n1 - n2) # الطرح\n# يمكن إضافة القسمة والضرب بنفس المبدأ هنا\nelse:\n    print(\"Other ops...\") # عملية غير مخصصة حاليا",
+        algorithmAr: "1. يعرض البرنامج قائمة خيارات للمستخدم للاختيار من بين أنواع العمليات المتاحة.\n2. يقرأ الرقم الأول ويحوله لصحيح، ثم الرقم الثاني.\n3. يتحقق من الخيار المدخل: إن كان '1' يقوم بجمع الرقمين وإظهار المجموع.\n4. إن لم يكن، يتحقق ما إذا كان الخيار '2' ويطرح الرقمين لحساب الفرق.\n5. يطبع رسالة للعمليات الأخرى حال إدخال المستخدم لخيار لم يتم برمجته.",
         flowchartData: "Start -> Input Data -> If-Elif chain -> Print Result -> End",
         lineByLineAr: [
           { line: "if op == '1':", explanation: "إذا اختار المستخدم الخيار الأول (الجمع)." },
@@ -248,7 +265,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "محاكاة لعمليات الاستعلام، الإيداع، والسحب.",
         descriptionEn: "ATM simulation for balance, deposit, and withdraw.",
         explanation: "نعدل متغير الرصيد balance بناءً على العملية المطلوبة.",
-        code: "balance = 1000\nchoice = input(\"1-Balance, 2-Deposit, 3-Withdraw: \")\n\nif choice == '1':\n    print(\"Your Balance =\", balance)\nelif choice == '2':\n    dep = int(input(\"Amount: \"))\n    balance += dep\n    print(\"New Balance =\", balance)\nelse:\n    print(\"Invalid\")",
+        code: "# تحديد رصيد ابتدائي وهمي للحساب\nbalance = 1000\nchoice = input(\"1-Balance, 2-Deposit, 3-Withdraw: \")\n\n# الاستعلام عن الرصيد الحالي بدون أي تعديل\nif choice == '1':\n    print(\"Your Balance =\", balance)\n# إضافة أموال للحساب (Deposit)\nelif choice == '2':\n    dep = int(input(\"Amount: \"))\n    balance += dep # اختصار لـ balance = balance + dep\n    print(\"New Balance =\", balance)\nelse:\n    print(\"Invalid\")",
+        algorithmAr: "1. إعطاء رصيد مبدئي قدره 1000 في متغير الرصيد balance.\n2. يقرأ البرنامج العملية المطلوبة من قبل المستخدم (مثل اختيار 1 للاستعلام، و 2 للإيداع).\n3. وفقا للرقم المختار، إن اختار 1 يعرض رسالة برصيده.\n4. إذا اختار 2 يطالبه بإدخال مبلغ الإيداع.\n5. يضيف هذا المبلغ على المتغير balance ثم يطبعه ليكون الرصيد المحدث.\n6. إذا اختار أي رقم غريب يطبع رسالة بأن الاختيار باطل.",
         flowchartData: "Start -> Choice -> Update Balance -> Print -> End",
         lineByLineAr: [
           { line: "balance = 1000", explanation: "تحديد رصيد افتراضي يبدأ من 1000." },
@@ -262,7 +280,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "طباعة جدول ضرب لرقم معين باستخدام حلقة for.",
         descriptionEn: "Print the multiplication table for any number using for loop.",
         explanation: "نكرر عملية الضرب من 1 إلى 10.",
-        code: "num = int(input(\"Number: \"))\nfor i in range(1, 11):\n    res = num * i\n    print(num, \"x\", i, \"=\", res)",
+        code: "# طلب الرقم المراد عرض جدول الضرب الخاص به\nnum = int(input(\"Number: \"))\n# التكرار من 1 وحتى قبل 11 (أي 10)\nfor i in range(1, 11):\n    res = num * i\n    # طباعة كل شيء بالتصرف لتكون الجملة شبيهة بمشهد جدول الضرب التقليدي: 5 x 1 = 5\n    print(num, \"x\", i, \"=\", res)",
+        algorithmAr: "1. يقرأ الرقم المدخل من قِبَل المستخدم وهو الرقم الأساسي لجدول الضرب.\n2. يتم الدخول في حلقة تكرارية for من الرقم 1 وحتى الرقم 10.\n3. في كل مرحلة يتم ضرب الرقم الأساسي في العداد i وحفظ النتائج بـ res.\n4. يقوم المترجم بطباعة عملية رياضية مصاغة في شكل نص يعرض كلاً من المعاملات والنتيجة في سطر جديد.\n5. تنتهي الحلقة بانتهاء العدد 10.",
         flowchartData: "Start -> Input num -> For loop (1-10) -> Print result -> End",
         lineByLineAr: [
           { line: "for i in range(1, 11):", explanation: "بداية حلقة تكرارية تبدأ من 1 وتستمر حتى وصول العداد إلى 10." },
@@ -277,7 +296,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "استمر في طلب الباسورد حتى يدخل المستخدم '1234'.",
         descriptionEn: "Loop until the correct password is provided, then use break.",
         explanation: "نستخدم break لإيقاف المحاولات فور الإجابة الصحيحة.",
-        code: "correct = \"1234\"\nwhile True:\n    user_p = input(\"Enter Pass: \")\n    if user_p == correct:\n        print(\"Correct!\")\n        break\n    else:\n        print(\"Try again\")",
+        code: "# تحديد الرقم السري مسبقاً في النظام\ncorrect = \"1234\"\n# While True تجعل التكرار يدور للأبد ولا يتوقف من تلقاء نفسه\nwhile True:\n    user_p = input(\"Enter Pass: \")\n    if user_p == correct:\n        print(\"Correct!\")\n        # نوقف الحلقة اللانهائية من خلال تفعيل break فتكسر المسار وتنهي الحلقة\n        break\n    else:\n        print(\"Try again\")",
+        algorithmAr: "1. تعريف كلمة السر الصحيحة بقيمة نصية '1234'.\n2. بدء حلقة لا نهائية (while True).\n3. طلب إدخال الباسورد من المستخدم في كل دورة وحفظه.\n4. التحقق مما إذا كان المدخل مطابقا للكلمة الصحيحة.\n5. إن تحقق الشرط: يقوم النظام بطباعة Correct! وتنفيذ الأمر break مما يتسبب في إيقاف الحلقة فوراً والخروج منها.\n6. إن كان المدخل خاطئاً، يعرض 'Try again' ويُعاد طلب الإدخال لرجوعه إلى بداية الحلقة.",
         flowchartData: "Start -> Loop -> Correct? -> Yes: Break -> No: Retry -> End",
         lineByLineAr: [
           { line: "while True:", explanation: "حلقة تكرار لانهائية تستمر حتى نقوم بإيقافها يدوياً." },
@@ -292,7 +312,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "حساب مضروب رقم (مثل 5! = 120) باستخدام حلقة while.",
         descriptionEn: "Calculate the factorial of a number using a while loop.",
         explanation: "مضروب الرقم هو ناتج ضرب كل الأرقام من 1 إلى الرقم نفسه.",
-        code: "n = int(input(\"Enter n: \"))\ni = 1\nf = 1\nwhile i <= n:\n    f = f * i\n    i = i + 1\nprint(\"Factorial =\", f)",
+        code: "# طلب الرقم المُراد إيجاد مضروبه\nn = int(input(\"Enter n: \"))\n# العداد ليبدأ من العدد 1\ni = 1\n# المتراكم الضربي لا يمكن أن يكون صفرًا\nf = 1\n\n# شرط الحلقة أن نستمر حتى نصل للرقم المعطى\nwhile i <= n:\n    f = f * i # نضرب القيمة القديمة في العداد الحالي\n    i = i + 1 # نزيد العداد للوصول للمحطة التالية\n\n# عرض المحصلة\nprint(\"Factorial =\", f)",
+        algorithmAr: "1. يقرأ الرقم المعين من المستخدم (مثلا لتخزين الرقم 5 كنهاية للحلقة).\n2. يتم إعداد متغير للعد (i) من الأساس 1، ومُتغير كـ وعاء ضرب (f) يبدأ بـ 1.\n3. تبدأ الحلقة while بمراجعة شرط إذا ما كان العداد ما يزال أصغر من أو يساوي الرقم النهائي المعطى.\n4. في داخل الحلقة: يضرب الرقم القديم في وعاء الضرب في رقم العداد الحالي، ثم يُخزن القيمة الجديدة في الوعاء مرة أخرى.\n5. يضيف المترجم للعداد رقم 1 لينتقل للدورة التالية.\n6. عندما يتجاوز العداد القيمة المطلوبة تنتهي الحلقة.\n7. يطبع القيمة المخزنة المجمعة من الوعاء f.",
         flowchartData: "Start -> Input n -> i=1, f=1 -> i <= n? -> Yes: f=f*i, i++ -> No: Print f -> End",
         lineByLineAr: [
           { line: "f = 1", explanation: "تعريف متغير f لتخزين ناتج الضرب، يبدأ بـ 1 (لأنه المحايد الضربي)." },
@@ -311,7 +332,8 @@ export const SECTIONS: Section[] = [
         titleAr: "أساسيات النصوص (String Basics)",
         titleEn: "String Basics",
         content: "النصوص (Strings) هي سلاسل من الحروف. يمكننا الوصول لأي حرف عبر الفهرس (Index) الذي يبدأ من 0.\n\n- **Indexing:** الوصول لحرف محدد باستخدام رقمه، مثلاً `str[0]` هو الحرف الأول.\n- **Slicing:** جلب جزء من النص، مثلاً `str[2:4]` يجلب الحروف من الفهرس 2 إلى 3.",
-        code: "text = \"Hello\"\nprint(text[0])   # H\nprint(text[1])   # e\nprint(text[2:4]) # ll",
+        code: "# تعريف نص مخزن في متغير\ntext = \"Hello\"\n# طباعة الحرف الأول ذو الفهرس صفر\nprint(text[0])   # النتيجة H\n# طباعة الحرف الثاني\nprint(text[1])   # النتيجة e\n# اقتطاع جزء من النص واستخراج الحروف من الفهرس 2 لـ 3\nprint(text[2:4]) # النتيجة ll",
+        algorithmAr: "1. تخزين الكلمة (Hello) داخل المتغير النصي text.\n2. استخدام دالة الطباعة ومؤشر [0] لجلب وطباعة الحرف الأول للصندوق، وهو H.\n3. استخدام نفس الطريقة عبر المؤشر [1] لجلب الحرف الثاني e.\n4. استخراج أكثر من حرف دفعة واحدة باستخدام المعامل (:) وتحديد نقطة الانطلاق والنهاية لطباعة الحروف الوسطى ll.",
         lineByLineAr: [
           { line: "text = \"Hello\"", explanation: "تعريف متغير نصي يحتوي على كلمة Hello." },
           { line: "print(text[0])", explanation: "طباعة الحرف الموجود عند الفهرس 0 (أول حرف)." },
@@ -323,7 +345,8 @@ export const SECTIONS: Section[] = [
         titleAr: "عمليات النصوص (String Operations)",
         titleEn: "String Operations",
         content: "يمكننا إجراء عمليات حسابية ومنطقية على النصوص:\n- `+` : دمج النصوص (Concatenation).\n- `*` : تكرار النص لعدد من المرات.\n- `in` / `not in` : التأكد من وجود (أو عدم وجود) جزء داخل النص.",
-        code: "s1 = \"Hello\"\ns2 = \"Python\"\nprint(s1 + \" \" + s2)\nprint(s1 * 3)\nprint('w' in s1)     # False\nprint('e' in s1)     # True",
+        code: "# إنشاء سلسلتين نصيتين للعمل عليهما\ns1 = \"Hello\"\ns2 = \"Python\"\n# دمج السلسلتين عبر علامة الجمع مع وضع مسافة بينهما\nprint(s1 + \" \" + s2)\n# مضاعفة وتكرار السلسلة الأولى ثلاث مرات متتالية\nprint(s1 * 3)\n# سؤال منطقي: هل يوجد حرف w في كلمة Hello ؟\nprint('w' in s1)     # يطبع False\n# سؤال منطقي: هل يوجد حرف e في الكلمة ؟\nprint('e' in s1)     # يطبع True",
+        algorithmAr: "1. تخزين 'Hello' في s1 وتخزين 'Python' في s2.\n2. تطبيق تقنية الدمج (+) لربطهما مع ترك مسافة فارغة بالمنتصف وطباعتها.\n3. تطبيق وظيفة التكرار (*) لطباعة الجملة الأولى ثلاث مرات متعاقبة.\n4. توجيه سؤال بحث للذاكرة عن وجود حرف w داخل المتغير s1 والنتيجة هي كذب (False).\n5. إعادة نفس الفحص للحرف e وتكون النتيجة حقيقة (True) فيتم إظهارها.",
         lineByLineAr: [
           { line: "s1 + \" \" + s2", explanation: "دمج النصين s1 و s2 مع مسافة بينهما." },
           { line: "s1 * 3", explanation: "تكرار كلمة Hello ثلاث مرات متتالية." },
@@ -335,7 +358,8 @@ export const SECTIONS: Section[] = [
         titleAr: "دوال النصوص (String Methods)",
         titleEn: "String Methods",
         content: "توفر بايثون مجموعة واسعة من الدوال الجاهزة:\n- `len()`: معرفة عدد الحروف.\n- `upper()` / `lower()`: تحويل حالة الأحرف.\n- `split()`: تقسيم النص إلى كلمات.\n- `replace()`: استبدال جزء بآخر.\n- `find()` / `index()`: البحث عن مكان جزء معين.\n- `isalnum()` / `islower()` / `isupper()`: دوال فحص الحالة.",
-        code: "text = \"Hello Python\"\nprint(len(text))\nprint(text.lower())\nprint(text.split())\nprint(text.replace(\"Python\", \"AI\"))\nprint(text.find(\"Python\"))",
+        code: "# نص طويل لتجربة الدوال المتعددة\ntext = \"Hello Python\"\nprint(len(text)) # حساب الطول الفعلي للنص\nprint(text.lower()) # تحويله بكامله لأحرف صغيرة\nprint(text.split()) # فصل الكلمات ووضعها في قائمة مستقلة\n# استبدال كلمة پايثون بكلمة ذكاء اصطناعي وطباعة النتيجة\nprint(text.replace(\"Python\", \"AI\"))\nprint(text.find(\"Python\")) # الإبلاغ عن الموقع الرقمي للكلمة داخل السلسلة",
+        algorithmAr: "1. تخزين النص المرجعي 'Hello Python' في الذاكرة باسم text.\n2. استخدام دالة len لاستخراج عدد الخانات والحروف (شاملة المسافات).\n3. استدعاء الوظيفة lower للنسخة الصغيرة من كل الحروف.\n4. تطبيق وظيفة split لجعلها مصفوفة تضم قسمين (الكلمة الأولى والكلمة الثانية).\n5. البحث عن كلمة (Python) وإحلالها بكلمة الجيل الحديث (AI) بواسطة replace.\n6. سؤال المنظومة عبر الكلمة المفتاحية find عن الفهرس الرقمي الذي تبدأ عنده كلمة Python وترجع إجابة الفهرس.\n7. ظهور كل المخرجات بالكامل في الشاشة.",
         lineByLineAr: [
           { line: "len(text)", explanation: "حساب إجمالي عدد الحروف والمسافات في النص." },
           { line: "text.lower()", explanation: "تحويل جميع حروف النص إلى حروف صغيرة." },
@@ -352,7 +376,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "احسب المتوسط الحسابي واطبعه باستخدام طريقة التنسيق % لمخرجات النصوص.",
         descriptionEn: "Calculate average and format the output string using % method.",
         explanation: "نستخدم %i لتمثيل الأرقام الصحيحة داخل القوالب النصية.",
-        code: "s1 = 10\ns2 = 12\naug = (s1 + s2) / 2\nprint(\"Average = %i\" % aug)",
+        code: "# درجات الطالب في المواد الدراسية\ns1 = 10\ns2 = 12\n# حساب المتوسط والقسمة العادية\naug = (s1 + s2) / 2\n# دمج الرقم الناتج وسط الجملة النصية باحترافية للظهور المنظم\nprint(\"Average = %i\" % aug)",
+        algorithmAr: "1. تسجيل القيمة 10 في المتغير الرقمي الأول للمادة الدراسية s1.\n2. تسجيل القيمة 12 في المادة الدراسية الثانية s2.\n3. إجراء عملية الجمع متبوعة بقسمتها الرياضية على الرقم 2 (عدد المواد).\n4. حفظ المجموع الدقيق بالمتغير aug.\n5. تشغيل امر الطباعة وتغليف ناتج المتغير بداخل الجملة باستخدام المعرف الخاص بالأرقام الصحيحة (%i).",
         flowchartData: "Start -> s1=10, s2=12 -> avg=(s1+s2)/2 -> Print Format -> End",
         lineByLineAr: [
           { line: "aug = (s1 + s2) / 2", explanation: "حساب المتوسط الحسابي لدرجتين." },
@@ -370,7 +395,8 @@ export const SECTIONS: Section[] = [
         titleAr: "أساسيات القوائم (List Basics)",
         titleEn: "List Basics",
         content: "القائمة (List) هي عبارة عن مخزن يحتوي على مجموعة من العناصر (Items) والقيم (Values). تُكتب العناصر داخل أقواس مربعة [] وتُفصل بفاصلة.",
-        code: "L = [1, 2, 3]\nprint(L)        # [1, 2, 3]\nprint(L[1])     # 2",
+        code: "# إنشاء قائمة من الأرقام الصحيحة\nL = [1, 2, 3]\nprint(L)        # طباعة القائمة بالكامل في نفس السطر\nprint(L[1])     # استدعاء وطباعة العنصر الموجود بالفهرس رقم 1 (وهو الرقم 2)",
+        algorithmAr: "1. إعداد قائمة (List) في المتغير L وتخزين القيم 1، 2، 3 بداخلها.\n2. استخدام دالة print لعرض المكونات الكاملة للمتغير L بأقواسها المعقوفة.\n3. البحث بداخل القائمة L عن القيمة الموجودة في الخانة رقم 1 (الخانة الثانية فعلياً لأن العد يبدأ من الصفر).\n4. عرض القيمة المُخرجة (2).",
         lineByLineAr: [
           { line: "L = [1, 2, 3]", explanation: "إنشاء قائمة تحتوي على الأرقام 1 و 2 و 3." },
           { line: "print(L[1])", explanation: "الوصول للعنصر الثاني (رقم الفهرس 1) وطباعته." }
@@ -381,7 +407,8 @@ export const SECTIONS: Section[] = [
         titleAr: "عمليات القوائم (List Operations)",
         titleEn: "List Operations",
         content: "1. الدمج (+): دمج قائمتين معاً.\n2. التكرار (*): تكرار العناصر.\n3. البحث (in): التأكد من وجود عنصر.\n4. الاقتطاع ([:]): جلب جزء محدد من القائمة.",
-        code: "l1 = [1, 2, 3]\nl2 = [4, 5, 6]\nprint(l1 + l2)\nprint(l1 * 2)\nprint(2 in l1)\nprint(l2[0:2])",
+        code: "# تعريف قائمتين للعمل عليهما\nl1 = [1, 2, 3]\nl2 = [4, 5, 6]\n# دمج القائمتين لتكوين قائمة أطول وأشمل\nprint(l1 + l2)\n# تكرار القائمة الأولى مرتين\nprint(l1 * 2)\n# فحص وجود الرقم 2 داخل القائمة l1 (يُرجع صح أو خطأ)\nprint(2 in l1)\n# استخراج جزء من l2 من البداية وحتى قبل الفهرس 2\nprint(l2[0:2])",
+        algorithmAr: "1. تعريف قائمة أولى l1 بها 1, 2, 3.\n2. تعريف قائمة ثانية l2 بها 4, 5, 6.\n3. دمج لـ l1 و l2 لينتج قائمة موحدة يتم طباعتها مباشرة.\n4. استخدام التكرار لعرض l1 مرتين متتاليتين.\n5. سؤال النظام عما إذا كان الرقم 2 موجوداً في القائمة l1 وطباعة النتيجة (True).\n6. طلب جزء مقتطع من l2 يمتد من المؤشر 0 وينتهي عند 1 (أي رقم 4 و 5) وطباعتها.",
         lineByLineAr: [
           { line: "print(l1 + l2)", explanation: "دمج القائمتين في قائمة واحدة جديدة تحتوي على كل العناصر." },
           { line: "print(l1 * 2)", explanation: "تكرار عناصر القائمة l1 مرتين متتاليتين." },
@@ -394,7 +421,8 @@ export const SECTIONS: Section[] = [
         titleAr: "تحديث وحذف العناصر (Update & Delete)",
         titleEn: "Update & Delete",
         content: "يمكنك تغيير قيمة أي عنصر عبر الفهرس، أو حذف عنصر باستخدام del. كما يمكنك استبدال نطاق كامل من العناصر.",
-        code: "L = [\"A\", \"B\", \"C\", \"D\"]\nL[2] = \"Z\"\ndel L[1]\nL[0:1] = [\"R\", 2]\nprint(L)",
+        code: "L = [\"A\", \"B\", \"C\", \"D\"]\n# تعديل وتحديث عنصر معين\nL[2] = \"Z\"\n# حذف عنصر باستخدام دالة del المدمجة\ndel L[1]\n# استبدال مقطع كامل (العنصر الأول فقط هنا) بقيم متعددة\nL[0:1] = [\"R\", 2]\n# عرض القائمة في صورتها النهائية بعد כל التعديلات\nprint(L)",
+        algorithmAr: "1. إنشاء قائمة L بحروف إنجليزية (A, B, C, D).\n2. الوصول للعنصر الثالث (C) واستبدال قيمته بالحرف (Z).\n3. حذف العنصر الثاني (B) كلياً من القائمة.\n4. تحديد مجال (من الفهرس صفر إلى الفهرس صفر) لتبديل مدخل واحد بمدخلين جديدين وهما 'R' ورقم 2.\n5. طباعة القائمة لظهور شكلها المستهدف والمحدث كلياً.",
         lineByLineAr: [
           { line: "L[2] = \"Z\"", explanation: "تغيير العنصر الثالث (C) ليصبح (Z)." },
           { line: "del L[1]", explanation: "حذف العنصر الثاني من القائمة تماماً." },
@@ -406,7 +434,8 @@ export const SECTIONS: Section[] = [
         titleAr: "دوال القوائم (List Functions)",
         titleEn: "List Functions",
         content: "- len(): عدد العناصر.\n- max() / min(): أكبر وأصغر قيمة.\n- sum(): مجموع الأرقام.\n- list(s): تحويل تسلسل (مثل نص) إلى قائمة.",
-        code: "nums = [10, 5, 20]\nprint(len(nums))\nprint(max(nums))\nprint(sum(nums))\nprint(list(\"Ahmed\"))",
+        code: "nums = [10, 5, 20]\nprint(len(nums)) # حساب طول القائمة\nprint(max(nums)) # أكبر رقم بالقائمة\nprint(sum(nums)) # جمع قيم عناصر القائمة\n# تحويل اسم لشكل قائمة مفككة من الحروف\nprint(list(\"Ahmed\"))",
+        algorithmAr: "1. تجهيز قائمة أرقام (nums) تحتوي على 10, 5, 20.\n2. تطبيق الوظيفة len لمعرفة وتأكيد عدد محتوياتها الرقمية.\n3. البحث عن الرقم الكبر من خلال الدالة الهندسية max وطباعته.\n4. جمع كافة العناصر بداخله ليخرج ناتج الجمع (35).\n5. استلام حزمة نصية 'Ahmed' وإجبار البرنامج على تقطيعها لتحويلها لمكونات قائمة عبر دالة (list).",
         lineByLineAr: [
           { line: "print(len(nums))", explanation: "إظهار عدد العناصر الموجودة في القائمة (3 عناصر)." },
           { line: "print(sum(nums))", explanation: "جمع كل الأرقام داخل القائمة (10+5+20 = 35)." },
@@ -418,7 +447,8 @@ export const SECTIONS: Section[] = [
         titleAr: "طرق إدارة القوائم (Methods)",
         titleEn: "Common Methods",
         content: "توفر بايثون طرقاً قوية لإدارة البيانات:\n- append(): إضافة للنهاية.\n- insert(): إضافة في مكان محدد.\n- remove(): حذف قيمة معينة.\n- sort() / sorted(): ترتيب العناصر.\n- reverse() / deuse: عكس الترتيب.\n- pop(): حذف عنصر عبر مكانه.\n- clear(): تفريغ القائمة تماماً.",
-        code: "L = [1, 2, 2, 3]\nL.append(4)\nL.insert(1, \"A\")\nL.remove(2)\nL.pop(0)\nprint(L.count(2))\nL.clear()",
+        code: "L = [1, 2, 2, 3]\nL.append(4) # يضيف 4 لآخر القائمة\nL.insert(1, \"A\") # يضيف الحرف A في الفهرس 1 \nL.remove(2) # يحذف أول رقم 2 يصادفه (من اليسار لليمين)\nL.pop(0) # يحذف العنصر الموجود بالفهرس 0\nprint(L.count(2)) # يحسب كم مرة تواجد الرقم 2 فى القائمة\nL.clear() # يمسح القائمة تماما ولا يترك بها شيئا",
+        algorithmAr: "1. بناء قائمة بأرقام (1, 2, 2, 3).\n2. إدراج رقم جديد في نهايتها باستخدام الوظيفة append (رقم 4).\n3. حشر القيمة 'A' بين العناصر لتقع في الفهرس رقم 1 باستخدام insert.\n4. البحث التلقائي عن أول تواجد لرقم 2 باستخدام remove وإلغاؤه.\n5. نزع العنصر الموضوع بأول القائمة نهائياً (مؤشر صفر) باستخدام pop.\n6. حساب عدد مرات التكرار للقيمة 2 باستخدام وظيفة count وطباعتها.\n7. تدمير كل محتويات القائمة وتفريغها بواسطة clear.",
         lineByLineAr: [
           { line: "L.append(4)", explanation: "إضافة الرقم 4 في آخر القائمة." },
           { line: "L.insert(1, \"A\")", explanation: "إدخال حرف 'A' في الفهرس رقم 1 (المكان الثاني)." },
@@ -436,7 +466,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "اطلب 3 درجات من المستخدم، خزنهم في قائمة، ثم اطبع المجموع، أعلى درجة، وأرتبهم تصاعدياً.",
         descriptionEn: "Input 3 grades, store in a list, print sum, max, and sorted list.",
         explanation: "نستخدم حلقة أو مدخلات منفصلة مع append، ثم نطبق الدوال الإحصائية.",
-        code: "grades = []\ng1 = int(input(\"G1: \"))\ng2 = int(input(\"G2: \"))\ng3 = int(input(\"G3: \"))\n\ngrades.append(g1)\ngrades.append(g2)\ngrades.append(g3)\n\nprint(\"Sum =\", sum(grades))\nprint(\"Max =\", max(grades))\nprint(\"Sorted =\", sorted(grades))",
+        code: "# إنشاء قائمة فارغة لتلقي التسجيلات\ngrades = []\n# طلب الدرجات من المستخدم وتحويلها لأرقام صحيحة مباشرة\ng1 = int(input(\"G1: \"))\ng2 = int(input(\"G2: \"))\ng3 = int(input(\"G3: \"))\n\n# إضافة الدرجات واحدة تلو الأخرى للقائمة الجاهزة\ngrades.append(g1)\ngrades.append(g2)\ngrades.append(g3)\n\n# عرض النتائج الإحصائية باستخدام دوال مدمجة\nprint(\"Sum =\", sum(grades)) # المجموع\nprint(\"Max =\", max(grades)) # القيمة العظمى\nprint(\"Sorted =\", sorted(grades)) # الفرز التصاعدي",
+        algorithmAr: "1. إقرار متغير باسم grades من نوع قائمة فارغة.\n2. تحفيز النظام لسؤال المستخدم عن ثلاث أرقام بشكل تسلسلي وتخزينها في متغيرات.\n3. إدراج هذه المتغيرات (g1 و g2 و g3) تباعاً داخل القائمة عن طريق append.\n4. استخدام أمر طباعة لدمج وعرض مجموع الدرجات (sum).\n5. استخدام أمر طباعة آخر للبحث وتحديد رقم الدرجة الكبيرة وعرضه (max).\n6. تشكيل القائمة بشكل مرتب تصاعدياً بشكل صوري مؤقت (sorted) وعرضه للمستخدم.",
         flowchartData: "Start -> Input Grades -> Add to List -> Calc Sum/Max -> Sort List -> Print -> End",
         lineByLineAr: [
           { line: "grades = []", explanation: "بداية بإنشاء قائمة فارغة لتخزين الدرجات لاحقاً." },
@@ -455,7 +486,8 @@ export const SECTIONS: Section[] = [
         titleAr: "أساسيات التوبل (Tuple Basics)",
         titleEn: "Tuple Basics",
         content: "التوبل (Tuple) هو تسلسل من العناصر غير القابلة للتعديل (Immutable). بمجرد إنشائه، لا يمكنك تغيير قيم العناصر أو حذفها. يتم استخدامه لحماية البيانات من التغيير.\n\n- يتم تعريفه باستخدام الأقواس العادية ().",
-        code: "t1 = ()\nt2 = (123, \"Python\", 3, 7)\nprint(t2[1]) # Python",
+        code: "# إنشاء توبل فارغ بأقواس دائرية\nt1 = ()\n# إنشاء توبل بمكونات متعددة الأنواع (رقم ونص)\nt2 = (123, \"Python\", 3, 7)\n# الوصول وطباعة العنصر في الخانة رقم 1\nprint(t2[1]) # النتيجة Python",
+        algorithmAr: "1. إعلان متغير t1 كـ توبل فارغ للاستخدام المستقبلي المحتمل.\n2. إعداد المتغير t2 كـ توبل مدعوم ببيانات أولية (أرقام صحيحة ونصوص).\n3. قراءة التوبل t2 واستخراج القيمة من المؤشر 1 (العنصر الثاني المتوفر).\n4. عرض القيمة المُخرجة Python للمستخدم وتجاهل باقي القائمة.",
         lineByLineAr: [
           { line: "t1 = ()", explanation: "إنشاء توبل فارغ." },
           { line: "t2 = (123, \"Python\", 3, 7)", explanation: "إنشاء توبل يحتوي على أرقام ونصوص." },
@@ -467,7 +499,8 @@ export const SECTIONS: Section[] = [
         titleAr: "عمليات التوبل (Tuple Operations)",
         titleEn: "Tuple Operations",
         content: "1. الدمج (+): دمج تسلسلين.\n2. التكرار (*): تكرار العناصر.\n3. الفهرسة []: الوصول لعنصر محدد.",
-        code: "num = (1, 2, 3, 4, 5)\nlang = ('Python', 'C', 'Java', 'Php')\n\nprint(num + lang)\nprint(lang[2])\nprint(num * 2)",
+        code: "# توبل مخصص للأرقام فقط\nnum = (1, 2, 3, 4, 5)\n# توبل مخصص للغات البرمجة كنصوص\nlang = ('Python', 'C', 'Java', 'Php')\n\n# عرض مجموع التوبلين جنبا إلى جنب\nprint(num + lang)\n# عرض العنصر ذو الترتيب 2 في توبل اللغات (أي العنصر الثالث)\nprint(lang[2])\n# تكرار ما بداخل صندوق الأرقام مرتين وعرضه\nprint(num * 2)",
+        algorithmAr: "1. بناء هيكل توبل رقمي num وإثراءه بخمسة أرقام.\n2. بناء هيكل توبل نصي lang ويضم أسماء 4 لغات برمجة.\n3. تطبيق وظيفة الجمع (+) لإنشاء وطباعة نسخة هجينة من المجموعتين معاً دون العبث بأصولهم المحفوظة.\n4. استدعاء العنصر الثالث من مجموعة اللغات عبر تمرير رقم المؤشر (2) للطباعة.\n5. نسخ مكونات التوبل الخاص بالأرقام وتكريرها لمرتين وعرض النتائج مجمعة.",
         lineByLineAr: [
           { line: "print(num + lang)", explanation: "دمج توبل الأرقام مع توبل اللغات في تسلسل واحد." },
           { line: "print(lang[2])", explanation: "طباعة العنصر الثالث (Java) من توبل اللغات." },
@@ -479,7 +512,8 @@ export const SECTIONS: Section[] = [
         titleAr: "دوال التوبل (Tuple Functions)",
         titleEn: "Tuple Functions",
         content: "توفر بايثون دوال إحصائية وتحويلية للتوبل:\n- len(): طول التوبل.\n- max() / min(): أكبر وأصغر قيمة.\n- sum(): مجموع العناصر الرقمية.\n- tuple(): تحويل أي تسلسل (مثل نص) إلى توبل.",
-        code: "t1 = (1, 2, 3, 4, 5, 6)\ns = \"Python\"\n\nprint(len(t1))\nprint(max(t1))\nprint(sum(t1))\nprint(tuple(s))",
+        code: "# توبل بأرقام متسلسلة\nt1 = (1, 2, 3, 4, 5, 6)\n# كلمة نصية حرة\ns = \"Python\"\n\nprint(len(t1)) # عدد محتويات التوبل\nprint(max(t1)) # أكبر رقم\nprint(sum(t1)) # مجموع الأرقام الكلي\nprint(tuple(s)) # تفكيك النص وتغليفه داخل توبل",
+        algorithmAr: "1. تحميل 6 أرقام متعاقبة بداخل التوبل t1.\n2. إنشاء متغير نصي s لتهيئة الكلمة Python به.\n3. تقييم الطول العددي واستحصال الرقم الإجمالي للعناصر (6 عناصر) باستخدام الوظيفة طول len.\n4. استخدام الوظيفة max لاستخراج العنصر الأكبر قيمة.\n5. تفويض أداة المجموع sum لحيازة قيمة حسابية شاملة وطباعتها.\n6. تشييد توبل جديد بناءً على تحويل المتغير النصي s لقطع منفصلة.",
         lineByLineAr: [
           { line: "print(len(t1))", explanation: "حساب عدد العناصر (6 عناصر)." },
           { line: "print(max(t1))", explanation: "إيجاد أكبر قيمة في التوبل (6)." },
@@ -492,7 +526,8 @@ export const SECTIONS: Section[] = [
         titleAr: "طرق التوبل (Methods)",
         titleEn: "Tuple Methods",
         content: "لأن التوبل غير قابل للتعديل، لديه طرق محدودة جداً مقارنة بالقوائم:\n- count(): عد تكرار عنصر معين.\n- index(): معرفة مكان عنصر (ويمكن تحديد بداية ونهاية للبحث).\n- sorted(): ترتيب العناصر (ترجع قائمة مرتبة).",
-        code: "num = (1, 2, 2, 2, 3)\nt = ('P', 'y', 't', 'h', 'o', 'n', 'P')\n\nprint(num.count(2))\nprint(t.index('t'))\nprint(t.index('P', 3, 10))\nprint(sorted(num))",
+        code: "num = (1, 2, 2, 2, 3)\nt = ('P', 'y', 't', 'h', 'o', 'n', 'P')\n\n# كم مرة ظهر رقم 2 هنا؟\nprint(num.count(2))\n# أين يقع مؤشر أول ظهور لحرف t؟\nprint(t.index('t'))\n# أين يقع مؤشر الحرف P في حال التجاهل قبل المؤشر 3 وفي نطاق لا يتجاوز 10\nprint(t.index('P', 3, 10))\n# ترتيب العناصر بطريقة صاعدة وإخراجها بشكل مؤقت\nprint(sorted(num))",
+        algorithmAr: "1. الإعلان عن توبل num يضم تكرارات متعمدة لرقم معين.\n2. الإعلان عن توبل آخر t يمثل حروفكلمة مفرقة، مع تكرار للحرف P بالبداية والنهاية.\n3. أخذ التوبل num وتطبيق وظيفة عد التكرارات count لتحديد حصيلة تواجد الرقم 2.\n4. الاستعلام في التوبل t عن أول وجود للحرف 't' لمعرفة فهرسه.\n5. تطبيق دالة البحث index بمعايير متقدمة للقصاصات، فتبحث عن 'P' متجاهلة أول 3 مواضع وتجدها بالآخر.\n6. تنظيم محتويات التوبل الأول وترتيبها وعرضها بصيغة قائمة نظراً لأن التوبل لا يمكن العبث به.",
         lineByLineAr: [
           { line: "num.count(2)", explanation: "عد كم مرة تكرر الرقم 2 (النتيجة 3 مرات)." },
           { line: "t.index('t')", explanation: "البحث عن أول ظهور لحرف 't' وإرجاع مكانه (2)." },
@@ -509,7 +544,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "انشئ توبل فواكه، واطلب من المستخدم إدخال اسم، وابحث عنه باستخدام index وإذا لم يوجد تعامل مع الخطأ.",
         descriptionEn: "Create fruit tuple, take input, and use index method with membership check.",
         explanation: "نتأكد أولاً من وجود العنصر باستخدام in لتجنب حدوث خطأ (Value Error) عند استخدام index.",
-        code: "fruits = ('banana', 'apple', 'Mango', 'Tomato', 'berry')\nitem = input(\"Search: \")\n\nif item in fruits:\n    print(item, \"Found at index\", fruits.index(item))\nelse:\n    print(\"Not Found\")",
+        code: "# إنشاء وعاء ثابت لأسماء الفاكهة\nfruits = ('banana', 'apple', 'Mango', 'Tomato', 'berry')\n# الاستماع لمدخل المستخدم لتحديد عنصر البحث\nitem = input(\"Search: \")\n\n# شرط التأكد من وجود العنصر لتجنب انهيار التطبيق\nif item in fruits:\n    print(item, \"Found at index\", fruits.index(item)) # عرض العنصر ومكان فهرسه\nelse:\n    print(\"Not Found\") # تنبيه المراجع بعدم المعرفة",
+        algorithmAr: "1. تجهيز توبل مسبق البناء fruits ببعض نماذج الفواكه المشهورة.\n2. عرض حقل إدخالي لمطالبة المستخدم بالفاكهة المرجوة ثم تخصيصها للمتغير item.\n3. استخدام المعامل المنطقي in للاستفسار النظامي: هل يتواجد محتوى item داخل توبل fruits؟\n4. لو كانت الإجابة 'نعم'، يتم صياغة وإطلاق ناتج يتضمن كلمة الفاكهة ومؤشر مكانها الدقيق (index).\n5. إذا كانت الإجابة 'لا'، تفشل المحاولة بأمان ويشغل المسار else لطباعة رسالة النفي الواضحة.",
         flowchartData: "Start -> Define Fruits -> Input Item -> Item in Fruits? -> Yes: Print Index -> No: Print Not Found -> End",
         lineByLineAr: [
           { line: "fruits = ('banana', ...)", explanation: "تعريف توبل ثابت يحتوي على مسميات الفواكه." },
@@ -528,7 +564,8 @@ export const SECTIONS: Section[] = [
         titleAr: "مقدمة في البرمجة الكائنية",
         titleEn: "Introduction to OOP",
         content: "البرمجة كائنية التوجه (OOP) هي نمط برمجي يعتمد على تنظيم الكود حول 'الكائنات' (Objects) بدلاً من الوظائف فقط.\n\nكل كائن يتكون من:\n1. **Data (Attributes):** البيانات أو الخصائص التي تميز الكائن.\n2. **Behavior (Methods):** السلوك أو الوظائف التي يمكن للكائن القيام بها.\n\n**لماذا نستخدم OOP؟**\n- **Reusability:** إعادة استخدام الكود بسهولة.\n- **Organization:** تنظيم الكود بشكل منطقي.\n- **Maintainability:** سهولة صيانة وتعديل الكود.\n- **Data Security:** حماية البيانات من الوصول غير المصرح به.",
-        code: "# OOP organises code into Objects\n# Object = Data + Behavior",
+        code: "# OOP organises code into Objects\n# Object = Data (Attributes) + Behavior (Methods)\n# البرمجة الكائنية تحول المفاهيم إلى مجسمات برمجية حية",
+        algorithmAr: "1. فهم أساسيات OOP عبر تقسيم التطبيق الكبير لعدة كائنات (Objects).\n2. كل كائن يحتوي على بيانات (مثل الاسم والعمر) وسلوك ومهام برمجية (مثل النطق والتحرك).",
         lineByLineAr: [
           { line: "# Object = Data + Behavior", explanation: "كل كائن في البرمجة الكائنية هو عبارة عن مجموعة من البيانات والوظائف المرتبطة بها." }
         ]
@@ -538,7 +575,8 @@ export const SECTIONS: Section[] = [
         titleAr: "الفئات والكائنات (Class & Object)",
         titleEn: "Class & Object",
         content: "- **الفئة (Class):** هي مخطط (Blueprint) أو قالب (Template) يوصف الخصائص والسلوك العام، ولا تأخذ مساحة في الذاكرة عند تعريفها.\n- **الكائن (Object):** هو نسخة فعلية (Instance) من الفئة، يتم إنشاؤه بناءً على القالب.\n\nمثال: فئة 'طالب' هي القالب، و'أحمد' هو الكائن الفعلي.",
-        code: "class Student:\n    pass\n\ns1 = Student() # Instance of Student",
+        code: "# بناء المخطط الأساسي\nclass Student:\n    pass # تعليمة صامتة تعني 'تجاوز' لبدء فئة فارغة حاليا\n\n# تشييد كائن حيوي مشتق من الفئة السابقة\ns1 = Student() # س1 الآن يمثل حالة حية للكائن Student",
+        algorithmAr: "1. الإعلان عن قالب برمجي رئيسي باسم Student.\n2. استخدام pass لمنع ظهور خطأ برمجي عند ترك القالب بدون محتوى حتى الآن.\n3. أخذ نسخة من المخطط الطالب وإحيائها وتخزين هذا الكائن المادي في متغير يدعى s1.\n4. س1 الآن يمكنه أن يحمل بيانات منفصلة ووظائف مستلهمة من قالب الطالب الأساسي.",
         lineByLineAr: [
           { line: "class Student:", explanation: "تعريف فئة (Class) جديدة تسمى Student لتكون قالباً للطلاب." },
           { line: "pass", explanation: "كلمة محجوزة تعني 'تجاوز'، نستخدمها لتعريف فئة فارغة دون حدوث خطأ." },
@@ -550,7 +588,8 @@ export const SECTIONS: Section[] = [
         titleAr: "السمات والدوال (Attributes & Methods)",
         titleEn: "Attributes & Methods",
         content: "- **Attributes:** هي متغيرات داخل الفئة تخزن بيانات الكائن.\n- **Methods:** هي دوال داخل الفئة تصف سلوك الكائن.\n- **__init__:** هي دالة البناء (Constructor) التي تُنفذ تلقائياً عند إنشاء الكائن.\n- **self:** كلمة تشير إلى الكائن الحالي للوصول إلى سماته ووظائفه.",
-        code: "class Student:\n    def __init__(self, name, age):\n        self.name = name\n        self.age = age\n\n    def say_hello(self):\n        print(\"Hello\", self.name)\n\ns1 = Student(\"Ahmed\", 20)\ns1.say_hello()",
+        code: "class Student:\n    # Constructor: أول دالة تُنفذ آليا عند ولادة الكائن\n    def __init__(self, name, age):\n        self.name = name # Attribute 1\n        self.age = age   # Attribute 2\n\n    # دالة داخل الكائن تُدعى Method\n    def say_hello(self):\n        print(\"Hello\", self.name)\n\n# إنشاء الكائن وتمرير البيانات المطلوبة لبنائه (الاسم والعمر)\ns1 = Student(\"Ahmed\", 20)\n# الكائن s1 ينادي ويشغل السلوك الخاص به (إلقاء التحية)\ns1.say_hello()",
+        algorithmAr: "1. بناء قالب Student ووضع الدالة السحرية __init__ داخله لتمثل مرحلة التأسيس.\n2. في التأسيس: يستلم النظام اسمه (name) وعمره (age) ويربطهم بروح الكائن باستخدام (self).\n3. تعريف خصلة وظيفية (Method) باسم say_hello مهمتها الترحيب اعتماداً على بيانات الشخص.\n4. استنساخ كائن (s1) ومنحه بيانات أولية 'Ahmed' بالإضافة للعمر 20.\n5. توجيه أمر للنسخة s1 لكي تُلقي التحية بتنفيذ وظيفتها say_hello المخصصة لها.",
         lineByLineAr: [
           { line: "def __init__(self, name, age):", explanation: "دالة البناء التي تأخذ القيم الابتدائية (الاسم والعمر) وتخصصها للكائن." },
           { line: "self.name = name", explanation: "حفظ قيمة الاسم المرسلة في متغير خاص بالكائن (Attribute)." },
@@ -564,14 +603,17 @@ export const SECTIONS: Section[] = [
         titleAr: "مبادئ البرمجة الكائنية الأربعة",
         titleEn: "The 4 OOP Principles",
         content: "تعتمد البرمجة الكائنية على أربعة مبادئ أساسية:\n1. **الوراثة (Inheritance)**\n2. **التغليف (Encapsulation)**\n3. **تعدد الأشكال (Polymorphism)**\n4. **التجريد (Abstraction)**",
-        code: "# 1. Inheritance\n# 2. Encapsulation\n# 3. Polymorphism\n# 4. Abstraction"
+        code: "# 1. Inheritance (الوراثة)\n# 2. Encapsulation (التغليف والحماية)\n# 3. Polymorphism (تعدد السلوكيات)\n# 4. Abstraction (تجريد التفاصيل وإخفاؤها)",
+        algorithmAr: "1. مراجعة واستيعاب الأركان الأربعة التي تبنى عليها لغات البرمجة الكائنية.\n2. كل ركن يعالج مشكلة هيكلية معينة.",
+        lineByLineAr: []
       },
       {
         id: "inheritance",
         titleAr: "الوراثة (Inheritance)",
         titleEn: "Inheritance",
         content: "تعني أن فئة (Child Class) ترث خصائص ووظائف فئة أخرى (Parent Class). تساعدنا الوراثة في تجنب تكرار الكود وتسهيل التعديل.",
-        code: "class Animal:\n    def speak(self):\n        print(\"Animal Speaks\")\n\nclass Dog(Animal):\n    def bark(self):\n        print(\"Woof!\")\n\nd = Dog()\nd.speak() # Inherited from Animal\nd.bark()",
+        code: "# الفئة القدوة/الأب (الحيوان)\nclass Animal:\n    def speak(self):\n        print(\"Animal Speaks\")\n\n# الفئة المتفرعة/الابن (الكلب يرث من الحيوان)\nclass Dog(Animal):\n    def bark(self):\n        print(\"Woof!\")\n\n# كائن جديد من نوع الكلب\nd = Dog()\n# تشغيل وظيفة موروثة من الفئة الأب\nd.speak() # لم نكتبها داخل الكلب ولكنها تعمل\n# الدالة الخاصة بفئة الكلب وحده\nd.bark()",
+        algorithmAr: "1. الإعلان عن الأب Animal الذي يطرح وظيفة تنطق بعبارة 'Animal Speaks'.\n2. إنشاء الفئة الابن Dog مع تمرير (Animal) كنوع من الوراثة.\n3. إضافة وظيفة خاصة للكلب bark (ينبح).\n4. إنشاء نسخة فعلية لفصيلة الكلب في الذاكرة (d).\n5. تنفيذ دالة التحدث speak للكائن d (بالرغم من عدم ترميزها داخل الكلب مباشرة لكنه ورثها بنجاح).\n6. تنفيذ دالة النباح الأساسية للكلب.",
         lineByLineAr: [
           { line: "class Dog(Animal):", explanation: "فئة Dog ترث فئة Animal، مما يجعلها تمتلك كل وظائفها تلقائياً." },
           { line: "d = Dog()", explanation: "إنشاء كائن من الفئة الوارثة." },
@@ -583,7 +625,8 @@ export const SECTIONS: Section[] = [
         titleAr: "التغليف (Encapsulation)",
         titleEn: "Encapsulation",
         content: "هو إخفاء التفاصيل الداخلية للبيانات (Hiding internal data) وحمايتها من التعديل الخارجي المباشر. نستخدم شرطتين سفليتين (__) لجعل المتغير خاصاً (Private).",
-        code: "class BankAccount:\n    def __init__(self):\n        self.__balance = 1000 # Private Attribute\n\n    def get_balance(self):\n        return self.__balance\n\nacc = BankAccount()\nprint(acc.get_balance())",
+        code: "class BankAccount:\n    def __init__(self):\n        # وضع خطين يعلن عن أن هذه البيانات بالغة السرية ولا يمكن الوصول لها\n        self.__balance = 1000 # Private Attribute\n\n    # دالة وسيطة لقراءة الرصيد دون السماح بالتعديل عليه بشكل عشوائي\n    def get_balance(self):\n        return self.__balance\n\nacc = BankAccount()\n# القراءة مسموحة عبر الدالة المصرح لها පමණ\nprint(acc.get_balance())",
+        algorithmAr: "1. تصميم حساب بنكي BankAccount مع حوافز أمنية.\n2. إضافة الرصيد (__balance) بقيمة 1000 واقترانه بـ __ لضمان حجبه التام عن الوصول المباشر.\n3. استحداث بوابة آمنة وهي الوظيفة العامة (get_balance) التي تُرجع إجابة شافية بالرقم السري.\n4. إنشاء كائن للعميل acc.\n5. عندما يحاول العميل طلب رصيده، يقوم باستدعاء دالة العرض الآمن get_balance وطباعتها.\n6. ملاحظة: أي محاولة برمجية للقراءة المباشرة سيتم وقفها.",
         lineByLineAr: [
           { line: "self.__balance = 1000", explanation: "تعريف متغير 'خاص' لا يمكن الوصول إليه من خارج الفئة مباشرة." },
           { line: "def get_balance(self):", explanation: "دالة عامة تسمح برؤية الرصيد دون السماح بتعديله مباشرة." }
@@ -594,7 +637,8 @@ export const SECTIONS: Section[] = [
         titleAr: "تعدد الأشكال (Polymorphism)",
         titleEn: "Polymorphism",
         content: "يعني 'تعدد الأشكال'، وهو القدرة على استخدام نفس اسم الدالة في فئات مختلفة ولكن بسلوك مختلف يناسب كل فئة.",
-        code: "class Cat:\n    def sound(self):\n        return \"Meow\"\n\nclass Dog:\n    def sound(self):\n        return \"Woof\"\n\nanimals = [Cat(), Dog()]\nfor a in animals:\n    print(a.sound())",
+        code: "class Cat:\n    def sound(self):\n        return \"Meow\" # صوت القطة\n\nclass Dog:\n    def sound(self):\n        return \"Woof\" # صوت الكلب\n\n# تجميع الكائنات في حاوية واحدة للتعامل معهم بكتلة واحدة\nanimals = [Cat(), Dog()]\n\n# سيقوم كل حيوان بإصدار صوته الخاص استجابة لنفس الأمر\nfor a in animals:\n    print(a.sound())",
+        algorithmAr: "1. كتابة الصنف Cat وبناء دالة sound ترجع 'Meow'.\n2. كتابة الصنف Dog بصفات مستقلة لكنها تمتلك ذات الدالة sound والتي ترجع 'Woof'.\n3. تم وضع الكائنات الحية جنباً إلى جنب في طابور (القائمة animals).\n4. باستخدام الحلقة for لتمرير نفس أمر المناداة العام (sound) على كل العناصر.\n5. سيتصرف الكائن بمرونة ويُفسر نفس الأمر بأدائه الخاص المختلف بناءً على هويته الأساسية.",
         lineByLineAr: [
           { line: "print(a.sound())", explanation: "بناءً على نوع الحيوان (قطة أو كلب)، سيتم تنفيذ الدالة sound الخاصة به." }
         ]
@@ -604,7 +648,8 @@ export const SECTIONS: Section[] = [
         titleAr: "التجريد (Abstraction)",
         titleEn: "Abstraction",
         content: "هو إظهار الوظائف الهامة فقط للمستخدم وإخفاء التعقيدات الداخلية. نستخدم مكتبة 'abc' لإنشاء فئات مجردة (Abstract Classes) لا يمكن إنشاء كائنات منها مباشرة.",
-        code: "from abc import ABC, abstractmethod\n\nclass Vehicle(ABC):\n    @abstractmethod\n    def start(self):\n        pass\n\nclass Car(Vehicle):\n    def start(self):\n        print(\"Car started!\")",
+        code: "from abc import ABC, abstractmethod\n\n# فئة افتراضية لا توجد في الواقع الملموس، فقط لتنظيم الأفكار\nclass Vehicle(ABC):\n    # تعريف أن أي مركبة يجب أن تحتوي على دالة تعمل كطريقة لبدء الحركة\n    @abstractmethod\n    def start(self):\n        pass # تترك فارغة ليتم بناؤها لاحقا\n\n# السيارة هي مركبة فعلية تتخذ شكل القالب السابق وتطوعه للاستخدام الحقيقي\nclass Car(Vehicle):\n    def start(self):\n        print(\"Car started!\")",
+        algorithmAr: "1. استيراد المعيار اللغوي ABC المخصص لصناعة التجريد.\n2. هندسة فئة مجردة للسيارات تحت اسم (Vehicle) تمنع ولادة كائنات مباشرة منها.\n3. استخدام الرقاقة @abstractmethod لإجبار أي صنف يتبعها على تطبيق دالة معينة (start).\n4. إنشاء صنف حقيقي (Car) يطبق الشروط المتوارثة ويستكمل المعنى الغامض للدالة المتروكة.",
         lineByLineAr: [
           { line: "class Vehicle(ABC):", explanation: "تعريف فئة مجردة (Abstract Class) لتكون نموذجاً لغيرها." },
           { line: "@abstractmethod", explanation: "تحديد أن دالة start يجب أن يتم تعريفها وإجبار أي فئة وارثة على كتابة كودها الخاص." },
@@ -620,7 +665,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "صمم فئة (Book) تحتوي على العنوان والمؤلف، وقم بإنشاء كائنين منها وطباعة بياناتهما.",
         descriptionEn: "Design a Book class with title and author, create two objects and print their info.",
         explanation: "نستخدم دالة البناء لتحديد بيانات الكتاب عند الإنشاء، ودالة خاصة لعرض البيانات.",
-        code: "class Book:\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n    \n    def info(self):\n        print(f\"Book: {self.title}, By: {self.author}\")\n\nb1 = Book(\"Python Basics\", \"Doha\")\nb2 = Book(\"AI Era\", \"Doha\")\nb1.info()\nb2.info()",
+        code: "class Book:\n    # تعريف الخصائص المعرفية للكتاب الواحد\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n    \n    # دالة طباعة مخصصة تعود بتنسيق جميل لمخرجات الكتاب\n    def info(self):\n        print(f\"Book: {self.title}, By: {self.author}\")\n\n# استنساخ الكتاب الأول\nb1 = Book(\"Python Basics\", \"Doha\")\n# استنساخ الكتاب الثاني\nb2 = Book(\"AI Era\", \"Doha\")\n# توجيه الأوامر للاستعراض\nb1.info()\nb2.info()",
+        algorithmAr: "1. إعلان الفئة Book كمورد بيانات رئيسي لأي كتاب.\n2. تمرير العنوان واسم الكاتب عند مرحلة التأسيس (__init__) وربطهم بالكتاب الحالي.\n3. إعداد دالة عارضة (info) تستخدم خصائص الكتاب لدمجها وطباعتها.\n4. استحضار كائن جديد للكتاب b1 ونقل البيانات 'Python Basics' إليه.\n5. استحضار كتاب ثانٍ b2.\n6. تشغيل دوال الـ info المنبثقة من كلا الكائنين بشكل منفصل لعرض الملخص العام.",
         flowchartData: "Start -> Class Book -> Init Title/Author -> Create b1, b2 -> Call info() -> End",
         lineByLineAr: [
           { line: "self.title = title", explanation: "تخزين عنوان الكتاب المسند عند الإنشاء." },
@@ -635,7 +681,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "اكتب برنامجاً يستخدم التغليف (Encapsulation) لمنع الوصول المباشر للرصيد، مع السماح بالإيداع.",
         descriptionEn: "Create a program using Encapsulation to protect balance while allowing deposits.",
         explanation: "نستخدم المتغيرات الخاصة (__) للحماية، ودوال الإيداع للتحديث الآمن.",
-        code: "class Bank:\n    def __init__(self):\n        self.__balance = 500\n    \n    def deposit(self, amount):\n        if amount > 0:\n            self.__balance += amount\n            print(\"Deposit Successful\")\n\n    def show(self):\n        print(\"Balance:\", self.__balance)\n\nmy_acc = Bank()\nmy_acc.deposit(200)\nmy_acc.show()",
+        code: "class Bank:\n    def __init__(self):\n        # رصيد أولي مجمد عن التعاملات الخارجية\n        self.__balance = 500\n    \n    # دالة إيداع مشروطة وآمنة تماماً\n    def deposit(self, amount):\n        if amount > 0: # لا يمكن إيداع قيم سلبية\n            self.__balance += amount\n            print(\"Deposit Successful\")\n\n    # دالة عرض الأرصدة المتاحة للجمهور\n    def show(self):\n        print(\"Balance:\", self.__balance)\n\n# بدء الاستخدام الفعلي وإنشاء الكائن\nmy_acc = Bank()\nmy_acc.deposit(200)\nmy_acc.show()",
+        algorithmAr: "1. تحديد Class مسمى بـ Bank لحكم أموال المستخدمين.\n2. إنشاء حساب مخفي __balance وتخصيص 500 كرصيد أولي للحساب.\n3. تجهيز أداة خارجية (deposit) لفحص الأموال الواصلة، بحيث لا تقبل سوى الأرقام ذات التقييم الإيجابي والموجب.\n4. عند النجاح: يتم حياكة الإضافة داخل الرصيد وإرسال رسالة توثق النجاح.\n5. تجهيز أداة خارجية أخرى للاستعلام المباشر (show) وظيفتها الكشف عن القيمة المخزنة وطباعتها.\n6. تهيئة حساب للاستخدام اسمه my_acc.\n7. توريد الأموال بنداء دالة deposit بقيمة 200.\n8. عرض النتيجة الإجمالية للمستخدم بنهاية المطاف، والتي من المفترض أن تعادل 700.",
         flowchartData: "Start -> Private Balance=500 -> Deposit 200 -> Update Balance -> Show Result -> End",
         lineByLineAr: [
           { line: "self.__balance = 500", explanation: "تعيين رصيد ابتدائي 'سري' لا يُرى من الخارج مباشرة." },
@@ -653,14 +700,17 @@ export const SECTIONS: Section[] = [
         titleAr: "مقدمة في واجهات المستخدم (GUI)",
         titleEn: "Graphical User Interfaces",
         content: "واجهة المستخدم الرسومية (GUI) هي تطبيق يحتوي على نوافذ، أزرار، وقوائم تسمح للمستخدم بالتفاعل مع البرنامج.\n\nتعتبر مكتبة Tkinter هي الطريقة الأكثر شيوعاً لتطوير تطبيقات المكتب في بايثون لأنها سهلة مدمجة مع بايثون وتعتبر خياراً ممتازاً للمبتدئين.\n\nتُعرف مكونات الواجهة بـ Widgets (مثل الأزرار، النصوص، الحقول).",
-        code: "# GUI components are known as Widgets"
+        code: "# GUI components are known as Widgets\n# في الواجهات الرسومية، كل عنصر (زر، خلفية، نص) يسمى أداة",
+        algorithmAr: "1. التعرف على المفهوم النظري لـ GUI كبديل للشاشة السوداء التقليدية للمبرمجين.\n2. إدراك مفهوم الأداة (Widget) كعنصر بناء أساسي لأي شاشة تفاعلية.",
+        lineByLineAr: []
       },
       {
         id: "tkinter-steps",
         titleAr: "خطوات عمل تطبيق Tkinter",
         titleEn: "Basic Tkinter Steps",
         content: "لبناء أي تطبيق رسومي، نتبع 4 خطوات أساسية بالترتيب:\n1. استيراد المكتبة (Import Tkinter module).\n2. إنشاء النافذة الأساسية (Create Main application window).\n3. إضافة الأدوات (add Widgets like labels, buttons, frames).\n4. تشغيل حلقة الأحداث (Call Main event loop) ليظل التطبيق مفتوحاً.",
-        code: "import tkinter\n\ntop = tkinter.Tk()\ntop.title(\"welCom\")\ntop.geometry(\"400x300\")\ntop.mainloop()",
+        code: "import tkinter # ربط المكتبة الخاصة بالواجهات\n\n# تشييد النموذج الأولي للنافذة الفارغة\ntop = tkinter.Tk()\n# تغيير عنوان النافذة من الأعلى\ntop.title(\"welCom\")\n# ضبط المقاس الافتراضي للنافذة عندเปิด (العرضxالطول)\ntop.geometry(\"400x300\")\n# الحلقة التي تبقي البرنامج مستيقظاً في انتظار تفاعل المستخدم\ntop.mainloop()",
+        algorithmAr: "1. تشغيل بايثون وتوجيهها لاستيراد مكونات Tkinter للذاكرة العشوائية.\n2. إطلاق أمر Tk() ليبدأ نظام التشغيل بإنشاء نافذة فارغة.\n3. تحديد النص التعريفي المكتوب في شريط العنوان وتخصيصه للكلمة 'welCom'.\n4. إجبار النافذة لتأخذ حجم محدد بالبيكسل وهو عرض 400 وارتفاع 300.\n5. تشغيل mainloop والتي تمثل قلباً نابضاً يبقى النافذة ظاهرة على الشاشة دون إغلاق تلقائي.",
         lineByLineAr: [
           { line: "top = tkinter.Tk()", explanation: "إنشاء النافذة الرئيسية للتطبيق وتخزينها في متغير top." },
           { line: "top.title(\"welCom\")", explanation: "تحديد النص الذي يظهر في شريط العنوان أعلى النافذة." },
@@ -672,7 +722,8 @@ export const SECTIONS: Section[] = [
         titleAr: "نظام التعبئة (Pack Method)",
         titleEn: "Pack Method",
         content: "أبسط نظام لتنظيم الأدوات، حيث يقوم بترتيبها في كتل. نستخدم خاصية side لتحديد مكان الأداة (left, right, top, bottom).",
-        code: "from tkinter import *\ntop = Tk()\nbtn = Button(top, text=\"login\")\nbtn.pack(side=LEFT)\ntop.mainloop()",
+        code: "from tkinter import *\n# إنشاء النافذة\ntop = Tk()\n# تركيب أداة الزر داخل النافذة وتحديد النص الذي يظهر بداخلها\nbtn = Button(top, text=\"login\")\n# تفويض نظام التعبئة (pack) لتنظيم مكان الزر وإلصاقه باليسار\nbtn.pack(side=LEFT)\n# إبقاء النافذة فعالة\ntop.mainloop()",
+        algorithmAr: "1. استيراد كل الإمكانيات من مكتبة واجهات المستخدم.\n2. إصدار أمر تأسيس النافذة الرئيسية للتطبيق.\n3. تشييد كائن Button لتوفير الزر المطلوب، وربطه بالنافذة الأصلية، وتسميته login.\n4. استدعاء المعالج التلقائي للتنظيم (pack) وتوجيهه لإلقاء الزر باتجاه الحافة اليسرى للتطبيق.\n5. حفظ النافذة ظاهرة للمستخدم لتلقي استجاباته.",
         lineByLineAr: [
           { line: "btn = Button(...)", explanation: "إنشاء زر جديد داخل النافذة top ونكتب عليه كلمة login." },
           { line: "btn.pack(side=LEFT)", explanation: "توجيه البرنامج لوضع الزر في جهة اليسار (LEFT) داخل النافذة." }
@@ -683,7 +734,8 @@ export const SECTIONS: Section[] = [
         titleAr: "نظام الشبكة (Grid Method)",
         titleEn: "Grid Method",
         content: "ينظم الأدوات في شكل جدول (صفوف وأعمدة) وهو الأكثر دقة وتنظيماً.\n- row: رقم الصف (يبدأ من 0).\n- column: رقم العمود (يبدأ من 0).\n- padx / pady: المسافات الجانبية والرأسية (هوامش).",
-        code: "from tkinter import *\nparent = Tk()\nname = Label(parent, text=\"name\")\nname.grid(row=0, column=0, pady=10, padx=5)\ne1 = Entry(parent)\ne1.grid(row=0, column=1)",
+        code: "from tkinter import *\nparent = Tk()\n# تعريف عنوان نصي للقراءة فقط \nname = Label(parent, text=\"name\")\n# وضعه في الصف صفر والعمود صفر، مع فرض هوامش أفقية ورأسية تفصل بينه وبين محيطه\nname.grid(row=0, column=0, pady=10, padx=5)\n# الإعلان عن حاوية إدخال نصية (مستطيل يكتب فيه المستخدم)\ne1 = Entry(parent)\n# تموضع مربع الإدخال في المربع المجاور مباشرة للعنوان النصي في نفس الصف\ne1.grid(row=0, column=1)",
+        algorithmAr: "1. جلب مكونات المكتبة الأساسية وإطلاق النموذج التفاعلي (النافذة).\n2. وضع ملصق توضيحي Label يحتوي على كلمة 'name' ليشارك في تكوين الهيكل الرئيسي للنماذج.\n3. تطبيق نظام grid لتثبيت الملصق بمربع الإحداثيات (الصف 0، العمود 0) بالإضافة להוספת هوامش مبنية من جميع الجهات لعزله عن حواف الشاشة.\n4. تجهيز مربع نص Entry خصيصاً لاستقبال ضغطات لوحة مفاتيح المستخدم.\n5. تثبيت هذا المربع في نفس السطر الذي يسبقه (الصف 0) ولكن في العمود اللاحق له (العمود 1).\n6. ظهور التصميم بصورة مجدولة كأنك تصمم واجهة باستخدام الجداول.",
         lineByLineAr: [
           { line: "name.grid(row=0, column=0)", explanation: "وضع عنوان 'name' في الصف الأول والعمود الأول." },
           { line: "pady=10, padx=5", explanation: "إضافة مسافة 10 بكسل فوق وتحت العنصر، و 5 بكسل يمين ويسار العنصر." },
@@ -695,7 +747,8 @@ export const SECTIONS: Section[] = [
         titleAr: "نظام الإحداثيات (Place Method)",
         titleEn: "Place Method",
         content: "يسمح بوضع الأداة في إحداثيات (x, y) محددة بالبكسل، وهو يعطي تحكماً كاملاً ولكن قد يكون صعباً في التصميمات المتجاوبة.",
-        code: "from tkinter import *\nroot = Tk()\nname = Label(root, text=\"name\")\nname.place(x=50, y=50)\ne1 = Entry(root)\ne1.place(x=100, y=50)",
+        code: "from tkinter import *\nroot = Tk()\n# إنشاء عنوان توضيحي عادي\nname = Label(root, text=\"name\")\n# تحديد إحداثي السين (x) والصاد (y) بشكل قطعي ودقيق\nname.place(x=50, y=50)\n# إدراج صندوق للكتابة\ne1 = Entry(root)\n# تحديد مكانه بطريقة تتفادى التداخل مع القطعة الأولى (بزيادة الـ x)\ne1.place(x=100, y=50)",
+        algorithmAr: "1. الإعداد للواجهة البرمجية الأساسية كالعادة.\n2. إنشاء العنصر الوصفي النصي Label.\n3. الاستعانة بوظيفة place التي تجبر النظام على رسم العنصر في نقطة ارتكاز (50, 50) محسوبة بالبكسلات انطلاقاً من أعلى يسار النافذة.\n4. إحضار حقل الكتابة Entry للمشهد.\n5. وضع حقل الكتابة بإزاحة أفقية بمقدار 50 بكسل إضافية عن العنصر السابق لتجنب تغطية أحدهما للآخر واصطفافهم أفقياً (بسبب ثبات الـ y).",
         lineByLineAr: [
           { line: "name.place(x=50, y=50)", explanation: "وضع النص عند الإحداثي الأفقي 50 والإحداثي الرأسي 50." }
         ]
@@ -705,7 +758,8 @@ export const SECTIONS: Section[] = [
         titleAr: "أدوات Tkinter الشائعة",
         titleEn: "Common Widgets",
         content: "- Button: زر للضغط.\n- Label: لعرض نصوص توضيحية.\n- Entry: خانة إدخال سطر واحد.\n- Text: خانة إدخال نصوص متعددة الأسطر.\n- Checkbutton: مربعات الاختيار المتعدد.\n- Radiobutton: اختيار واحد من مجموعة.\n- Listbox: قائمة عناصر يختار المستخدم منها.",
-        code: "from tkinter import *\ntop = Tk()\n\nb = Button(top, text=\"Click Me\", activeforeground=\"red\", bg=\"pink\")\nb.pack()\n\ntop.mainloop()",
+        code: "from tkinter import *\ntop = Tk()\n\n# زر بتنسيق لوني يظهر للعيان عندما يتم النقر عليه\nb = Button(top, text=\"Click Me\", activeforeground=\"red\", bg=\"pink\")\n# تنظيمه في الشاشة للاحتفاظ بحجمه وعدم إبعاده\nb.pack()\n\ntop.mainloop()",
+        algorithmAr: "1. تجهيز الكود المعياري للواجهات.\n2. تصميم الأداة المعنية هنا وهي الزر Button.\n3. تحديد النص الافتراضي له (Click Me) ولون الخلفية الوردي.\n4. تطبيق ميزة التنبيه اللوني (activeforeground) والتي تغير لون الكتابة إلى الأحمر فقط أثناء فترة احتفاظ المستخدم بضغطة الماوس.\n5. رمْي الزر في وسط النافذة كإجراء تلقائي لـ pack.\n6. تشغيل الحدث المستمر للبرنامج.",
         lineByLineAr: [
           { line: "b = Button(top, ...)", explanation: "إنشاء زر وتحديد النص الظاهر، ولون الخط عند الضغط (activeforeground) ولون الخلفية (bg)." },
           { line: "b.pack()", explanation: "إضافة الزر للنافذة باستخدام نظام التعبئة التلقائي." }
@@ -716,7 +770,8 @@ export const SECTIONS: Section[] = [
         titleAr: "التعامل مع الأحداث (Events)",
         titleEn: "Event Handling",
         content: "لجعل الأزرار تقوم بوظيفة معينة، نقوم بتعريف دالة (Function) ثم نربطها بالزر باستخدام خاصية `command`.",
-        code: "from tkinter import *\nroot = Tk()\n\ndef say_hi():\n    print(\"Hello User!\")\n\nbtn = Button(root, text=\"Greet\", command=say_hi)\nbtn.pack()\n\nroot.mainloop()",
+        code: "from tkinter import *\nroot = Tk()\n\n# وظيفة متصلة ستعمل بمجرد مناداتها\ndef say_hi():\n    print(\"Hello User!\")\n\n# زر يربط الحدث command بهذه الوظيفة\nbtn = Button(root, text=\"Greet\", command=say_hi)\nbtn.pack()\n\nroot.mainloop()",
+        algorithmAr: "1. بناء النافذة الاساسية.\n2. إعداد دالة عادية جداً (say_hi) دورها فقط أن تطبع رسالة تحية في الشاشة السوداء المرافقة.\n3. إنشاء أداة النقر Button وكتابة 'Greet' كواجهة له.\n4. تخصيص المعرف event/command للإشارة إلى الدالة السابقة، لتصبح الدالة حية وقابلة للنقر.\n5. تثبيت الزر وإدراج النافذة للمستخدم لاستلام وتفعيل الأحداث.",
         lineByLineAr: [
           { line: "def say_hi():", explanation: "تعريف دالة برمجية تحتوي على الكود الذي نريد تنفيذه عند الضغط." },
           { line: "command=say_hi", explanation: "ربط الزر بالدالة، بحيث يتم استدعاء 'say_hi' فور النقر عليه." }
@@ -727,7 +782,8 @@ export const SECTIONS: Section[] = [
         titleAr: "صناديق الرسائل (MessageBox)",
         titleEn: "MessageBox",
         content: "تُستخدم لإظهار نوافذ منبثقة للتنبيه أو التأكيد. يجب استيرادها بشكل منفصل من `tkinter.messagebox`.\n- showinfo(): إظهار معلومة.\n- showwarning(): تحذير.\n- showerror(): خطأ.\n- askquestion(): سؤال نعم/لا.",
-        code: "from tkinter import *\nfrom tkinter import messagebox\n\ntop = Tk()\n\ndef hello():\n    messagebox.showinfo(\"Say Hello\", \"Hello World\")\n\nB = Button(top, text=\"Say Hello\", command=hello)\nB.pack()\n\ntop.mainloop()",
+        code: "from tkinter import *\n# صندوق الرسائل يعتبر وحدة منفصلة تستدعى لحالها\nfrom tkinter import messagebox\n\ntop = Tk()\n\n# وظيفة مهمتها فقط توليد نافذة معلوماتية منبثقة للمستخدم بداخلها نص محدد\ndef hello():\n    messagebox.showinfo(\"Say Hello\", \"Hello World\")\n\n# الزر الذي يُفعّل الوظيفة السابقة\nB = Button(top, text=\"Say Hello\", command=hello)\nB.pack()\n\ntop.mainloop()",
+        algorithmAr: "1. تحميل مكتبة الـ GUI الأساسية متبوعة بالوحدة المستقلة messagebox التي تعرض أدوات تنبيهية.\n2. تحضير المنصة والتطبيق الرئيسي.\n3. صياغة دالة مخصصة (hello) تستدعي مربع الوظيفة الحوارية (showinfo).\n4. تزويد الوظيفة الحوارية بمدخلين: الأول هو عنوان الرسالة، والثاني هو النص بداخلها.\n5. برمجة زر ليقوم بتفعيل هذه الدالة عند التقاطه لنقرة المستخدم.\n6. تشغيله وبقاءه في حالة تأهب لظهور النافذة في منتصف الشاشة.",
         lineByLineAr: [
           { line: "from tkinter import messagebox", explanation: "استيراد مكتبة صناديق الرسائل المنبثقة بشكل خاص." },
           { line: "messagebox.showinfo(\"Say Hello\", ...)", explanation: "إظهار نافذة منبثقة بعنوان 'Say Hello' ونص 'Hello World'." }
@@ -738,7 +794,8 @@ export const SECTIONS: Section[] = [
         titleAr: "الإطارات (Frames)",
         titleEn: "Frames",
         content: "تُستخدم الإطارات (Frames) لتجميع الأدوات معاً وتنظيمها بشكل منطقي داخل النافذة. تعمل كحاوية (Container) غير مرئية.",
-        code: "from tkinter import *\nroot = Tk()\n\nframe = Frame(root)\nframe.pack()\n\nbottom_frame = Frame(root)\nbottom_frame.pack(side=BOTTOM)\n\nred_btn = Button(frame, text=\"Red\", fg=\"red\")\red_btn.pack(side=LEFT)\n\nblue_btn = Button(bottom_frame, text=\"Blue\", fg=\"blue\")\nblue_btn.pack(side=LEFT)\n\nroot.mainloop()",
+        code: "from tkinter import *\nroot = Tk()\n\n# صندوق زجاجي/إطار شفاف يتمركز بشكل تلقائي بالأعلى\nframe = Frame(root)\nframe.pack()\n\n# حاوية أخرى متجهة للأسفل\nbottom_frame = Frame(root)\nbottom_frame.pack(side=BOTTOM)\n\n# زر أحمر يتخذ من الإطار العلوي ملجأً له بدلاً من النافذة الأم\nred_btn = Button(frame, text=\"Red\", fg=\"red\")\nred_btn.pack(side=LEFT)\n\n# زر أزرق يلقى به في الحاوية السفلية المخصصة له\nblue_btn = Button(bottom_frame, text=\"Blue\", fg=\"blue\")\nblue_btn.pack(side=LEFT)\n\nroot.mainloop()",
+        algorithmAr: "1. تهيئة الشاشة الافتتاحية الكبيرة.\n2. تجهيز إطارين خفيين لتحديد الهياكل، أحدهم (frame) سيصل للأعلى، والآخر (bottom_frame) تم توجيهه بالقوة للركود بأسفل الشاشة (BOTTOM).\n3. رسم زر ملون بالأحمر وربط أصله ومقر سكنه بالإطار العلوي.\n4. رسم زر آخر باللون الأزرق وربطه للإطار السفلي.\n5. هذه الإطارات تضمن احتفاظ الأزرار بمواقع نسقية داخل هيكلة متفق عليها وغير فوضوية.\n6. تشغيل الحدث الدائم لحين رغبة المستخدم بالإغلاق.",
         lineByLineAr: [
           { line: "frame = Frame(root)", explanation: "إنشاء إطار (حاوية) جديد داخل النافذة الرئيسية." },
           { line: "red_btn = Button(frame, ...)", explanation: "وضع الزر الأحمر داخل 'frame' العلوي وليس النافذة مباشرة." },
@@ -750,7 +807,8 @@ export const SECTIONS: Section[] = [
         titleAr: "القوائم (Menus)",
         titleEn: "Menus",
         content: "تُستخدم لإضافة شريط قوائم في أعلى النافذة (مثل File, Edit).",
-        code: "from tkinter import *\nroot = Tk()\n\ndef donothing():\n   print(\"Action clicked\")\n\nmenubar = Menu(root)\nfilemenu = Menu(menubar, tearoff=0)\nfilemenu.add_command(label=\"New\", command=donothing)\nfilemenu.add_separator()\nfilemenu.add_command(label=\"Exit\", command=root.quit)\nmenubar.add_cascade(label=\"File\", menu=filemenu)\n\nroot.config(menu=menubar)\nroot.mainloop()",
+        code: "from tkinter import *\nroot = Tk()\n\n# دالة تجريبية لتثبت أن القائمة قابلة للضغط والتفاعل\ndef donothing():\n   print(\"Action clicked\")\n\n# تعريف شريط القوائم الرئيسي الذي سيظهر بأعلى النافذة\nmenubar = Menu(root)\n# تصميم قائمة فرعية من الشجرة الرئيسية للنافذة\nfilemenu = Menu(menubar, tearoff=0)\n# إضافة كلمة New بداخل القائمة وتكليفها بعمل شيء\nfilemenu.add_command(label=\"New\", command=donothing)\n# إضافة خط فاصل للديكور\nfilemenu.add_separator()\n# إضافة حقل مخصص للخروج الكامل من التطبيق\nfilemenu.add_command(label=\"Exit\", command=root.quit)\n# وضع اسم File أعلى النافذة وإسناد الحقل الفرعي بأكمله إليه\nmenubar.add_cascade(label=\"File\", menu=filemenu)\n\n# تفعيل الشاشة لتقبل القائمة المُنشأة وعرضها\nroot.config(menu=menubar)\nroot.mainloop()",
+        algorithmAr: "1. إنشاء هيكل نافذة مرئي.\n2. إعداد دالة صماء كهدف وهمي حال التفاعل مع أحد أزرار القائمة.\n3. إحلال مكون أداة Menu ليحمل قوائم علوية.\n4. تخصيص قائمة فرعية وتسميتها بالقائمة filemenu.\n5. حشو محتويات هذه القائمة بواسطة أمر add_command وكتابة أوامر الخروج من البرنامج، وأزرار تجريبية تتخللها فواصل تجميلية.\n6. جمع كل هذه الخطوات وتسميتها بالاسم الدارج 'File' وإرفاقها بالشريط الأعلى عبر وظيفة add_cascade.\n7. تكوين الواجهة وعرض كل الأدوات المكونة للمستخدم.",
         lineByLineAr: [
           { line: "menubar = Menu(root)", explanation: "إنشاء شريط القوائم الأساسي." },
           { line: "filemenu.add_command(...)", explanation: "إضافة خيار (New) داخل القائمة المنسدلة." },
@@ -766,7 +824,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "اكتب برنامجاً يرسم نافذة منظمة بجدول (Grid) تحتوي على خانات للاسم ورقم القيد وزر للإرسال.",
         descriptionEn: "Create a window with input fields for Name and Reg No using the Grid system.",
         explanation: "نستخدم نظام الـ Grid لأنه الأمثل لتنسيق النماذج والبيانات المطلوبة في صفوف وأعمدة متساوية.",
-        code: "from tkinter import *\nroot = Tk()\nroot.title(\"Student Form\")\n\nLabel(root, text=\"Name\").grid(row=0, column=0)\nEntry(root).grid(row=0, column=1)\n\nLabel(root, text=\"Reg No\").grid(row=1, column=0)\nEntry(root).grid(row=1, column=1)\n\nButton(root, text=\"Submit\").grid(row=2, column=1)\n\nroot.mainloop()",
+        code: "from tkinter import *\nroot = Tk()\nroot.title(\"Student Form\")\n\n# صف رقم صفر للحقول الخاصة بتسميات الطالب\nLabel(root, text=\"Name\").grid(row=0, column=0)\nEntry(root).grid(row=0, column=1)\n\n# صف ثان رقم واحد للحقول الخاصة برقم التسجيل للمستخدم\nLabel(root, text=\"Reg No\").grid(row=1, column=0)\nEntry(root).grid(row=1, column=1)\n\n# زر الإدراج والاستقبال في الصف الثالث أسفل الحقول الماضية\nButton(root, text=\"Submit\").grid(row=2, column=1)\n\nroot.mainloop()",
+        algorithmAr: "1. بناء الحاضنة الأم لواجهة البرنامج وأدوات الإدخال وتعيين عنوانها 'Student Form'.\n2. رسم عنوان مسمى (Name) وإجباره على التموضع بالمنطقة المكونة من الصف الأول والعمود الأول بنظام الجدول.\n3. ربط أداة إدخال بيانية بمحاذاته في العمود الملاصق له مباشرة (عمود 1).\n4. تكرار السيناريو للعنوان השני 'Reg No' ولكن בنطاق الصف الذي يعلوه، والعمود المرافق له أيضاً.\n5. تثبيت زر مكتوب عليه (Submit) وراء كل هذه المعميات وفي الأسفل بضعه في الصف الثاني ولكن مع العمود 1 لمراعاة المنظر والمحاذاة.\n6. إطباق الأحداث واستمرار العرض للمستخدم النهائي.",
         flowchartData: "Start -> Create Window -> Grid Layout -> Add Label/Entry -> Add Submit Button -> Mainloop -> End",
         lineByLineAr: [
           { line: "Label(root, text=\"Name\")", explanation: "تعريف نص ثابت كعنوان لخانة الاسم." },
@@ -781,7 +840,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "صمم نافذة تطلب من المستخدم رقمين، وعند الضغط على زر الجمع، تظهر رسالة منبثقة بناتج الجمع.",
         descriptionEn: "Design a window that takes two numbers and shows their sum in a messagebox when clicking a button.",
         explanation: "نحتاج لاستخدام Entry لاستقبال الأرقام، و get() لقراءتها، ثم messagebox لعرض النتيجة.",
-        code: "from tkinter import *\nfrom tkinter import messagebox\n\nroot = Tk()\nroot.title(\"Adder\")\n\nLabel(root, text=\"Num 1:\").pack()\ne1 = Entry(root)\ne1.pack()\n\nLabel(root, text=\"Num 2:\").pack()\ne2 = Entry(root)\ne2.pack()\n\ndef add():\n    n1 = int(e1.get())\n    n2 = int(e2.get())\n    res = n1 + n2\n    messagebox.showinfo(\"Result\", f\"Sum is {res}\")\n\nButton(root, text=\"Add\", command=add).pack()\nroot.mainloop()",
+        code: "from tkinter import *\nfrom tkinter import messagebox\n\nroot = Tk()\n# تعديل اسم البرنامج\nroot.title(\"Adder\")\n\n# تكديس النص الخاص بالرقم الأول ثم أداة الاستقبال الخاصة به\nLabel(root, text=\"Num 1:\").pack()\ne1 = Entry(root)\ne1.pack()\n\n# تكديس مكونات الرقم الثاني أسفل منها مباشرة\nLabel(root, text=\"Num 2:\").pack()\ne2 = Entry(root)\ne2.pack()\n\n# دالة تجمع المعطيات بشكل رياضي وتبعث إشعاراً مرئياً بالنتيجة\ndef add():\n    # تحويل محتوى صناديق الإدخال المجردة إلى أرقام يمكن الاستفادة منها\n    n1 = int(e1.get())\n    n2 = int(e2.get())\n    res = n1 + n2\n    # رسالة معلوماتية تطلق من النظام كإشعار\n    messagebox.showinfo(\"Result\", f\"Sum is {res}\")\n\n# زر ينفذ جميع مهام وظيفة الدالة السابقة بمجرد استخدامه\nButton(root, text=\"Add\", command=add).pack()\nroot.mainloop()",
+        algorithmAr: "1. جلب متطلبات النظام الأساسية ومكتبات النوافذ المنبثقة.\n2. تحضير واجهة مستخدم فارغة تسمى بـ 'Adder'.\n3. إنتاج أداة العنوان التوضيحي للرقم الأول متبوعة بـ الأداة e1 لاستقبال الرقم من شاشة المراجع، وتكرسيهما وتغليفهما (pack).\n4. تكرار المهمة بإعداد المسمى الخاص بالرقم الثاني والأداة المرافقة e2.\n5. برمجة العقل المفكر لحساب المطلوب (الدالة add). وظيفتها انتزاع وإجبار ما كُتب بـ e1 ليصبح رقماً ونفس الشيء لـ e2.\n6. جمع القطع الحسابية للتوصل للقيمة الناتجة بالمتغير res.\n7. تمرير القيمة الناتجة كنافذة عائمة تحمل بيانات النبأ.\n8. تركيب زر بأسفل الواجهة ليكون هو المسؤول عن نداء وتشغيل مهمة الـ add حال النقر.\n9. تشغيل الوجاهة بوضع اللامتناهي للعمل.",
         flowchartData: "Start -> Input E1, E2 -> Click Add -> n1=E1.get(), n2=E2.get() -> Show Sum -> End",
         lineByLineAr: [
           { line: "e1 = Entry(root)", explanation: "إنشاء مربع إدخال للرقم الأول." },
@@ -796,7 +856,8 @@ export const SECTIONS: Section[] = [
         descriptionAr: "صمم نافذة تطلب اسم المستخدم وكلمة المرور، وإذا كانت البيانات 'admin' و '123' أظهر رسالة نجاح، وإلا أظهر رسالة خطأ.",
         descriptionEn: "Login window requiring 'admin' and '123'. Show success or error messagebox.",
         explanation: "نستخدم خاصية show='*' في الـ Entry لإخفاء كلمة المرور.",
-        code: "from tkinter import *\nfrom tkinter import messagebox\n\nroot = Tk()\nroot.title(\"Login\")\n\nLabel(root, text=\"User:\").grid(row=0, column=0)\nu = Entry(root)\nu.grid(row=0, column=1)\n\nLabel(root, text=\"Pass:\").grid(row=1, column=0)\np = Entry(root, show=\"*\")\np.grid(row=1, column=1)\n\ndef check():\n    if u.get()==\"admin\" and p.get()==\"123\":\n        messagebox.showinfo(\"Login\", \"Welcome!\")\n    else:\n        messagebox.showerror(\"Error\", \"Wrong Data\")\n\nButton(root, text=\"Login\", command=check).grid(row=2, column=1)\nroot.mainloop()",
+        code: "from tkinter import *\nfrom tkinter import messagebox\n\nroot = Tk()\n# شاشة لتسجيل الدخول\nroot.title(\"Login\")\n\n# وضع علامة اسم المستخدم بحرفية باستخدام جدول في أول مكان\nLabel(root, text=\"User:\").grid(row=0, column=0)\nu = Entry(root)\nu.grid(row=0, column=1)\n\n# وضع علامة الباسورد تحت السطر الماضي مع خانة مشفرة لحجب ما يُكتب ووضع نجوم\nLabel(root, text=\"Pass:\").grid(row=1, column=0)\np = Entry(root, show=\"*\")\np.grid(row=1, column=1)\n\n# الدالة المسؤولة عن أمان ورفض الزيارات المجهولة\ndef check():\n    if u.get()==\"admin\" and p.get()==\"123\": # فحص تطابق كل من الاسم والباسورد\n        messagebox.showinfo(\"Login\", \"Welcome!\") # إطلاق صافرة الأمان\n    else:\n        messagebox.showerror(\"Error\", \"Wrong Data\") # إطلاق منبه الخطأ\n\n# زر يربط الحدث بالوظيفة السابقة الخاصة بالأمان\nButton(root, text=\"Login\", command=check).grid(row=2, column=1)\nroot.mainloop()",
+        algorithmAr: "1. إلحاق المكتبات الخاصة ببرمجيات العروض المرئية واللوحات التحذيرية.\n2. هندسة منصة العمليات المركزية للبرنامج بعنوان Login.\n3. إضافة مربع يصف حقل الإدخال لليوزر بطريقة جدول الشبكات في الموضع [0,0] وحقل المدخلات بالجانب له [0,1].\n4. اتباع نفس الصنيع لحقل الباسورد في الصف الذي يعقبه [1,0] مع ميزة خاصة للحقل المستلم (p) بحيث يحول الحروف المعروضة لعلامات النجوم (*) لحفظ الأمان.\n5. برمجة دالة العواقب check، وفيها يسحب البرنامج نص اليوزر ويقارنه بـ 'admin'، ويقارن ما بداخل الباسورد بـ '123'.\n6. لو وافقت الشروط، يعتمِد البرنامج دخولاً مريحاً ويعرض إشعار ترحيب ناجح.\n7. إن لم توافق၊ يفشل الفحص وتتجه البوصلة لإشعار سلبي يخبره بالرفض.\n8. تركيب مكون الزر الأخير لتمثيل فعل الاستجابة من المستخدم وتوجيهه لنداء الـ check.\n9. تشغيل الواجهة ووضعها بالتأهب الدائم.",
         flowchartData: "Start -> Input User/Pass -> Click Login -> Check Values -> Success / Error -> End",
         lineByLineAr: [
           { line: "p = Entry(root, show=\"*\")", explanation: "إنشاء مربع نص لكلمة المرور يظهر حرف * بدلاً من الحروف الحقيقية." },
