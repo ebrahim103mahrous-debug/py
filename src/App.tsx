@@ -441,19 +441,19 @@ function DetailView({ item, onClose }: { item: Lesson | Problem; onClose: () => 
         {/* Code Tile */}
         {item.code && (
           <div className="col-span-12 space-y-6">
-            <div className="bento-card bg-slate-50 overflow-hidden shadow-inner relative">
-               <div className="flex justify-between items-center bg-slate-100 px-6 py-4 border-b border-slate-200">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
+            <div className="bento-card bg-slate-50 overflow-hidden shadow-inner relative border border-slate-200 rounded-2xl w-full max-w-full">
+               <div className="flex justify-between items-center bg-slate-100 px-4 md:px-6 py-3 md:py-4 border-b border-slate-200">
+                <div className="flex gap-1.5 md:gap-2">
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-rose-400" />
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-amber-400" />
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-emerald-400" />
                 </div>
-                <span className="text-[10px] font-mono font-bold text-slate-800 uppercase tracking-widest flex items-center gap-2">
-                   <FileCode2 className="w-3 h-3" /> solution.py
+                <span className="text-[10px] md:text-xs font-mono font-bold text-slate-700 uppercase tracking-widest flex items-center gap-2">
+                   <FileCode2 className="w-3 h-3 md:w-4 md:h-4 text-slate-500" /> solution.py
                 </span>
               </div>
-              <div className="p-8 font-mono text-sm md:text-base text-black overflow-x-auto leading-relaxed ltr" dir="ltr">
-                <pre><code>{item.code}</code></pre>
+              <div className="p-4 md:p-6 lg:p-8 font-mono text-[13px] md:text-sm lg:text-base text-slate-800 bg-white overflow-x-auto leading-relaxed ltr" dir="ltr">
+                <pre className="min-w-fit pr-4"><code className="block whitespace-pre">{item.code}</code></pre>
               </div>
             </div>
 

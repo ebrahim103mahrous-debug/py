@@ -1,0 +1,31 @@
+        code: "# تحديد الرقم السري مسبقاً في النظام\ncorrect = \"1234\"\n# While True تجعل التكرار يعمل بلا نهاية حتى نصطدم بـ break\nwhile True:\n    pwd = input(\"Password: \")\n    if pwd == correct:\n        print(\"Welcome!\")\n        break # خروج فوري من الحلقة\n    print(\"Try again...\")",
+        algorithmAr: "1. إعداد متغير 'correct' يحفظ بداخله الرقم السري الصحيح.\n2. تشغيل حلقة (while True) تدور بلا توقف.\n3. تطلب الحلقة في كل دورة من المستخدم إدخال كلمة سر.\n4. تطابق المدخل مع الرقم السري (correct).\n5. إن تطابقا، يطبع البرنامج ترحيباً ويستدعي الكلمة break لتكسر الحلقة.\n6. إن لم يتطابقا سيطبع 'Try again' ويعيد السؤال.",
+        flowchartData: "Start -> correct='1234' -> Loop: Input pwd -> pwd==correct? -> Yes: Welcome, Break -> No: Try again -> End",
+        lineByLineAr: [
+          { line: "while True:", explanation: "حلقة لا نهائية ستستمر في التكرار حتى نوقفها يدوياً." },
+          { line: "break", explanation: "أمر إيقاف فوري يخرج البرنامج من حلقة while بأكملها." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "sec3",
+    title: "Section 3: Strings & Formats",
+    lessons: [
+      {
+        id: "string-methods",
+        titleAr: "دوال النصوص (String Methods)",
+        titleEn: "String Methods",
+        content: "النصوص (Strings) في بايثون لها دوال كثيرة جاهزة تُسهّل التعامل معها:\n- `len()`: معرفة طول النص.\n- `lower()` / `upper()`: تحويل حالة الأحرف.\n- `split()`: تقسيم النص إلى كلمات.\n- `replace()`: استبدال جزء بآخر.\n- `find()` / `index()`: البحث عن مكان جزء معين.\n- `isalnum()` / `islower()` / `isupper()`: دوال فحص الحالة.",
+        code: "# نص طويل لتجربة الدوال المتعددة\ntext = \"Hello Python\"\nprint(len(text)) # حساب الطول الفعلي للنص\nprint(text.lower()) # تحويله بكامله لأحرف صغيرة\nprint(text.split()) # فصل الكلمات ووضعها في قائمة مستقلة\n# استبدال كلمة پايثون بكلمة ذكاء اصطناعي وطباعة النتيجة\nprint(text.replace(\"Python\", \"AI\"))\nprint(text.find(\"Python\")) # الإبلاغ عن الموقع الرقمي للكلمة داخل السلسلة",
+        algorithmAr: "1. تخزين النص المرجعي 'Hello Python' في الذاكرة باسم text.\n2. استخدام دالة len لاستخراج عدد الخانات والحروف (شاملة المسافات).\n3. استدعاء الوظيفة lower للنسخة الصغيرة من كل الحروف.\n4. تطبيق وظيفة split لجعلها مصفوفة تضم قسمين (الكلمة الأولى والكلمة الثانية).\n5. البحث عن كلمة (Python) وإحلالها بكلمة الجيل الحديث (AI) بواسطة replace.\n6. سؤال المنظومة عبر الكلمة المفتاحية find عن الفهرس الرقمي الذي تبدأ عنده كلمة Python وترجع إجابة الفهرس.\n7. ظهور كل المخرجات بالكامل في الشاشة.",
+        lineByLineAr: [
+          { line: "len(text)", explanation: "حساب إجمالي عدد الحروف والمسافات في النص." },
+          { line: "text.lower()", explanation: "تحويل جميع حروف النص إلى حروف صغيرة." },
+          { line: "text.split()", explanation: "تقسيم النص عند المسافات وتحويله لقائمة كلمات." },
+          { line: "text.replace(...)", explanation: "البحث عن كلمة Python وتبديلها بكلمة AI." }
+        ]
+      }
+    ],
+    problems: [
+      {
