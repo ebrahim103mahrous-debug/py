@@ -41,7 +41,7 @@ export function AIAssistant({ context }: AIAssistantProps) {
 
     try {
       // Direct call to Gemini from client to avoid 405 on static hosting
-      const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY || "AIzaSyDrMl3r1ftrj7_t8dwQpBMX2ic3PS-9Yhk";
+      const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY || "AIzaSyATsS9b4UaCB3bUEehx6faSMD79GzHUct4";
       if (!apiKey) {
         throw new Error("يجب إضافة VITE_GEMINI_API_KEY.");
       }
