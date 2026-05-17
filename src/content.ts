@@ -479,392 +479,163 @@ export const SECTIONS: Section[] = [
   },
   {
     id: "sec5",
-    title: "Section 5: Tuples (التوبل)",
+    title: "Section 5: Tuple in Python",
     lessons: [
       {
         id: "tuple-basics",
-        titleAr: "أساسيات التوبل (Tuple Basics)",
+        titleAr: "أساسيات التوبل (Tuple)",
         titleEn: "Tuple Basics",
-        content: "التوبل (Tuple) هو تسلسل من العناصر غير القابلة للتعديل (Immutable). بمجرد إنشائه، لا يمكنك تغيير قيم العناصر أو حذفها. يتم استخدامه لحماية البيانات من التغيير.\n\n- يتم تعريفه باستخدام الأقواس العادية ().",
-        code: "# إنشاء توبل فارغ بأقواس دائرية\nt1 = ()\n# إنشاء توبل بمكونات متعددة الأنواع (رقم ونص)\nt2 = (123, \"Python\", 3, 7)\n# الوصول وطباعة العنصر في الخانة رقم 1\nprint(t2[1]) # النتيجة Python",
-        algorithmAr: "1. إعلان متغير t1 كـ توبل فارغ للاستخدام المستقبلي المحتمل.\n2. إعداد المتغير t2 كـ توبل مدعوم ببيانات أولية (أرقام صحيحة ونصوص).\n3. قراءة التوبل t2 واستخراج القيمة من المؤشر 1 (العنصر الثاني المتوفر).\n4. عرض القيمة المُخرجة Python للمستخدم وتجاهل باقي القائمة.",
-        lineByLineAr: [
-          { line: "t1 = ()", explanation: "إنشاء توبل فارغ." },
-          { line: "t2 = (123, \"Python\", 3, 7)", explanation: "إنشاء توبل يحتوي على أرقام ونصوص." },
-          { line: "print(t2[1])", explanation: "الوصول للعنصر الثاني (رقم الفهرس 1) وطباعته." }
-        ]
+        content: "Tuple in Python\nTuple is: Sequence of immutable elements or items\nVar = (Value 1, Value 2, Value 3)\n\nTuple indexing:\n|banna | apple | Mango | Tomato | berry|\nMyTuple = ('banna', 'apple', 'Mango', 'Tomato', 'berry')\n0 1 2 3 4\nMyTuple[0] = banna",
+        code: "t1 = ()\nt2 = (123, \"Python\", 3, 7)\nt3 = (1, 2, 3, 4, 5, 6)\n\nPrint(t1) ~~> ()\nPrint(t2) ~~> (123, \"Python\", 3, 7)\nPrint(t3) ~~> (1, 2, 3, 4, 5, 6)",
+        algorithmAr: "Tuple is Sequence of immutable elements or items.",
+        lineByLineAr: []
       },
       {
-        id: "tuple-ops",
-        titleAr: "عمليات التوبل (Tuple Operations)",
-        titleEn: "Tuple Operations",
-        content: "1. الدمج (+): دمج تسلسلين.\n2. التكرار (*): تكرار العناصر.\n3. الفهرسة []: الوصول لعنصر محدد.",
-        code: "# توبل مخصص للأرقام فقط\nnum = (1, 2, 3, 4, 5)\n# توبل مخصص للغات البرمجة كنصوص\nlang = ('Python', 'C', 'Java', 'Php')\n\n# عرض مجموع التوبلين جنبا إلى جنب\nprint(num + lang)\n# عرض العنصر ذو الترتيب 2 في توبل اللغات (أي العنصر الثالث)\nprint(lang[2])\n# تكرار ما بداخل صندوق الأرقام مرتين وعرضه\nprint(num * 2)",
-        algorithmAr: "1. بناء هيكل توبل رقمي num وإثراءه بخمسة أرقام.\n2. بناء هيكل توبل نصي lang ويضم أسماء 4 لغات برمجة.\n3. تطبيق وظيفة الجمع (+) لإنشاء وطباعة نسخة هجينة من المجموعتين معاً دون العبث بأصولهم المحفوظة.\n4. استدعاء العنصر الثالث من مجموعة اللغات عبر تمرير رقم المؤشر (2) للطباعة.\n5. نسخ مكونات التوبل الخاص بالأرقام وتكريرها لمرتين وعرض النتائج مجمعة.",
-        lineByLineAr: [
-          { line: "print(num + lang)", explanation: "دمج توبل الأرقام مع توبل اللغات في تسلسل واحد." },
-          { line: "print(lang[2])", explanation: "طباعة العنصر الثالث (Java) من توبل اللغات." },
-          { line: "print(num * 2)", explanation: "تكرار عناصر توبل الأرقام مرتين." }
-        ]
+        id: "tuple-operators",
+        titleAr: "معاملات التوبل (Tuple Operators)",
+        titleEn: "Tuple Operators",
+        content: "* Tuple operators *\nExample 1:\nnum = (1, 2, 3, 4, 5)\nLang = ('Python', 'c', 'Java', 'php')",
+        code: "num = (1, 2, 3, 4, 5)\nLang = ('Python', 'c', 'Java', 'php')\n\n1- Print(num + Lang) ~~> (1, 2, 3, 4, 5, 'Python', 'c', 'Java', 'php')\n2- Print(Lang[2]) ~~> Java\n3- Print(num * 2) ~~> (1, 2, 3, 4, 5, 1, 2, 3, 4, 5)",
+        algorithmAr: "استخدام معاملات الجمع للدمج، الضرب للتكرار، والأقواس المربعة للوصول (Indexing).",
+        lineByLineAr: []
       },
       {
         id: "tuple-functions",
-        titleAr: "دوال التوبل (Tuple Functions)",
+        titleAr: "دوال التوبل (Tuple Functions / Methods)",
         titleEn: "Tuple Functions",
-        content: "توفر بايثون دوال إحصائية وتحويلية للتوبل:\n- len(): طول التوبل.\n- max() / min(): أكبر وأصغر قيمة.\n- sum(): مجموع العناصر الرقمية.\n- tuple(): تحويل أي تسلسل (مثل نص) إلى توبل.",
-        code: "# توبل بأرقام متسلسلة\nt1 = (1, 2, 3, 4, 5, 6)\n# كلمة نصية حرة\ns = \"Python\"\n\nprint(len(t1)) # عدد محتويات التوبل\nprint(max(t1)) # أكبر رقم\nprint(sum(t1)) # مجموع الأرقام الكلي\nprint(tuple(s)) # تفكيك النص وتغليفه داخل توبل",
-        algorithmAr: "1. تحميل 6 أرقام متعاقبة بداخل التوبل t1.\n2. إنشاء متغير نصي s لتهيئة الكلمة Python به.\n3. تقييم الطول العددي واستحصال الرقم الإجمالي للعناصر (6 عناصر) باستخدام الوظيفة طول len.\n4. استخدام الوظيفة max لاستخراج العنصر الأكبر قيمة.\n5. تفويض أداة المجموع sum لحيازة قيمة حسابية شاملة وطباعتها.\n6. تشييد توبل جديد بناءً على تحويل المتغير النصي s لقطع منفصلة.",
-        lineByLineAr: [
-          { line: "print(len(t1))", explanation: "حساب عدد العناصر (6 عناصر)." },
-          { line: "print(max(t1))", explanation: "إيجاد أكبر قيمة في التوبل (6)." },
-          { line: "print(sum(t1))", explanation: "جمع كل الأرقام (1+2+3+4+5+6 = 21)." },
-          { line: "print(tuple(s))", explanation: "تحويل نص 'Python' إلى توبل حروف منفصلة." }
-        ]
+        content: "* Tuple Functions / Methods in python *\n1. Len(): Length of Tuple\n2. Max(): Max(Tuple)\n3. Min(): Min(Tuple)\n4. Sum(): Sum(tuple)\n5. Tuple(): Tuple(Sequence)",
+        code: "# Len():\nnum = (1, 2, 3, 4, 5, 6)\nPrint(\"Length of Tuple = len(num)\") ~~> 6\n\n# Max(): ~~> Max(Tuple)\nt1 = (1, 2, 3, 4, 5, 6)\nt2 = ('Java', 'c', 'Python', 'ccp')\nPrint Max of Tuple t1, Max(t1) ~~> 6\nPrint Max of Tuple t2, Max(t2) ~~> Python\n\n# Min() ~~> Min(Tuple)\nt1 = (1, 2, 3, 4, 5, 6)\nt2 = ('Java', 'c', 'Python', 'cpp')\nPrint Min(t1) ~~> 1\nPrint Min(t2) ~~> c\n\n# Sum() ~~> Sum(tuple)\nt1 = (1, 2, 3, 4, 5, 6)\nPrint Sum(t1) ~~> 21\n\n# Tuple() ~~> Tuple(Sequence)\nStr = \"Python\"\nt1 = Tuple(str)\nPrint(t1) ~~> ('P', 'y', 't', 'h', 'o', 'n')",
+        algorithmAr: "دوال عامة تطبق على التوبل للحصول على الطول (Len)، القيمة الأكبر (Max)، الأصغر (Min)، والمجموع (Sum)، أو تحويل تسلسل إلى توبل (Tuple).",
+        lineByLineAr: []
       },
       {
         id: "tuple-methods",
-        titleAr: "طرق التوبل (Methods)",
+        titleAr: "استكمال دوال التوبل (Count, Sorted, Index)",
         titleEn: "Tuple Methods",
-        content: "لأن التوبل غير قابل للتعديل، لديه طرق محدودة جداً مقارنة بالقوائم:\n- count(): عد تكرار عنصر معين.\n- index(): معرفة مكان عنصر (ويمكن تحديد بداية ونهاية للبحث).\n- sorted(): ترتيب العناصر (ترجع قائمة مرتبة).",
-        code: "num = (1, 2, 2, 2, 3)\nt = ('P', 'y', 't', 'h', 'o', 'n', 'P')\n\n# كم مرة ظهر رقم 2 هنا؟\nprint(num.count(2))\n# أين يقع مؤشر أول ظهور لحرف t؟\nprint(t.index('t'))\n# أين يقع مؤشر الحرف P في حال التجاهل قبل المؤشر 3 وفي نطاق لا يتجاوز 10\nprint(t.index('P', 3, 10))\n# ترتيب العناصر بطريقة صاعدة وإخراجها بشكل مؤقت\nprint(sorted(num))",
-        algorithmAr: "1. الإعلان عن توبل num يضم تكرارات متعمدة لرقم معين.\n2. الإعلان عن توبل آخر t يمثل حروفكلمة مفرقة، مع تكرار للحرف P بالبداية والنهاية.\n3. أخذ التوبل num وتطبيق وظيفة عد التكرارات count لتحديد حصيلة تواجد الرقم 2.\n4. الاستعلام في التوبل t عن أول وجود للحرف 't' لمعرفة فهرسه.\n5. تطبيق دالة البحث index بمعايير متقدمة للقصاصات، فتبحث عن 'P' متجاهلة أول 3 مواضع وتجدها بالآخر.\n6. تنظيم محتويات التوبل الأول وترتيبها وعرضها بصيغة قائمة نظراً لأن التوبل لا يمكن العبث به.",
-        lineByLineAr: [
-          { line: "num.count(2)", explanation: "عد كم مرة تكرر الرقم 2 (النتيجة 3 مرات)." },
-          { line: "t.index('t')", explanation: "البحث عن أول ظهور لحرف 't' وإرجاع مكانه (2)." },
-          { line: "t.index('P', 3, 10)", explanation: "البحث عن 'P' ولكن ابدأ البحث من الفهرس 3، فيجد الـ P الثانية عند الفهرس 6." },
-          { line: "sorted(num)", explanation: "ترتيب العناصر وإرجاع النتيجة كقائمة (List)، التوبل الأصلي لايتغير." }
-        ]
+        content: "* Count() ~~> Tuple.count(item)\n* Sorted() ~~> Sorted(tuple)\n* index() ~~> Tuple.index(item, Start, end)",
+        code: "# Count() ~~> Tuple.count(item)\nnum = (1, 2, 3, 4, 5, 2, 2, 1, 4, 5, 8) # (بيطبع عدد تكرار رقم 2)\nCount = num.count(2)\nPrint(\"Count of 2 is\", Count) ~~> 3\n\n# Sorted() -> Sorted(tuple)\nnum = (1, 2, 3, 4, 6, 5)\nLang = ('Java', 'c', 'Python', 'cpp')\nPrint(Sorted(num)) ~~> (1, 2, 3, 4, 5, 6)\nPrint(Sorted(Lang)) ~~> ('c', 'cpp', 'Java', 'Python')\n\n# index() ~~> Tuple.index(item, Start, end)\nt1 = ('P', 'y', 't', 'o', 'n', 'P') # بيطبع الـ index بتاع الحرف\n# 0 1 2 3 4 5\nPrint(t1.index('t')) ~~> 2\nPrint(t1.index('P')) ~~> 0\nPrint(t1.index('P', 3, 10)) ~~> 5\nPrint(t1.index('Z')) ~~> Value Error",
+        algorithmAr: "استخدام Count للعد، Sorted للترتيب، و index لمعرفة مكان تطابق العنصر.",
+        lineByLineAr: []
       }
     ],
-    problems: [
-      {
-        id: "p12",
-        titleAr: "البحث المتقدم في الفواكه",
-        titleEn: "Advanced Fruit Search",
-        descriptionAr: "انشئ توبل فواكه، واطلب من المستخدم إدخال اسم، وابحث عنه باستخدام index وإذا لم يوجد تعامل مع الخطأ.",
-        descriptionEn: "Create fruit tuple, take input, and use index method with membership check.",
-        explanation: "نتأكد أولاً من وجود العنصر باستخدام in لتجنب حدوث خطأ (Value Error) عند استخدام index.",
-        code: "# إنشاء وعاء ثابت لأسماء الفاكهة\nfruits = ('banana', 'apple', 'Mango', 'Tomato', 'berry')\n# الاستماع لمدخل المستخدم لتحديد عنصر البحث\nitem = input(\"Search: \")\n\n# شرط التأكد من وجود العنصر لتجنب انهيار التطبيق\nif item in fruits:\n    print(item, \"Found at index\", fruits.index(item)) # عرض العنصر ومكان فهرسه\nelse:\n    print(\"Not Found\") # تنبيه المراجع بعدم المعرفة",
-        algorithmAr: "1. تجهيز توبل مسبق البناء fruits ببعض نماذج الفواكه المشهورة.\n2. عرض حقل إدخالي لمطالبة المستخدم بالفاكهة المرجوة ثم تخصيصها للمتغير item.\n3. استخدام المعامل المنطقي in للاستفسار النظامي: هل يتواجد محتوى item داخل توبل fruits؟\n4. لو كانت الإجابة 'نعم'، يتم صياغة وإطلاق ناتج يتضمن كلمة الفاكهة ومؤشر مكانها الدقيق (index).\n5. إذا كانت الإجابة 'لا'، تفشل المحاولة بأمان ويشغل المسار else لطباعة رسالة النفي الواضحة.",
-        flowchartData: "Start -> Define Fruits -> Input Item -> Item in Fruits? -> Yes: Print Index -> No: Print Not Found -> End",
-        lineByLineAr: [
-          { line: "fruits = ('banana', ...)", explanation: "تعريف توبل ثابت يحتوي على مسميات الفواكه." },
-          { line: "if item in fruits:", explanation: "اختبار منطقي للتأكد من وجود الكلمة المدخلة داخل التوبل." },
-          { line: "fruits.index(item)", explanation: "جلب الرقم التسلسلي (الفهرس) الخاص بالكلمة التي وجدناها." }
-        ]
-      }
-    ]
+    problems: []
   },
   {
     id: "sec6",
-    title: "Section 6: OOP (البرمجة كائنية التوجه)",
+    title: "Section 6: Object Oriented Programming (OOP)",
     lessons: [
       {
         id: "oop-intro",
-        titleAr: "مقدمة في البرمجة الكائنية",
-        titleEn: "Introduction to OOP",
-        content: "البرمجة كائنية التوجه (OOP) هي نمط برمجي يعتمد على تنظيم الكود حول 'الكائنات' (Objects) بدلاً من الوظائف فقط.\n\nكل كائن يتكون من:\n1. **Data (Attributes):** البيانات أو الخصائص التي تميز الكائن.\n2. **Behavior (Methods):** السلوك أو الوظائف التي يمكن للكائن القيام بها.\n\n**لماذا نستخدم OOP؟**\n- **Reusability:** إعادة استخدام الكود بسهولة.\n- **Organization:** تنظيم الكود بشكل منطقي.\n- **Maintainability:** سهولة صيانة وتعديل الكود.\n- **Data Security:** حماية البيانات من الوصول غير المصرح به.",
-        code: "# OOP organises code into Objects\n# Object = Data (Attributes) + Behavior (Methods)\n# البرمجة الكائنية تحول المفاهيم إلى مجسمات برمجية حية",
-        algorithmAr: "1. فهم أساسيات OOP عبر تقسيم التطبيق الكبير لعدة كائنات (Objects).\n2. كل كائن يحتوي على بيانات (مثل الاسم والعمر) وسلوك ومهام برمجية (مثل النطق والتحرك).",
-        lineByLineAr: [
-          { line: "# Object = Data + Behavior", explanation: "كل كائن في البرمجة الكائنية هو عبارة عن مجموعة من البيانات والوظائف المرتبطة بها." }
-        ]
-      },
-      {
-        id: "class-object",
-        titleAr: "الفئات والكائنات (Class & Object)",
-        titleEn: "Class & Object",
-        content: "- **الفئة (Class):** هي مخطط (Blueprint) أو قالب (Template) يوصف الخصائص والسلوك العام، ولا تأخذ مساحة في الذاكرة عند تعريفها.\n- **الكائن (Object):** هو نسخة فعلية (Instance) من الفئة، يتم إنشاؤه بناءً على القالب.\n\nمثال: فئة 'طالب' هي القالب، و'أحمد' هو الكائن الفعلي.",
-        code: "# بناء المخطط الأساسي\nclass Student:\n    pass # تعليمة صامتة تعني 'تجاوز' لبدء فئة فارغة حاليا\n\n# تشييد كائن حيوي مشتق من الفئة السابقة\ns1 = Student() # س1 الآن يمثل حالة حية للكائن Student",
-        algorithmAr: "1. الإعلان عن قالب برمجي رئيسي باسم Student.\n2. استخدام pass لمنع ظهور خطأ برمجي عند ترك القالب بدون محتوى حتى الآن.\n3. أخذ نسخة من المخطط الطالب وإحيائها وتخزين هذا الكائن المادي في متغير يدعى s1.\n4. س1 الآن يمكنه أن يحمل بيانات منفصلة ووظائف مستلهمة من قالب الطالب الأساسي.",
-        lineByLineAr: [
-          { line: "class Student:", explanation: "تعريف فئة (Class) جديدة تسمى Student لتكون قالباً للطلاب." },
-          { line: "pass", explanation: "كلمة محجوزة تعني 'تجاوز'، نستخدمها لتعريف فئة فارغة دون حدوث خطأ." },
-          { line: "s1 = Student()", explanation: "إنشاء كائن (Object) يسمى s1 وبناؤه بناءً على مواصفات فئة Student." }
-        ]
+        titleAr: "مقدمة (OOP)",
+        titleEn: "OOP Intro",
+        content: "Section 6: object oriented programming [OOP]\n\nWe structure code using objective objects.\n\nEach object Contains:\n-> Data [Attributes]\n-> Behavior [Methods]\n\nwhy oop:\n1. Reusability\n2. organization\n3. Maintainability\n4. Data security.\n\n* Main idea: بدل ما نكتب كود عشوائى بنعمل class اللى بيمثل Templete وبنعمل object وهو نسخة من class.\n\n* Core Concepts:\nClass ~~> Blue Print or templete for creating objects\nobject ~~> An instance of class",
+        code: "# Class example\nclass student:\n    Pass\n\n# Object example\nS1 = student()",
+        algorithmAr: "1. هيكلة الكود باستخدام Objects تحتوي على Data و Behavior.\n2. إنشاء صنف Class واستنساخ Object منه.",
+        lineByLineAr: []
       },
       {
         id: "attributes-methods",
-        titleAr: "السمات والدوال (Attributes & Methods)",
+        titleAr: "السمات والوظائف (Attributes & Methods)",
         titleEn: "Attributes & Methods",
-        content: "- **Attributes:** هي متغيرات داخل الفئة تخزن بيانات الكائن.\n- **Methods:** هي دوال داخل الفئة تصف سلوك الكائن.\n- **__init__:** هي دالة البناء (Constructor) التي تُنفذ تلقائياً عند إنشاء الكائن.\n- **self:** كلمة تشير إلى الكائن الحالي للوصول إلى سماته ووظائفه.",
-        code: "class Student:\n    # Constructor: أول دالة تُنفذ آليا عند ولادة الكائن\n    def __init__(self, name, age):\n        self.name = name # Attribute 1\n        self.age = age   # Attribute 2\n\n    # دالة داخل الكائن تُدعى Method\n    def say_hello(self):\n        print(\"Hello\", self.name)\n\n# إنشاء الكائن وتمرير البيانات المطلوبة لبنائه (الاسم والعمر)\ns1 = Student(\"Ahmed\", 20)\n# الكائن s1 ينادي ويشغل السلوك الخاص به (إلقاء التحية)\ns1.say_hello()",
-        algorithmAr: "1. بناء قالب Student ووضع الدالة السحرية __init__ داخله لتمثل مرحلة التأسيس.\n2. في التأسيس: يستلم النظام اسمه (name) وعمره (age) ويربطهم بروح الكائن باستخدام (self).\n3. تعريف خصلة وظيفية (Method) باسم say_hello مهمتها الترحيب اعتماداً على بيانات الشخص.\n4. استنساخ كائن (s1) ومنحه بيانات أولية 'Ahmed' بالإضافة للعمر 20.\n5. توجيه أمر للنسخة s1 لكي تُلقي التحية بتنفيذ وظيفتها say_hello المخصصة لها.",
-        lineByLineAr: [
-          { line: "def __init__(self, name, age):", explanation: "دالة البناء التي تأخذ القيم الابتدائية (الاسم والعمر) وتخصصها للكائن." },
-          { line: "self.name = name", explanation: "حفظ قيمة الاسم المرسلة في متغير خاص بالكائن (Attribute)." },
-          { line: "def say_hello(self):", explanation: "تعريف دالة (Method) يستطيع الكائن تنفيذها للترحيب." },
-          { line: "s1 = Student(\"Ahmed\", 20)", explanation: "إنشاء كائن جديد وإرسال البيانات 'Ahmed' و 20 كمعاملات للـ __init__." },
-          { line: "s1.say_hello()", explanation: "استدعاء الوظيفة say_hello من خلال الكائن s1." }
-        ]
-      },
-      {
-        id: "oop-principles",
-        titleAr: "مبادئ البرمجة الكائنية الأربعة",
-        titleEn: "The 4 OOP Principles",
-        content: "تعتمد البرمجة الكائنية على أربعة مبادئ أساسية:\n1. **الوراثة (Inheritance)**\n2. **التغليف (Encapsulation)**\n3. **تعدد الأشكال (Polymorphism)**\n4. **التجريد (Abstraction)**",
-        code: "# 1. Inheritance (الوراثة)\n# 2. Encapsulation (التغليف والحماية)\n# 3. Polymorphism (تعدد السلوكيات)\n# 4. Abstraction (تجريد التفاصيل وإخفاؤها)",
-        algorithmAr: "1. مراجعة واستيعاب الأركان الأربعة التي تبنى عليها لغات البرمجة الكائنية.\n2. كل ركن يعالج مشكلة هيكلية معينة.",
+        content: "Attributes ~~> Variables belong to object\nMethods ~~> Functions defined in class.",
+        code: "# Attributes مثال\nclass student:\n    def __init__(self, N, A):\n        self.N = Name\n        self.A = Age\n\nS1 = student(\"Esraa\", 30)\nPrint(S1.N)\nPrint(S1.A)\n\n# Methods مثال\nclass student:\n    def __init__(self, N):\n        self.N = Name\n    def say_hello(self):\n        Print(\"Hello\", self.N)\n\nS1 = student(\"Esraa\")\nS1.say_hello()",
+        algorithmAr: "1. المتغيرات بداخل الأوبجكت تسمى Attributes.\n2. الوظائف وتسمى Methods تعرّف بداخل الـ Class.",
         lineByLineAr: []
       },
       {
-        id: "inheritance",
-        titleAr: "الوراثة (Inheritance)",
-        titleEn: "Inheritance",
-        content: "تعني أن فئة (Child Class) ترث خصائص ووظائف فئة أخرى (Parent Class). تساعدنا الوراثة في تجنب تكرار الكود وتسهيل التعديل.",
-        code: "# الفئة القدوة/الأب (الحيوان)\nclass Animal:\n    def speak(self):\n        print(\"Animal Speaks\")\n\n# الفئة المتفرعة/الابن (الكلب يرث من الحيوان)\nclass Dog(Animal):\n    def bark(self):\n        print(\"Woof!\")\n\n# كائن جديد من نوع الكلب\nd = Dog()\n# تشغيل وظيفة موروثة من الفئة الأب\nd.speak() # لم نكتبها داخل الكلب ولكنها تعمل\n# الدالة الخاصة بفئة الكلب وحده\nd.bark()",
-        algorithmAr: "1. الإعلان عن الأب Animal الذي يطرح وظيفة تنطق بعبارة 'Animal Speaks'.\n2. إنشاء الفئة الابن Dog مع تمرير (Animal) كنوع من الوراثة.\n3. إضافة وظيفة خاصة للكلب bark (ينبح).\n4. إنشاء نسخة فعلية لفصيلة الكلب في الذاكرة (d).\n5. تنفيذ دالة التحدث speak للكائن d (بالرغم من عدم ترميزها داخل الكلب مباشرة لكنه ورثها بنجاح).\n6. تنفيذ دالة النباح الأساسية للكلب.",
-        lineByLineAr: [
-          { line: "class Dog(Animal):", explanation: "فئة Dog ترث فئة Animal، مما يجعلها تمتلك كل وظائفها تلقائياً." },
-          { line: "d = Dog()", explanation: "إنشاء كائن من الفئة الوارثة." },
-          { line: "d.speak()", explanation: "استدعاء دالة speak التي تم وراثتها من الفئة الأب Animal." }
-        ]
+        id: "oop-principles-inheritance-encapsulation",
+        titleAr: "مبادئ ( Inheritance & Encapsulation )",
+        titleEn: "OOP Principles",
+        content: "OOP Principles:\n1. Inheritance: class inheritance from another class.\n2. Encapsulation: Hiding internal data & restricting direct acess.\n\n1) Inheritance:\nclass Animal:\n    def Speak(self):\n        Print(\"Animal Speaks\")\nclass Dog:\n    Pass\n\n2) Encapsulation:\nclass Bank:\n    def __init__(self):\n        self._balance = 1000\n    def get_balance(self):\n        return self._balance\nNote: ممنوع الوصول إليه بطريقة مباشره لكن من خلال Function (Private variable)",
+        code: "# 1) Inheritance:\nclass Animal:\n    def Speak(self):\n        Print(\"Animal Speaks\")\n\nclass Dog:\n    Pass\n\nd = Dog()\nd.Speak()\n\n# 2) Encapsulation:\nclass Bank:\n    def __init__(self):\n        self._balance = 1000\n    def get_balance(self):\n        return self._balance\n\nb = Bank()\nPrint(b.get_balance())",
+        algorithmAr: "الوراثة (Inheritance) لاستخدام وظائف من فئات أخرى.\nالتغليف (Encapsulation) لإخفاء وتغطية الرصيد.",
+        lineByLineAr: []
       },
       {
-        id: "encapsulation",
-        titleAr: "التغليف (Encapsulation)",
-        titleEn: "Encapsulation",
-        content: "هو إخفاء التفاصيل الداخلية للبيانات (Hiding internal data) وحمايتها من التعديل الخارجي المباشر. نستخدم شرطتين سفليتين (__) لجعل المتغير خاصاً (Private).",
-        code: "class BankAccount:\n    def __init__(self):\n        # وضع خطين يعلن عن أن هذه البيانات بالغة السرية ولا يمكن الوصول لها\n        self.__balance = 1000 # Private Attribute\n\n    # دالة وسيطة لقراءة الرصيد دون السماح بالتعديل عليه بشكل عشوائي\n    def get_balance(self):\n        return self.__balance\n\nacc = BankAccount()\n# القراءة مسموحة عبر الدالة المصرح لها පමණ\nprint(acc.get_balance())",
-        algorithmAr: "1. تصميم حساب بنكي BankAccount مع حوافز أمنية.\n2. إضافة الرصيد (__balance) بقيمة 1000 واقترانه بـ __ لضمان حجبه التام عن الوصول المباشر.\n3. استحداث بوابة آمنة وهي الوظيفة العامة (get_balance) التي تُرجع إجابة شافية بالرقم السري.\n4. إنشاء كائن للعميل acc.\n5. عندما يحاول العميل طلب رصيده، يقوم باستدعاء دالة العرض الآمن get_balance وطباعتها.\n6. ملاحظة: أي محاولة برمجية للقراءة المباشرة سيتم وقفها.",
-        lineByLineAr: [
-          { line: "self.__balance = 1000", explanation: "تعريف متغير 'خاص' لا يمكن الوصول إليه من خارج الفئة مباشرة." },
-          { line: "def get_balance(self):", explanation: "دالة عامة تسمح برؤية الرصيد دون السماح بتعديله مباشرة." }
-        ]
-      },
-      {
-        id: "polymorphism",
-        titleAr: "تعدد الأشكال (Polymorphism)",
-        titleEn: "Polymorphism",
-        content: "يعني 'تعدد الأشكال'، وهو القدرة على استخدام نفس اسم الدالة في فئات مختلفة ولكن بسلوك مختلف يناسب كل فئة.",
-        code: "class Cat:\n    def sound(self):\n        return \"Meow\" # صوت القطة\n\nclass Dog:\n    def sound(self):\n        return \"Woof\" # صوت الكلب\n\n# تجميع الكائنات في حاوية واحدة للتعامل معهم بكتلة واحدة\nanimals = [Cat(), Dog()]\n\n# سيقوم كل حيوان بإصدار صوته الخاص استجابة لنفس الأمر\nfor a in animals:\n    print(a.sound())",
-        algorithmAr: "1. كتابة الصنف Cat وبناء دالة sound ترجع 'Meow'.\n2. كتابة الصنف Dog بصفات مستقلة لكنها تمتلك ذات الدالة sound والتي ترجع 'Woof'.\n3. تم وضع الكائنات الحية جنباً إلى جنب في طابور (القائمة animals).\n4. باستخدام الحلقة for لتمرير نفس أمر المناداة العام (sound) على كل العناصر.\n5. سيتصرف الكائن بمرونة ويُفسر نفس الأمر بأدائه الخاص المختلف بناءً على هويته الأساسية.",
-        lineByLineAr: [
-          { line: "print(a.sound())", explanation: "بناءً على نوع الحيوان (قطة أو كلب)، سيتم تنفيذ الدالة sound الخاصة به." }
-        ]
-      },
-      {
-        id: "abstraction",
-        titleAr: "التجريد (Abstraction)",
-        titleEn: "Abstraction",
-        content: "هو إظهار الوظائف الهامة فقط للمستخدم وإخفاء التعقيدات الداخلية. نستخدم مكتبة 'abc' لإنشاء فئات مجردة (Abstract Classes) لا يمكن إنشاء كائنات منها مباشرة.",
-        code: "from abc import ABC, abstractmethod\n\n# فئة افتراضية لا توجد في الواقع الملموس، فقط لتنظيم الأفكار\nclass Vehicle(ABC):\n    # تعريف أن أي مركبة يجب أن تحتوي على دالة تعمل كطريقة لبدء الحركة\n    @abstractmethod\n    def start(self):\n        pass # تترك فارغة ليتم بناؤها لاحقا\n\n# السيارة هي مركبة فعلية تتخذ شكل القالب السابق وتطوعه للاستخدام الحقيقي\nclass Car(Vehicle):\n    def start(self):\n        print(\"Car started!\")",
-        algorithmAr: "1. استيراد المعيار اللغوي ABC المخصص لصناعة التجريد.\n2. هندسة فئة مجردة للسيارات تحت اسم (Vehicle) تمنع ولادة كائنات مباشرة منها.\n3. استخدام الرقاقة @abstractmethod لإجبار أي صنف يتبعها على تطبيق دالة معينة (start).\n4. إنشاء صنف حقيقي (Car) يطبق الشروط المتوارثة ويستكمل المعنى الغامض للدالة المتروكة.",
-        lineByLineAr: [
-          { line: "class Vehicle(ABC):", explanation: "تعريف فئة مجردة (Abstract Class) لتكون نموذجاً لغيرها." },
-          { line: "@abstractmethod", explanation: "تحديد أن دالة start يجب أن يتم تعريفها وإجبار أي فئة وارثة على كتابة كودها الخاص." },
-          { line: "class Car(Vehicle):", explanation: "الفئة Car ترث النموذج وتطبق 'التفاصيل' البرمجية المطلوبة." }
-        ]
+        id: "oop-principles-polymorphism-abstraction",
+        titleAr: "مبادئ ( Polymorphism & Abstraction )",
+        titleEn: "OOP Principles",
+        content: "OOP Principles:\n3. Polymorphism: Same Method name with different behavior.\n4. Abstraction: Showing only essential features & hiding complexity.\n\nNote -> abc = Abstract Basic classes مكتبة برمجة فى Python.",
+        code: "# 3) Polymorphism:\nclass Cat:\n    def Sound(self):\n        Print(\"Meow\")\nclass dog:\n    def Sound(self):\n        Print(\"Haw\")\n\nc = Cat()\nd = dog()\nc.Sound(); d.Sound()\n\n# 4) Abstraction:\nfrom abc import ABC, abstract method.\nclass Shape(ABC):\n    @abstracte Method\n    def draw(self):\n        Pass\n\nclass cricle(Shape):\n    def draw(self):\n        Print(\"Draw circle\")\n\nc1 = cricle()\nc1.draw()",
+        algorithmAr: "تعددية الأشكال (Polymorphism) والتجريد (Abstraction).",
+        lineByLineAr: []
       }
     ],
-    problems: [
-      {
-        id: "p13",
-        titleAr: "نظام إدارة مكتبة",
-        titleEn: "Library Management System",
-        descriptionAr: "صمم فئة (Book) تحتوي على العنوان والمؤلف، وقم بإنشاء كائنين منها وطباعة بياناتهما.",
-        descriptionEn: "Design a Book class with title and author, create two objects and print their info.",
-        explanation: "نستخدم دالة البناء لتحديد بيانات الكتاب عند الإنشاء، ودالة خاصة لعرض البيانات.",
-        code: "class Book:\n    # تعريف الخصائص المعرفية للكتاب الواحد\n    def __init__(self, title, author):\n        self.title = title\n        self.author = author\n    \n    # دالة طباعة مخصصة تعود بتنسيق جميل لمخرجات الكتاب\n    def info(self):\n        print(f\"Book: {self.title}, By: {self.author}\")\n\n# استنساخ الكتاب الأول\nb1 = Book(\"Python Basics\", \"Doha\")\n# استنساخ الكتاب الثاني\nb2 = Book(\"AI Era\", \"Doha\")\n# توجيه الأوامر للاستعراض\nb1.info()\nb2.info()",
-        algorithmAr: "1. إعلان الفئة Book كمورد بيانات رئيسي لأي كتاب.\n2. تمرير العنوان واسم الكاتب عند مرحلة التأسيس (__init__) وربطهم بالكتاب الحالي.\n3. إعداد دالة عارضة (info) تستخدم خصائص الكتاب لدمجها وطباعتها.\n4. استحضار كائن جديد للكتاب b1 ونقل البيانات 'Python Basics' إليه.\n5. استحضار كتاب ثانٍ b2.\n6. تشغيل دوال الـ info المنبثقة من كلا الكائنين بشكل منفصل لعرض الملخص العام.",
-        flowchartData: "Start -> Class Book -> Init Title/Author -> Create b1, b2 -> Call info() -> End",
-        lineByLineAr: [
-          { line: "self.title = title", explanation: "تخزين عنوان الكتاب المسند عند الإنشاء." },
-          { line: "b1 = Book(...)", explanation: "إنشاء الكائن الأول وإعطاؤه قيم الاسم والمؤلف." },
-          { line: "b1.info()", explanation: "استدعاء دالة عرض المعلومات للكتاب الأول." }
-        ]
-      },
-      {
-        id: "p13_2",
-        titleAr: "حماية رصيد البنك",
-        titleEn: "Bank Balance Protection",
-        descriptionAr: "اكتب برنامجاً يستخدم التغليف (Encapsulation) لمنع الوصول المباشر للرصيد، مع السماح بالإيداع.",
-        descriptionEn: "Create a program using Encapsulation to protect balance while allowing deposits.",
-        explanation: "نستخدم المتغيرات الخاصة (__) للحماية، ودوال الإيداع للتحديث الآمن.",
-        code: "class Bank:\n    def __init__(self):\n        # رصيد أولي مجمد عن التعاملات الخارجية\n        self.__balance = 500\n    \n    # دالة إيداع مشروطة وآمنة تماماً\n    def deposit(self, amount):\n        if amount > 0: # لا يمكن إيداع قيم سلبية\n            self.__balance += amount\n            print(\"Deposit Successful\")\n\n    # دالة عرض الأرصدة المتاحة للجمهور\n    def show(self):\n        print(\"Balance:\", self.__balance)\n\n# بدء الاستخدام الفعلي وإنشاء الكائن\nmy_acc = Bank()\nmy_acc.deposit(200)\nmy_acc.show()",
-        algorithmAr: "1. تحديد Class مسمى بـ Bank لحكم أموال المستخدمين.\n2. إنشاء حساب مخفي __balance وتخصيص 500 كرصيد أولي للحساب.\n3. تجهيز أداة خارجية (deposit) لفحص الأموال الواصلة، بحيث لا تقبل سوى الأرقام ذات التقييم الإيجابي والموجب.\n4. عند النجاح: يتم حياكة الإضافة داخل الرصيد وإرسال رسالة توثق النجاح.\n5. تجهيز أداة خارجية أخرى للاستعلام المباشر (show) وظيفتها الكشف عن القيمة المخزنة وطباعتها.\n6. تهيئة حساب للاستخدام اسمه my_acc.\n7. توريد الأموال بنداء دالة deposit بقيمة 200.\n8. عرض النتيجة الإجمالية للمستخدم بنهاية المطاف، والتي من المفترض أن تعادل 700.",
-        flowchartData: "Start -> Private Balance=500 -> Deposit 200 -> Update Balance -> Show Result -> End",
-        lineByLineAr: [
-          { line: "self.__balance = 500", explanation: "تعيين رصيد ابتدائي 'سري' لا يُرى من الخارج مباشرة." },
-          { line: "self.__balance += amount", explanation: "تحديث الرصيد داخلياً بعد التأكد من صحة المبلغ." }
-        ]
-      }
-    ]
+    problems: []
   },
   {
     id: "sec7",
-    title: "Section 7: GUI (واجهات المستخدم)",
+    title: "Section 7: GUI (Graphical User Interfaces)",
     lessons: [
       {
         id: "gui-intro",
-        titleAr: "مقدمة في واجهات المستخدم (GUI)",
-        titleEn: "Graphical User Interfaces",
-        content: "واجهة المستخدم الرسومية (GUI) هي تطبيق يحتوي على نوافذ، أزرار، وقوائم تسمح للمستخدم بالتفاعل مع البرنامج.\n\nتعتبر مكتبة Tkinter هي الطريقة الأكثر شيوعاً لتطوير تطبيقات المكتب في بايثون لأنها سهلة مدمجة مع بايثون وتعتبر خياراً ممتازاً للمبتدئين.\n\nتُعرف مكونات الواجهة بـ Widgets (مثل الأزرار، النصوص، الحقول).",
-        code: "# GUI components are known as Widgets\n# في الواجهات الرسومية، كل عنصر (زر، خلفية، نص) يسمى أداة",
-        algorithmAr: "1. التعرف على المفهوم النظري لـ GUI كبديل للشاشة السوداء التقليدية للمبرمجين.\n2. إدراك مفهوم الأداة (Widget) كعنصر بناء أساسي لأي شاشة تفاعلية.",
+        titleAr: "مقدمة واجهات المستخدم (GUI)",
+        titleEn: "GUI Introduction",
+        content: "الـ GUI (Graphical User Interfaces) توفر العديد من الأدوات الأخرى التي يمكن للمستخدم استخدامها للتفاعل مع تطبيقك.\n\nApplication has button, windows.\nمثال جيد (Good example): متصفح الويب (web browser) يحتوي على أزرار (button)، علامات تبويب (tabs)، ونافذة رئيسية (Main window) بتم فيها تحميل جميع المحتويات.\n\nمكونات الواجهة تُعرف باسم (GUI Component are Know: widgest) وهي 'أدوات للتفاعل'.\n\nبايثون (Python) بتوفر خيارات متعددة لتطوير الـ GUI.\nالطريقة الأكثر شيوعاً هي Tkinter لأنها سهلة ومش محتاج تحميل (بتيجي مع بايثون).\n- تطوير تطبيقات الـ Desktop ليس مهمة معقدة.\n\nخطوات عمل تطبيق Tkinter الأساسية:\nعشان نعمل أي تطبيق بنمشى على أربع خطوات بالترتيب:\n1. Import Tkinter module: الاستيراد، يستدعى مكتبة فى الكود بتاعك.\n2. Create Main application window: ننشئ النافذه الاساسيه اللى بيظهر فيها كل حاجة.\n3. add Widget like, labels Frame: إضافة الأدوات.\n4. Call Main event loop: التشغيل، يستدعى مكتبة اسمها (Main loop).",
+        code: "",
+        algorithmAr: "1. استيراد المكتبة (Import Tkinter module).\n2. إنشاء النافذة الأساسية (Create Main application window).\n3. إضافة الأدوات (add Widget).\n4. التشغيل (Call Main event loop).",
         lineByLineAr: []
       },
       {
-        id: "tkinter-steps",
-        titleAr: "خطوات عمل تطبيق Tkinter",
-        titleEn: "Basic Tkinter Steps",
-        content: "لبناء أي تطبيق رسومي، نتبع 4 خطوات أساسية بالترتيب:\n1. استيراد المكتبة (Import Tkinter module).\n2. إنشاء النافذة الأساسية (Create Main application window).\n3. إضافة الأدوات (add Widgets like labels, buttons, frames).\n4. تشغيل حلقة الأحداث (Call Main event loop) ليظل التطبيق مفتوحاً.",
-        code: "import tkinter # ربط المكتبة الخاصة بالواجهات\n\n# تشييد النموذج الأولي للنافذة الفارغة\ntop = tkinter.Tk()\n# تغيير عنوان النافذة من الأعلى\ntop.title(\"welCom\")\n# ضبط المقاس الافتراضي للنافذة عندเปิด (العرضxالطول)\ntop.geometry(\"400x300\")\n# الحلقة التي تبقي البرنامج مستيقظاً في انتظار تفاعل المستخدم\ntop.mainloop()",
-        algorithmAr: "1. تشغيل بايثون وتوجيهها لاستيراد مكونات Tkinter للذاكرة العشوائية.\n2. إطلاق أمر Tk() ليبدأ نظام التشغيل بإنشاء نافذة فارغة.\n3. تحديد النص التعريفي المكتوب في شريط العنوان وتخصيصه للكلمة 'welCom'.\n4. إجبار النافذة لتأخذ حجم محدد بالبيكسل وهو عرض 400 وارتفاع 300.\n5. تشغيل mainloop والتي تمثل قلباً نابضاً يبقى النافذة ظاهرة على الشاشة دون إغلاق تلقائي.",
+        id: "tkinter-steps-code",
+        titleAr: "إنشاء نافذة Tkinter الأساسية",
+        titleEn: "Create Main Tkinter Window",
+        content: "لتطبيق الخطوات الأربعة لإنشاء نافذة باستخدام Tkinter:\n1. import TKinter\n2. Top = TK() (دي اسم المتغيير)\n3. add Component or widget (هنحط البيانات دي هنا الادوات)\n4. Top.Main loop()",
+        code: "import tkinter\n\n# إنشاء متغيير\nTop = tkinter.Tk()\n# تغيير عنوان النافذه\nTop.title(\"WelCom\")\n# حجم الـ x, y\nTop.geometry(\"400x300\")\n# بشغل البرنامج\nTop.mainloop()",
+        algorithmAr: "1. استدعى مكتبه (import Tkinter)\n2. تشييد النافذة (Top = Tk())\n3. تغيير عنوان النافذة (title)\n4. تحديد الحجم (geometry)\n5. تشغيل البرنامج (mainloop)",
         lineByLineAr: [
-          { line: "top = tkinter.Tk()", explanation: "إنشاء النافذة الرئيسية للتطبيق وتخزينها في متغير top." },
-          { line: "top.title(\"welCom\")", explanation: "تحديد النص الذي يظهر في شريط العنوان أعلى النافذة." },
-          { line: "top.geometry(\"400x300\")", explanation: "تحديد أبعاد النافذة عند الفتح (العرض 400 × الطول 300)." }
+          { line: "import tkinter", explanation: "استدعى مكتبه" },
+          { line: "Top = tkinter.Tk()", explanation: "انشاء متغيير (النافذة الأساسية)" },
+          { line: "Top.title(\"WelCom\")", explanation: "تغيير عنوان النافذه" },
+          { line: "Top.geometry(\"400x300\")", explanation: "حجم الـ x, y (مساحة 300 في 400)" },
+          { line: "Top.mainloop()", explanation: "بشغل البرنامج" }
         ]
       },
       {
-        id: "layout-pack",
-        titleAr: "نظام التعبئة (Pack Method)",
+        id: "pack-method",
+        titleAr: "طريقة Pack لتنظيم المكونات",
         titleEn: "Pack Method",
-        content: "أبسط نظام لتنظيم الأدوات، حيث يقوم بترتيبها في كتل. نستخدم خاصية side لتحديد مكان الأداة (left, right, top, bottom).",
-        code: "from tkinter import *\n# إنشاء النافذة\ntop = Tk()\n# تركيب أداة الزر داخل النافذة وتحديد النص الذي يظهر بداخلها\nbtn = Button(top, text=\"login\")\n# تفويض نظام التعبئة (pack) لتنظيم مكان الزر وإلصاقه باليسار\nbtn.pack(side=LEFT)\n# إبقاء النافذة فعالة\ntop.mainloop()",
-        algorithmAr: "1. استيراد كل الإمكانيات من مكتبة واجهات المستخدم.\n2. إصدار أمر تأسيس النافذة الرئيسية للتطبيق.\n3. تشييد كائن Button لتوفير الزر المطلوب، وربطه بالنافذة الأصلية، وتسميته login.\n4. استدعاء المعالج التلقائي للتنظيم (pack) وتوجيهه لإلقاء الزر باتجاه الحافة اليسرى للتطبيق.\n5. حفظ النافذة ظاهرة للمستخدم لتلقي استجاباته.",
+        content: "(Tkinter Method) دي طريقه بتنظم المكونات والادوات:\n\n1- Pack Method:\nwidget.pack(option)\nتمثل الجانب اللي سيتم وضع الاداه فيه قد يكون: Side\n- left\n- Right\n- top\n- bottom",
+        code: "from tkinter import *\n\n# إنشاء نافذة\nTop = Tk()\n# تحديد الحجم\nTop.geometry(\"300x400\")\n# بيعمل زرار جوه النافذه\nbtn1 = Button(Top, text=\"login\")\n# احط العنصر شمال\nbtn1.pack(side=LEFT)\n\n# تشغيل البرنامج\nTop.mainloop()",
+        algorithmAr: "1. استيراد المكتبة.\n2. إنشاء النافذة Top.\n3. تعيين الحجم 300 في 400.\n4. إنشاء الزر btn1 وربطه بالنافذة Top واسمه login.\n5. وضع الزر في جهة اليسار باستخدام pack و side=LEFT.\n6. تشغيل الحدث باستخدام mainloop.",
         lineByLineAr: [
-          { line: "btn = Button(...)", explanation: "إنشاء زر جديد داخل النافذة top ونكتب عليه كلمة login." },
-          { line: "btn.pack(side=LEFT)", explanation: "توجيه البرنامج لوضع الزر في جهة اليسار (LEFT) داخل النافذة." }
+          { line: "btn1 = Button(Top, text=\"login\")", explanation: "بيعمل زرار جوه النافذه" },
+          { line: "btn1.pack(side=LEFT)", explanation: "احط العنصر شمال" }
         ]
       },
       {
-        id: "layout-grid",
-        titleAr: "نظام الشبكة (Grid Method)",
+        id: "grid-method",
+        titleAr: "طريقة Grid لتنظيم المكونات",
         titleEn: "Grid Method",
-        content: "ينظم الأدوات في شكل جدول (صفوف وأعمدة) وهو الأكثر دقة وتنظيماً.\n- row: رقم الصف (يبدأ من 0).\n- column: رقم العمود (يبدأ من 0).\n- padx / pady: المسافات الجانبية والرأسية (هوامش).",
-        code: "from tkinter import *\nparent = Tk()\n# تعريف عنوان نصي للقراءة فقط \nname = Label(parent, text=\"name\")\n# وضعه في الصف صفر والعمود صفر، مع فرض هوامش أفقية ورأسية تفصل بينه وبين محيطه\nname.grid(row=0, column=0, pady=10, padx=5)\n# الإعلان عن حاوية إدخال نصية (مستطيل يكتب فيه المستخدم)\ne1 = Entry(parent)\n# تموضع مربع الإدخال في المربع المجاور مباشرة للعنوان النصي في نفس الصف\ne1.grid(row=0, column=1)",
-        algorithmAr: "1. جلب مكونات المكتبة الأساسية وإطلاق النموذج التفاعلي (النافذة).\n2. وضع ملصق توضيحي Label يحتوي على كلمة 'name' ليشارك في تكوين الهيكل الرئيسي للنماذج.\n3. تطبيق نظام grid لتثبيت الملصق بمربع الإحداثيات (الصف 0، العمود 0) بالإضافة להוספת هوامش مبنية من جميع الجهات لعزله عن حواف الشاشة.\n4. تجهيز مربع نص Entry خصيصاً لاستقبال ضغطات لوحة مفاتيح المستخدم.\n5. تثبيت هذا المربع في نفس السطر الذي يسبقه (الصف 0) ولكن في العمود اللاحق له (العمود 1).\n6. ظهور التصميم بصورة مجدولة كأنك تصمم واجهة باستخدام الجداول.",
+        content: "2- grid() Method:\nتستخدم لتنظيم الادوات في شكل جدول منظمه بشكل اكثر.\nwidget.grid(option)\n- Column: رقم العمود (الايسر يكون رقمه 0).\n- Padx, Pady: عدد المسافات او البيكسلات.\n- row: رقم الصف (العلوى يكون رقمه 0).",
+        code: "from tkinter import *\n\n# انشاء نافذه\nParent = Tk()\n# يحدد عنوان للنافذه\nParent.title(\"Student\")\n# ليحدد حجمها\nParent.geometry(\"300x400\")\n\n# بيعمل lable مكتوب فيه name\nname = Label(Parent, text=\"name\")\n# يحدد مكانه\nname.grid(row=0, column=0, pady=10, padx=5)\n\n# بيعمل مربع text box للمستخدم يكتب فيه اسمه\ne1 = Entry(Parent)\n# يحدد مكانه\ne1.grid(row=0, column=1)\n\n# بيعمل lable مكتوب فيه رقم التسجيل\nregno = Label(Parent, text=\"Regd No:\")\n# يحدد مكانه\nregno.grid(row=1, column=0, pady=10, padx=5)\n\n# بيعمل textbox\ne2 = Entry(Parent)\n# يحدد مكانه\ne2.grid(row=1, column=1)\n\n# زرار\nbtn = Button(Parent, text=\"Submit\")\n# يحدد مكانه بصف الثالث العمود الثانى\nbtn.grid(row=3, column=1)\n\n# يشغل البرنامج\nParent.mainloop()",
+        algorithmAr: "1. استدعاء مكتبة tkinter وإنشاء نافذة Parent.\n2. تحديد العنوان Student وتحديد الأبعاد 300 في 400.\n3. إنشاء نص Label للكلمة name وتحديد مكانه عبر grid بإعطائه مسافات حوله (pady=10, padx=5).\n4. عمل صندوق إدخال Entry تحت اسم e1 بجوار النص.\n5. عمل نص Label للكلمة Regd No وتحديد مكانه تحتهما باستخدام row=1.\n6. إضافة مربع إدخال e2 ليكون بجانب Regd No.\n7. إنشاء الزر Submit وتحديد مكانه في الصف 3 (العمود الثاني).\n8. تشغيل الحدث عبر mainloop().",
         lineByLineAr: [
-          { line: "name.grid(row=0, column=0)", explanation: "وضع عنوان 'name' في الصف الأول والعمود الأول." },
-          { line: "pady=10, padx=5", explanation: "إضافة مسافة 10 بكسل فوق وتحت العنصر، و 5 بكسل يمين ويسار العنصر." },
-          { line: "e1 = Entry(parent)", explanation: "إنشاء مربع نص (Text Box) ليقوم المستخدم بالكتابة بداخله." }
+          { line: "Parent = Tk()", explanation: "انشاء نافذه" },
+          { line: "Parent.title(\"Student\")", explanation: "يحدد عنوان للنافذه" },
+          { line: "Parent.geometry(\"300x400\")", explanation: "ليحدد حجمها" },
+          { line: "name = Label(Parent, text=\"name\")", explanation: "بيعمل lable مكتوب فيه name" },
+          { line: "name.grid(row=0, column=0, pady=10, padx=5)", explanation: "يحدد مكانه" },
+          { line: "e1 = Entry(Parent)", explanation: "text box بيعمل مربع للمستخدم يكتب فيه اسمه" },
+          { line: "regno = Label(Parent, text=\"Regd No:\")", explanation: "بيعمل lable مكتوب فيه رقم التسجيل" },
+          { line: "btn = Button(Parent, text=\"Submit\")", explanation: "زرار" },
+          { line: "btn.grid(row=3, column=1)", explanation: "يحدد مكانه بصف الثالث العمود الثانى" },
+          { line: "Parent.mainloop()", explanation: "يشغل البرنامج" }
         ]
       },
       {
-        id: "layout-place",
-        titleAr: "نظام الإحداثيات (Place Method)",
-        titleEn: "Place Method",
-        content: "يسمح بوضع الأداة في إحداثيات (x, y) محددة بالبكسل، وهو يعطي تحكماً كاملاً ولكن قد يكون صعباً في التصميمات المتجاوبة.",
-        code: "from tkinter import *\nroot = Tk()\n# إنشاء عنوان توضيحي عادي\nname = Label(root, text=\"name\")\n# تحديد إحداثي السين (x) والصاد (y) بشكل قطعي ودقيق\nname.place(x=50, y=50)\n# إدراج صندوق للكتابة\ne1 = Entry(root)\n# تحديد مكانه بطريقة تتفادى التداخل مع القطعة الأولى (بزيادة الـ x)\ne1.place(x=100, y=50)",
-        algorithmAr: "1. الإعداد للواجهة البرمجية الأساسية كالعادة.\n2. إنشاء العنصر الوصفي النصي Label.\n3. الاستعانة بوظيفة place التي تجبر النظام على رسم العنصر في نقطة ارتكاز (50, 50) محسوبة بالبكسلات انطلاقاً من أعلى يسار النافذة.\n4. إحضار حقل الكتابة Entry للمشهد.\n5. وضع حقل الكتابة بإزاحة أفقية بمقدار 50 بكسل إضافية عن العنصر السابق لتجنب تغطية أحدهما للآخر واصطفافهم أفقياً (بسبب ثبات الـ y).",
+        id: "place-method-widgets",
+        titleAr: "طريقة Place والأدوات المتعددة",
+        titleEn: "Place Method & Widgets",
+        content: "3- Place (Method):\nطريقه بتنظيم الـ Widget علي x, y بالاحداثيات.\nwidget.place(x,y)\nبتميز للمساحة الافقية والرأسية.\n\nالأدوات الإضافية الشائعة (Widgets) كما ذكرت في الملخص:\n- Check button: يحدد اختيار من الاختيارات المتعدده.\n- Entry: يسمح للـ User بادخال سطر واحد.\n- List Box: يعرض عناصر للقائمه ويمكن لـ user اختيار عنصر واحد او اكثر.\n- Radio button: يحدد اختيار واحد من بين الاختيارات متعدده.\n- Text: يسمح للـ user ادخال سطر واحد او اكثر.",
+        code: "from tkinter import *\n\nParent = Tk()\nParent.title(\"Student\")\nParent.geometry(\"300x200\")\n\n# اسم الزر name\nname = Label(Parent, text=\"name\")\n# مكانه\nname.place(x=50, y=50)\n\n# text box\ne1 = Entry(Parent)\n# مكانه يبعد 50\ne1.place(x=100, y=50)\n\n# نص باسم\nregno = Label(Parent, text=\"Regd No:\")\n# مكانة\nregno.place(x=50, y=100)\n\n# text box\ne2 = Entry(Parent)\n# مكانه\ne2.place(x=120, y=100)\n\n# يشغل البرنامج معاك\nParent.mainloop()",
+        algorithmAr: "1. إنشاء نافذة وتحديد الحجم (300*200) والعنوان (Student).\n2. إنشاء عنوان Label وتحديد الإحداثيات باستخدام دالة place في النقطة 50 أفقية و50 رأسية (x=50, y=50).\n3. وضع مربع إدخال النص Entry بإحداثي (x=100, y=50) ليبعد 50 عن الاسم ويكون بجواره.\n4. رسم نص Regd No: عند إحداثيات (x=50, y=100) ليقع تحتهما.\n5. والمربع المخصص لها يتم إزاحته قليلاً لليمين (x=120) لتوفير المساحة المطلوبة وإبعاده عن النص.\n6. تشغيل دورة الإبقاء (mainloop).",
         lineByLineAr: [
-          { line: "name.place(x=50, y=50)", explanation: "وضع النص عند الإحداثي الأفقي 50 والإحداثي الرأسي 50." }
-        ]
-      },
-      {
-        id: "common-widgets",
-        titleAr: "أدوات Tkinter الشائعة",
-        titleEn: "Common Widgets",
-        content: "- Button: زر للضغط.\n- Label: لعرض نصوص توضيحية.\n- Entry: خانة إدخال سطر واحد.\n- Text: خانة إدخال نصوص متعددة الأسطر.\n- Checkbutton: مربعات الاختيار المتعدد.\n- Radiobutton: اختيار واحد من مجموعة.\n- Listbox: قائمة عناصر يختار المستخدم منها.",
-        code: "from tkinter import *\ntop = Tk()\n\n# زر بتنسيق لوني يظهر للعيان عندما يتم النقر عليه\nb = Button(top, text=\"Click Me\", activeforeground=\"red\", bg=\"pink\")\n# تنظيمه في الشاشة للاحتفاظ بحجمه وعدم إبعاده\nb.pack()\n\ntop.mainloop()",
-        algorithmAr: "1. تجهيز الكود المعياري للواجهات.\n2. تصميم الأداة المعنية هنا وهي الزر Button.\n3. تحديد النص الافتراضي له (Click Me) ولون الخلفية الوردي.\n4. تطبيق ميزة التنبيه اللوني (activeforeground) والتي تغير لون الكتابة إلى الأحمر فقط أثناء فترة احتفاظ المستخدم بضغطة الماوس.\n5. رمْي الزر في وسط النافذة كإجراء تلقائي لـ pack.\n6. تشغيل الحدث المستمر للبرنامج.",
-        lineByLineAr: [
-          { line: "b = Button(top, ...)", explanation: "إنشاء زر وتحديد النص الظاهر، ولون الخط عند الضغط (activeforeground) ولون الخلفية (bg)." },
-          { line: "b.pack()", explanation: "إضافة الزر للنافذة باستخدام نظام التعبئة التلقائي." }
-        ]
-      },
-      {
-        id: "event-handling",
-        titleAr: "التعامل مع الأحداث (Events)",
-        titleEn: "Event Handling",
-        content: "لجعل الأزرار تقوم بوظيفة معينة، نقوم بتعريف دالة (Function) ثم نربطها بالزر باستخدام خاصية `command`.",
-        code: "from tkinter import *\nroot = Tk()\n\n# وظيفة متصلة ستعمل بمجرد مناداتها\ndef say_hi():\n    print(\"Hello User!\")\n\n# زر يربط الحدث command بهذه الوظيفة\nbtn = Button(root, text=\"Greet\", command=say_hi)\nbtn.pack()\n\nroot.mainloop()",
-        algorithmAr: "1. بناء النافذة الاساسية.\n2. إعداد دالة عادية جداً (say_hi) دورها فقط أن تطبع رسالة تحية في الشاشة السوداء المرافقة.\n3. إنشاء أداة النقر Button وكتابة 'Greet' كواجهة له.\n4. تخصيص المعرف event/command للإشارة إلى الدالة السابقة، لتصبح الدالة حية وقابلة للنقر.\n5. تثبيت الزر وإدراج النافذة للمستخدم لاستلام وتفعيل الأحداث.",
-        lineByLineAr: [
-          { line: "def say_hi():", explanation: "تعريف دالة برمجية تحتوي على الكود الذي نريد تنفيذه عند الضغط." },
-          { line: "command=say_hi", explanation: "ربط الزر بالدالة، بحيث يتم استدعاء 'say_hi' فور النقر عليه." }
-        ]
-      },
-      {
-        id: "messagebox",
-        titleAr: "صناديق الرسائل (MessageBox)",
-        titleEn: "MessageBox",
-        content: "تُستخدم لإظهار نوافذ منبثقة للتنبيه أو التأكيد. يجب استيرادها بشكل منفصل من `tkinter.messagebox`.\n- showinfo(): إظهار معلومة.\n- showwarning(): تحذير.\n- showerror(): خطأ.\n- askquestion(): سؤال نعم/لا.",
-        code: "from tkinter import *\n# صندوق الرسائل يعتبر وحدة منفصلة تستدعى لحالها\nfrom tkinter import messagebox\n\ntop = Tk()\n\n# وظيفة مهمتها فقط توليد نافذة معلوماتية منبثقة للمستخدم بداخلها نص محدد\ndef hello():\n    messagebox.showinfo(\"Say Hello\", \"Hello World\")\n\n# الزر الذي يُفعّل الوظيفة السابقة\nB = Button(top, text=\"Say Hello\", command=hello)\nB.pack()\n\ntop.mainloop()",
-        algorithmAr: "1. تحميل مكتبة الـ GUI الأساسية متبوعة بالوحدة المستقلة messagebox التي تعرض أدوات تنبيهية.\n2. تحضير المنصة والتطبيق الرئيسي.\n3. صياغة دالة مخصصة (hello) تستدعي مربع الوظيفة الحوارية (showinfo).\n4. تزويد الوظيفة الحوارية بمدخلين: الأول هو عنوان الرسالة، والثاني هو النص بداخلها.\n5. برمجة زر ليقوم بتفعيل هذه الدالة عند التقاطه لنقرة المستخدم.\n6. تشغيله وبقاءه في حالة تأهب لظهور النافذة في منتصف الشاشة.",
-        lineByLineAr: [
-          { line: "from tkinter import messagebox", explanation: "استيراد مكتبة صناديق الرسائل المنبثقة بشكل خاص." },
-          { line: "messagebox.showinfo(\"Say Hello\", ...)", explanation: "إظهار نافذة منبثقة بعنوان 'Say Hello' ونص 'Hello World'." }
-        ]
-      },
-      {
-        id: "frames",
-        titleAr: "الإطارات (Frames)",
-        titleEn: "Frames",
-        content: "تُستخدم الإطارات (Frames) لتجميع الأدوات معاً وتنظيمها بشكل منطقي داخل النافذة. تعمل كحاوية (Container) غير مرئية.",
-        code: "from tkinter import *\nroot = Tk()\n\n# صندوق زجاجي/إطار شفاف يتمركز بشكل تلقائي بالأعلى\nframe = Frame(root)\nframe.pack()\n\n# حاوية أخرى متجهة للأسفل\nbottom_frame = Frame(root)\nbottom_frame.pack(side=BOTTOM)\n\n# زر أحمر يتخذ من الإطار العلوي ملجأً له بدلاً من النافذة الأم\nred_btn = Button(frame, text=\"Red\", fg=\"red\")\nred_btn.pack(side=LEFT)\n\n# زر أزرق يلقى به في الحاوية السفلية المخصصة له\nblue_btn = Button(bottom_frame, text=\"Blue\", fg=\"blue\")\nblue_btn.pack(side=LEFT)\n\nroot.mainloop()",
-        algorithmAr: "1. تهيئة الشاشة الافتتاحية الكبيرة.\n2. تجهيز إطارين خفيين لتحديد الهياكل، أحدهم (frame) سيصل للأعلى، والآخر (bottom_frame) تم توجيهه بالقوة للركود بأسفل الشاشة (BOTTOM).\n3. رسم زر ملون بالأحمر وربط أصله ومقر سكنه بالإطار العلوي.\n4. رسم زر آخر باللون الأزرق وربطه للإطار السفلي.\n5. هذه الإطارات تضمن احتفاظ الأزرار بمواقع نسقية داخل هيكلة متفق عليها وغير فوضوية.\n6. تشغيل الحدث الدائم لحين رغبة المستخدم بالإغلاق.",
-        lineByLineAr: [
-          { line: "frame = Frame(root)", explanation: "إنشاء إطار (حاوية) جديد داخل النافذة الرئيسية." },
-          { line: "red_btn = Button(frame, ...)", explanation: "وضع الزر الأحمر داخل 'frame' العلوي وليس النافذة مباشرة." },
-          { line: "bottom_frame.pack(side=BOTTOM)", explanation: "توجيه الإطار السفلي ليأخذ مكاناً في أسفل النافذة." }
-        ]
-      },
-      {
-        id: "menus",
-        titleAr: "القوائم (Menus)",
-        titleEn: "Menus",
-        content: "تُستخدم لإضافة شريط قوائم في أعلى النافذة (مثل File, Edit).",
-        code: "from tkinter import *\nroot = Tk()\n\n# دالة تجريبية لتثبت أن القائمة قابلة للضغط والتفاعل\ndef donothing():\n   print(\"Action clicked\")\n\n# تعريف شريط القوائم الرئيسي الذي سيظهر بأعلى النافذة\nmenubar = Menu(root)\n# تصميم قائمة فرعية من الشجرة الرئيسية للنافذة\nfilemenu = Menu(menubar, tearoff=0)\n# إضافة كلمة New بداخل القائمة وتكليفها بعمل شيء\nfilemenu.add_command(label=\"New\", command=donothing)\n# إضافة خط فاصل للديكور\nfilemenu.add_separator()\n# إضافة حقل مخصص للخروج الكامل من التطبيق\nfilemenu.add_command(label=\"Exit\", command=root.quit)\n# وضع اسم File أعلى النافذة وإسناد الحقل الفرعي بأكمله إليه\nmenubar.add_cascade(label=\"File\", menu=filemenu)\n\n# تفعيل الشاشة لتقبل القائمة المُنشأة وعرضها\nroot.config(menu=menubar)\nroot.mainloop()",
-        algorithmAr: "1. إنشاء هيكل نافذة مرئي.\n2. إعداد دالة صماء كهدف وهمي حال التفاعل مع أحد أزرار القائمة.\n3. إحلال مكون أداة Menu ليحمل قوائم علوية.\n4. تخصيص قائمة فرعية وتسميتها بالقائمة filemenu.\n5. حشو محتويات هذه القائمة بواسطة أمر add_command وكتابة أوامر الخروج من البرنامج، وأزرار تجريبية تتخللها فواصل تجميلية.\n6. جمع كل هذه الخطوات وتسميتها بالاسم الدارج 'File' وإرفاقها بالشريط الأعلى عبر وظيفة add_cascade.\n7. تكوين الواجهة وعرض كل الأدوات المكونة للمستخدم.",
-        lineByLineAr: [
-          { line: "menubar = Menu(root)", explanation: "إنشاء شريط القوائم الأساسي." },
-          { line: "filemenu.add_command(...)", explanation: "إضافة خيار (New) داخل القائمة المنسدلة." },
-          { line: "menubar.add_cascade(...)", explanation: "ربط القائمة المنسدلة (File) بالشريط الأساسي العلوي." }
+          { line: "name.place(x=50, y=50)", explanation: "مكانه باستخدام تحديد الاحداثيات (x, y)" },
+          { line: "e1.place(x=100, y=50)", explanation: "مكانه يبعد 50 علي محور x لتجنب التداخل" }
         ]
       }
     ],
-    problems: [
-      {
-        id: "p14",
-        titleAr: "نموذج تسجيل بيانات الطلاب",
-        titleEn: "Student Registration UI",
-        descriptionAr: "اكتب برنامجاً يرسم نافذة منظمة بجدول (Grid) تحتوي على خانات للاسم ورقم القيد وزر للإرسال.",
-        descriptionEn: "Create a window with input fields for Name and Reg No using the Grid system.",
-        explanation: "نستخدم نظام الـ Grid لأنه الأمثل لتنسيق النماذج والبيانات المطلوبة في صفوف وأعمدة متساوية.",
-        code: "from tkinter import *\nroot = Tk()\nroot.title(\"Student Form\")\n\n# صف رقم صفر للحقول الخاصة بتسميات الطالب\nLabel(root, text=\"Name\").grid(row=0, column=0)\nEntry(root).grid(row=0, column=1)\n\n# صف ثان رقم واحد للحقول الخاصة برقم التسجيل للمستخدم\nLabel(root, text=\"Reg No\").grid(row=1, column=0)\nEntry(root).grid(row=1, column=1)\n\n# زر الإدراج والاستقبال في الصف الثالث أسفل الحقول الماضية\nButton(root, text=\"Submit\").grid(row=2, column=1)\n\nroot.mainloop()",
-        algorithmAr: "1. بناء الحاضنة الأم لواجهة البرنامج وأدوات الإدخال وتعيين عنوانها 'Student Form'.\n2. رسم عنوان مسمى (Name) وإجباره على التموضع بالمنطقة المكونة من الصف الأول والعمود الأول بنظام الجدول.\n3. ربط أداة إدخال بيانية بمحاذاته في العمود الملاصق له مباشرة (عمود 1).\n4. تكرار السيناريو للعنوان השני 'Reg No' ولكن בنطاق الصف الذي يعلوه، والعمود المرافق له أيضاً.\n5. تثبيت زر مكتوب عليه (Submit) وراء كل هذه المعميات وفي الأسفل بضعه في الصف الثاني ولكن مع العمود 1 لمراعاة المنظر والمحاذاة.\n6. إطباق الأحداث واستمرار العرض للمستخدم النهائي.",
-        flowchartData: "Start -> Create Window -> Grid Layout -> Add Label/Entry -> Add Submit Button -> Mainloop -> End",
-        lineByLineAr: [
-          { line: "Label(root, text=\"Name\")", explanation: "تعريف نص ثابت كعنوان لخانة الاسم." },
-          { line: "Entry(root).grid(...)", explanation: "إنشاء خانة الإدخال ووضعها مباشرة في مكانها بالجدول." },
-          { line: "Button(root, text=\"Submit\")", explanation: "إضافة زر ليقوم المستخدم بالضغط عليه بعد الانتهاء." }
-        ]
-      },
-      {
-        id: "p15",
-        titleAr: "حاسبة بسيطة تفاعلية",
-        titleEn: "Interactive Simple Calculator",
-        descriptionAr: "صمم نافذة تطلب من المستخدم رقمين، وعند الضغط على زر الجمع، تظهر رسالة منبثقة بناتج الجمع.",
-        descriptionEn: "Design a window that takes two numbers and shows their sum in a messagebox when clicking a button.",
-        explanation: "نحتاج لاستخدام Entry لاستقبال الأرقام، و get() لقراءتها، ثم messagebox لعرض النتيجة.",
-        code: "from tkinter import *\nfrom tkinter import messagebox\n\nroot = Tk()\n# تعديل اسم البرنامج\nroot.title(\"Adder\")\n\n# تكديس النص الخاص بالرقم الأول ثم أداة الاستقبال الخاصة به\nLabel(root, text=\"Num 1:\").pack()\ne1 = Entry(root)\ne1.pack()\n\n# تكديس مكونات الرقم الثاني أسفل منها مباشرة\nLabel(root, text=\"Num 2:\").pack()\ne2 = Entry(root)\ne2.pack()\n\n# دالة تجمع المعطيات بشكل رياضي وتبعث إشعاراً مرئياً بالنتيجة\ndef add():\n    # تحويل محتوى صناديق الإدخال المجردة إلى أرقام يمكن الاستفادة منها\n    n1 = int(e1.get())\n    n2 = int(e2.get())\n    res = n1 + n2\n    # رسالة معلوماتية تطلق من النظام كإشعار\n    messagebox.showinfo(\"Result\", f\"Sum is {res}\")\n\n# زر ينفذ جميع مهام وظيفة الدالة السابقة بمجرد استخدامه\nButton(root, text=\"Add\", command=add).pack()\nroot.mainloop()",
-        algorithmAr: "1. جلب متطلبات النظام الأساسية ومكتبات النوافذ المنبثقة.\n2. تحضير واجهة مستخدم فارغة تسمى بـ 'Adder'.\n3. إنتاج أداة العنوان التوضيحي للرقم الأول متبوعة بـ الأداة e1 لاستقبال الرقم من شاشة المراجع، وتكرسيهما وتغليفهما (pack).\n4. تكرار المهمة بإعداد المسمى الخاص بالرقم الثاني والأداة المرافقة e2.\n5. برمجة العقل المفكر لحساب المطلوب (الدالة add). وظيفتها انتزاع وإجبار ما كُتب بـ e1 ليصبح رقماً ونفس الشيء لـ e2.\n6. جمع القطع الحسابية للتوصل للقيمة الناتجة بالمتغير res.\n7. تمرير القيمة الناتجة كنافذة عائمة تحمل بيانات النبأ.\n8. تركيب زر بأسفل الواجهة ليكون هو المسؤول عن نداء وتشغيل مهمة الـ add حال النقر.\n9. تشغيل الوجاهة بوضع اللامتناهي للعمل.",
-        flowchartData: "Start -> Input E1, E2 -> Click Add -> n1=E1.get(), n2=E2.get() -> Show Sum -> End",
-        lineByLineAr: [
-          { line: "e1 = Entry(root)", explanation: "إنشاء مربع إدخال للرقم الأول." },
-          { line: "n1 = int(e1.get())", explanation: "جلب القيمة المكتوبة داخل مربع الإدخال e1 وتحويلها لرقم صحيح." },
-          { line: "messagebox.showinfo(...)", explanation: "عرض ناتح الجمع داخل نافذة منبثقة لإخبار المستخدم بالنتيجة." }
-        ]
-      },
-      {
-        id: "p16",
-        titleAr: "نموذج تسجيل دخول (Login UI)",
-        titleEn: "Login Interface",
-        descriptionAr: "صمم نافذة تطلب اسم المستخدم وكلمة المرور، وإذا كانت البيانات 'admin' و '123' أظهر رسالة نجاح، وإلا أظهر رسالة خطأ.",
-        descriptionEn: "Login window requiring 'admin' and '123'. Show success or error messagebox.",
-        explanation: "نستخدم خاصية show='*' في الـ Entry لإخفاء كلمة المرور.",
-        code: "from tkinter import *\nfrom tkinter import messagebox\n\nroot = Tk()\n# شاشة لتسجيل الدخول\nroot.title(\"Login\")\n\n# وضع علامة اسم المستخدم بحرفية باستخدام جدول في أول مكان\nLabel(root, text=\"User:\").grid(row=0, column=0)\nu = Entry(root)\nu.grid(row=0, column=1)\n\n# وضع علامة الباسورد تحت السطر الماضي مع خانة مشفرة لحجب ما يُكتب ووضع نجوم\nLabel(root, text=\"Pass:\").grid(row=1, column=0)\np = Entry(root, show=\"*\")\np.grid(row=1, column=1)\n\n# الدالة المسؤولة عن أمان ورفض الزيارات المجهولة\ndef check():\n    if u.get()==\"admin\" and p.get()==\"123\": # فحص تطابق كل من الاسم والباسورد\n        messagebox.showinfo(\"Login\", \"Welcome!\") # إطلاق صافرة الأمان\n    else:\n        messagebox.showerror(\"Error\", \"Wrong Data\") # إطلاق منبه الخطأ\n\n# زر يربط الحدث بالوظيفة السابقة الخاصة بالأمان\nButton(root, text=\"Login\", command=check).grid(row=2, column=1)\nroot.mainloop()",
-        algorithmAr: "1. إلحاق المكتبات الخاصة ببرمجيات العروض المرئية واللوحات التحذيرية.\n2. هندسة منصة العمليات المركزية للبرنامج بعنوان Login.\n3. إضافة مربع يصف حقل الإدخال لليوزر بطريقة جدول الشبكات في الموضع [0,0] وحقل المدخلات بالجانب له [0,1].\n4. اتباع نفس الصنيع لحقل الباسورد في الصف الذي يعقبه [1,0] مع ميزة خاصة للحقل المستلم (p) بحيث يحول الحروف المعروضة لعلامات النجوم (*) لحفظ الأمان.\n5. برمجة دالة العواقب check، وفيها يسحب البرنامج نص اليوزر ويقارنه بـ 'admin'، ويقارن ما بداخل الباسورد بـ '123'.\n6. لو وافقت الشروط، يعتمِد البرنامج دخولاً مريحاً ويعرض إشعار ترحيب ناجح.\n7. إن لم توافق၊ يفشل الفحص وتتجه البوصلة لإشعار سلبي يخبره بالرفض.\n8. تركيب مكون الزر الأخير لتمثيل فعل الاستجابة من المستخدم وتوجيهه لنداء الـ check.\n9. تشغيل الواجهة ووضعها بالتأهب الدائم.",
-        flowchartData: "Start -> Input User/Pass -> Click Login -> Check Values -> Success / Error -> End",
-        lineByLineAr: [
-          { line: "p = Entry(root, show=\"*\")", explanation: "إنشاء مربع نص لكلمة المرور يظهر حرف * بدلاً من الحروف الحقيقية." },
-          { line: "if u.get()==\"admin\" ...", explanation: "مقارنة النصوص المدخلة بالقيم الصحيحة المحددة برمجياً." },
-          { line: "messagebox.showerror(...)", explanation: "إطلاق نافذة تنبيه حمراء (خطأ) في حال كانت البيانات غير مطابقة." }
-        ]
-      }
-    ]
+    problems: []
   }
 ];
