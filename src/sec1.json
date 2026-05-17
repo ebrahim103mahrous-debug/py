@@ -1,0 +1,83 @@
+{
+  "id": "sec1",
+  "title": "Section 1: Introduction to Python",
+  "lessons": [
+    {
+      "id": "intro",
+      "titleAr": "مقدمة عن بايثون والتعليقات (Comments)",
+      "titleEn": "Intro & Comments",
+      "content": "بايثون (Python): لغة سهلة (Easy)، مجانية (Free)، وتعتمد على المترجم (Interpreted)، ودخولها الى Java, C, C++.\nالتعليقات (Comments) تستخدم لكتابة ملاحظات ولا يتم تنفيذها ككود:\n- تعليق سطر واحد (Single line): يبدأ بـ `#`.\n- تعليق متعدد الأسطر (Multi line): يوضع بين `\"\"\"` و `\"\"\"`.",
+      "code": "# Single line Comment:\n# We Print the statement ( Hello )\n\n\"\"\"\nwe Print \nthe statement \n( Hello )\n\"\"\"",
+      "algorithmAr": "استخدام الرمز # لتعليق سطر واحد، وعلامات التنصيص الثلاثية لعدة أسطر.",
+      "lineByLineAr": []
+    },
+    {
+      "id": "variables",
+      "titleAr": "المتغيرات وأنواع البيانات (Variables & Data types)",
+      "titleEn": "Variables & Data Types",
+      "content": "المتغير هو مكان لحفظ قيمة (Variable = Value).\nتتميز بايثون بأنها ضعيفة الكتابة (Loosely Data Type)، أي لا تحتاج لتحديد نوع المتغير صراحة، وتفهم النوع من القيمة:\n- `int`: أرقام صحيحة.\n- `float`: أرقام عشرية.\n- `str` (Character): نصوص.\n\nيمكن إعطاء قيم لعدة متغيرات في سطر واحد.",
+      "code": "x = 10 # int (integer)\ny = \"Python\" # Charachter \nz = 10.2 # float\n\n# Loosely data type\nx = 10 \n# هيتأكد القيمة دي int ولا\n# x = int(10)\n\n# أي قيمة لـ x هيحولها لـ int\n# x = int(10.2) -> 10\n\n# ينفع تتكتب بالطريقة دي\n# Multi Variable, Multi Value\nx, y, z = 10, 20, 30\n\n# Multi Variable, Single Value\nx = y = z = 50",
+      "algorithmAr": "1. تعريف المتغير بكتابة اسمه ثم = ثم القيمة.\n2. التعرف التلقائي على نوع البيانات.",
+      "lineByLineAr": [
+        { "line": "x = 10", "explanation": "تعريف متغير x بقيمة صحيحة." },
+        { "line": "y = \"Python\"", "explanation": "متغير نصي." },
+        { "line": "x, y, z = 10, 20, 30", "explanation": "إسناد ثلاث قيم لثلاثة متغيرات في سطر واحد." }
+      ]
+    },
+    {
+      "id": "operations",
+      "titleAr": "العمليات الحسابية ودالة النوع (Operations & type)",
+      "titleEn": "Basic Operations",
+      "content": "يمكنك إجراء العمليات الحسابية المباشرة وطباعتها.\nاستخدم دالة `type()` لمعرفة نوع البيانات الخاص بالمتغير.",
+      "code": "x = 10\ny = 20\n\nprint(\"the Sum = \", x + y)\nprint(\"the Sub = \", x - y)\n\n# طب لو هنديش ارقام\nZ = x + y\nprint(\"Sumation\", Z)\n\n# type () -> check type\n# type(Z) -> Z -> Int",
+      "algorithmAr": "1. حساب الجمع x + y أو الطرح x - y.\n2. استخدام دالة type لمعرفة نوع المتغير Z.",
+      "lineByLineAr": [
+        { "line": "print(\"the Sum = \", x + y)", "explanation": "طباعة ناتج جمع المتغيرين مباشرة." },
+        { "line": "Z = x + y", "explanation": "تخزين ناتج الجمع في متغير جديد." },
+        { "line": "type(Z)", "explanation": "معرفة نوع المتغير Z (هنا سيكون int)." }
+      ]
+    }
+  ],
+  "problems": [
+    {
+      "id": "p-print-name",
+      "titleAr": "طباعة الاسم والعمر",
+      "titleEn": "Print Name and Age",
+      "descriptionAr": "اكتب برنامج لطباعة اسمك وعمرك، إما مباشرة أو عن طريق إدخال المستخدم.",
+      "descriptionEn": "Program to print a name and age.",
+      "explanation": "يمكنك طباعة النصوص والأرقام مباشرة، أو استخدام دالة `input()` لطلبها من المستخدم.",
+      "flowchartData": "Start -> Print Name -> Print Age -> End",
+      "code": "print(\"Doha elsharkawy\")\nprint(\"22\")\n\n# OR:\nname = input(\"the name\") \nage = input(\"the age\")",
+      "algorithmAr": "1. طباعة الاسم باستخدام الدالة print.\n2. طباعة العمر باستخدام الدالة print.\n3. (طريقة أخرى): استخدام input لأخذ القيم من المستخدم.",
+      "lineByLineAr": []
+    },
+    {
+      "id": "p-area-rect",
+      "titleAr": "مساحة المستطيل",
+      "titleEn": "Area of a Rectangle",
+      "descriptionAr": "احسب مساحة المستطيل (Area = الطول * العرض).",
+      "descriptionEn": "Calculate the area of a rectangle.",
+      "explanation": "ضرب الطول في العرض للحصول على المساحة.",
+      "flowchartData": "Start -> l=30, w=40 -> Area=l*w -> Print Area -> End",
+      "code": "l = 30\nw = 40\nArea = 30 * 40 # Or Area = l * w\nprint(\"the Area = \", Area)\n\n# OR:\n# L = int(input(\"Enter L: \"))\n# W = int(input(\"Enter W: \"))\n# Area = L * W\n# print(\"Area = \", Area)",
+      "algorithmAr": "1. تعريف الطول l والعرض w.\n2. ضرب القيمتين وتخزين الناتج في متيغر Area.\n3. طباعة المساحة.",
+      "lineByLineAr": [
+        { "line": "Area = 30 * 40", "explanation": "حساب المساحة بضرب الطول (30) في العرض (40)." }
+      ]
+    },
+    {
+      "id": "p-avg-3",
+      "titleAr": "احسب متوسط 3 ارقام",
+      "titleEn": "Average of 3 Numbers",
+      "descriptionAr": "برنامج لحساب المتوسط لثلاثة أرقام يدخلها المستخدم (المتوسط = مجموع الأرقام / عددها).",
+      "descriptionEn": "Calculate the average of 3 input numbers.",
+      "explanation": "جمع الأرقام الثلاثة ثم قسمتها على 3.",
+      "flowchartData": "Start -> Input x, y, z -> S = (x+y+z)/3 -> Print S -> End",
+      "code": "# ملحوظة: يجب تحويل المدخلات لأرقام (int) لعمل الحسابات\nx = int(input(\"first number\"))\ny = int(input(\"Sec. number\"))\nz = int(input(\"third. number\"))\n\nS = (x + y + z) / 3\nprint(\"Avg = \", S)",
+      "algorithmAr": "1. طلب الرقم الأول x من المستخدم.\n2. طلب الرقم الثاني y من المستخدم.\n3. طلب الرقم الثالث z من المستخدم.\n4. جمع الأرقام وقسمتهم على 3 ووضع الناتج في S.\n5. طباعة المتوسط S.",
+      "lineByLineAr": [
+        { "line": "S = (x + y + z) / 3", "explanation": "عملية حساب المتوسط بإضافة الأرقام وقسمتها." }
+      ]
+    }
+  ]
+}

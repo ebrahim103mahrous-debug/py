@@ -36,226 +36,110 @@ export interface Section {
 export const SECTIONS: Section[] = [
   {
     id: "sec1",
-    title: "Section 1: Python Basics",
+    title: "Section 1: Introduction to Python",
     lessons: [
       {
         id: "intro",
-        titleAr: "مقدمة عن لغة بايثون",
-        titleEn: "Introduction to Python",
+        titleAr: "مقدمة عن بايثون والتعليقات (Comments)",
+        titleEn: "Intro & Comments",
         content:
-          "بايثون هي لغة برمجة عالية المستوى (High-level)، تتميز بأنها سهلة التعلم (Easy) ومفتوحة المصدر (Free). تعتمد بايثون على نظام 'Interpreted' مما يعني أن الكود يُنفذ سطراً بسطر.\n\nمن مميزاتها:\n- سهولة الكتابة والقراءة مقارنة بـ C++ و Java.\n- لغة مفسرة (Interpreted) تجعل التطوير أسرع.\n- سهولة التحويل من لغات أخرى مثل Java و C++ إليها.",
-        code: "# هذه دالة الطباعة الخاصة بإظهار النصوص على الشاشة\nprint('Hello World') # ستظهر الكلمة Hello World كالتالي",
+          'بايثون (Python): لغة سهلة (Easy)، مجانية (Free)، وتعتمد على المترجم (Interpreted)، ودخولها الى Java, C, C++.\nالتعليقات (Comments) تستخدم لكتابة ملاحظات ولا يتم تنفيذها ككود:\n- تعليق سطر واحد (Single line): يبدأ بـ `#`.\n- تعليق متعدد الأسطر (Multi line): يوضع بين `"""` و `"""`.',
+        code: '# Single line Comment:\n# We Print the statement ( Hello )\n\n"""\nwe Print \nthe statement \n( Hello )\n"""',
         algorithmAr:
-          "1. بداية البرنامج.\n2. استدعاء الدالة المدمجة print.\n3. تمرير النص المراد طباعته (Hello World).\n4. نهاية البرنامج.",
-        lineByLineAr: [
-          {
-            line: "print('Hello World')",
-            explanation:
-              "دالة الطباعة تقوم بإظهار النص 'Hello World' على الشاشة.",
-          },
-        ],
-      },
-      {
-        id: "comments",
-        titleAr: "التعليقات (Comments)",
-        titleEn: "Comments",
-        content:
-          'تُستخدم التعليقات لشرح الكود ولا يتم تنفيذها من قبل المترجم.\n\n1. **تعليق سطر واحد (Single line):** يبدأ بعلامة الهاشتاج (#).\n2. **تعليق متعدد الأسطر (Multi-line):** يُوضع بين ثلاث علامات تنصيص (""" كود هنا """).',
-        code: '# تعليق سطر واحد: لن يتم تنفيذه من قبل النظام\nprint("Hello") # هذا السطر سيتم تنفيذه لطباعة الكلمة\n\n"""\nهذا تعليق متعدد الأسطر\nيمكنك كتابة شروحات طويلة هنا بحرية تامة\nلن يقرؤه البرنامج أبداً\n"""\nprint("Hello")',
-        algorithmAr:
-          '1. يبدأ البرنامج بتخطي السطر الأول لأنه تعليق (يبدأ بـ #).\n2. يُنفذ السطر الثاني لطباعة كلمة Hello.\n3. يتخطى المفسر الفقرة المحاطة بـ """ لأنها تعليق طويل.\n4. يُنفذ السطر الأخير ويطبع جملة Hello مرة أخرى.',
-        lineByLineAr: [
-          {
-            line: "# Single line...",
-            explanation:
-              "تعليق يتم تجاهله من قبل بايثون، يُستخدم لتوضيح الغرض من السطر التالي.",
-          },
-          {
-            line: 'print("Hello")',
-            explanation: "طباعة كلمة 'Hello' البسيطة.",
-          },
-          {
-            line: '""" ... """',
-            explanation:
-              "تعليق متعدد الأسطر يُستخدم لكتابة فقرات شرح طويلة داخل الكود.",
-          },
-        ],
+          "استخدام الرمز # لتعليق سطر واحد، وعلامات التنصيص الثلاثية لعدة أسطر.",
+        lineByLineAr: [],
       },
       {
         id: "variables",
-        titleAr: "المتغيرات (Variables)",
-        titleEn: "Variables",
+        titleAr: "المتغيرات وأنواع البيانات (Variables & Data types)",
+        titleEn: "Variables & Data Types",
         content:
-          "المتغير هو مكان في الذاكرة لتخزين القيمة (Variable = Value). بايثون هي لغة 'Loosely Typed' مما يعني أنك لا تحتاج لتحديد نوع المتغير يدوياً، بايثون تفهم النوع تلقائياً من القيمة المسندة.",
-        code: 'x = 10      # تعريف متغير يحتوي على رقم صحيح\ny = "Python" # تعريف متغير يحتوي على قيمة نصية\nz = 10.2    # تعريف متغير يحتوي على رقم عشري (بالفاصلة)',
+          "المتغير هو مكان لحفظ قيمة (Variable = Value).\nتتميز بايثون بأنها ضعيفة الكتابة (Loosely Data Type)، أي لا تحتاج لتحديد نوع المتغير صراحة، وتفهم النوع من القيمة:\n- `int`: أرقام صحيحة.\n- `float`: أرقام عشرية.\n- `str` (Character): نصوص.\n\nيمكن إعطاء قيم لعدة متغيرات في سطر واحد.",
+        code: 'x = 10 # int (integer)\ny = "Python" # Charachter \nz = 10.2 # float\n\n# Loosely data type\nx = 10 \n# هيتأكد القيمة دي int ولا\n# x = int(10)\n\n# أي قيمة لـ x هيحولها لـ int\n# x = int(10.2) -> 10\n\n# ينفع تتكتب بالطريقة دي\n# Multi Variable, Multi Value\nx, y, z = 10, 20, 30\n\n# Multi Variable, Single Value\nx = y = z = 50',
         algorithmAr:
-          "1. حجز مكان في الذاكرة للمتغير x ووضع القيمة 10 بداخله (نوعه صحيح).\n2. حجز مكان آخر للمتغير y وتخزين النص 'Python' بداخله.\n3. حجز مكان للمتغير z وتخزين الرقم الكسري 10.2.\n4. في بايثون، لا نحتاج للتصريح المسبق عن نوع المتغير.",
+          "1. تعريف المتغير بكتابة اسمه ثم = ثم القيمة.\n2. التعرف التلقائي على نوع البيانات.",
         lineByLineAr: [
-          {
-            line: "x = 10",
-            explanation: "تخزين الرقم الصحيح 10 في متغير اسمه x.",
-          },
-          {
-            line: 'y = "Python"',
-            explanation: "تخزين النص 'Python' في متغير اسمه y.",
-          },
-          {
-            line: "z = 10.2",
-            explanation: "تخزين رقم عشري (Float) 10.2 في متغير اسمه z.",
-          },
-        ],
-      },
-      {
-        id: "casting",
-        titleAr: "تحويل الأنواع (Casting)",
-        titleEn: "Type Casting",
-        content:
-          "يمكننا تحويل قيمة من نوع لآخر يدوياً باستخدام دوال التحويل مثل int(), float(), str().\nمثلاً تحويل رقم عشري لرقم صحيح يتجاهل الكسر.",
-        code: "x = int(10)\n# التحويل لرقم صحيح يحذف الأجزاء العشرية تماما\ny = int(10.2)\nprint(y) # Output: 10",
-        algorithmAr:
-          "1. أخذ الرقم 10 وتمريره لدالة int للحفاظ عليه كـ رقم صحيح (x).\n2. تمرير الرقم العشري 10.2 لدالة int() والتي تقوم باقتطاع الجزء العشري.\n3. تخزين النتيجة الصحيحة في المتغير y.\n4. طباعة النتيجة النهائية التي ستكون 10.",
-        lineByLineAr: [
-          {
-            line: "x = int(10)",
-            explanation:
-              "بما أن القيمة 10 هي صحيح فسيظل المتغير x من النوع int.",
-          },
-          {
-            line: "y = int(10.2)",
-            explanation:
-              "تحويل الرقم 10.2 لعنصر صحيح، مما يعني حذف الرقم العشري ليصبح 10.",
-          },
-          { line: "print(y)", explanation: "عرض النتيجة المحولة (10)." },
-        ],
-      },
-      {
-        id: "advanced-assignment",
-        titleAr: "إسناد القيم المتعددة",
-        titleEn: "Multi-Variable Assignment",
-        content:
-          "بايثون تسمح بإسناد قيم لعدة متغيرات في سطر واحد بطريقتين:\n\n1. **Multi-Multi:** إسناد عدة قيم لعدة متغيرات بالترتيب.\n2. **Multi-Single:** إسناد نفس القيمة لكل المتغيرات.",
-        code: "# الطريقة الأولى: إسناد عدة قيم لعدة متغيرات تباعا بالترتيب الصحيح\nx, y, z = 10, 20, 30\n\n# الطريقة الثانية: إسناد نفس القيمة (50) للجميع في نفس السطر\na = b = c = 50",
-        algorithmAr:
-          "1. يقوم بايثون بترتيب المتغيرات x, y, z بالقيم المقابلة 10, 20, 30 على التوالي في خطوة واحدة.\n2. في السطر الثاني، يقوم بأخذ القيمة 50 وإسنادها إلى c.\n3. ومن ثم يقوم بإسناد قيمة c إلى b.\n4. ثم ينسخ قيمة b إلى a، ليصبح للثلاثة نفس القيمة 50.",
-        lineByLineAr: [
+          { line: "x = 10", explanation: "تعريف متغير x بقيمة صحيحة." },
+          { line: 'y = "Python"', explanation: "متغير نصي." },
           {
             line: "x, y, z = 10, 20, 30",
-            explanation: "إسناد 10 لـ x، و 20 لـ y، و 30 لـ z في سطر واحد.",
-          },
-          {
-            line: "a = b = c = 50",
-            explanation:
-              "إسناد القيمة 50 دفعة واحدة لجميع المتغيرات a و b و c.",
+            explanation: "إسناد ثلاث قيم لثلاثة متغيرات في سطر واحد.",
           },
         ],
       },
       {
-        id: "functions",
-        titleAr: "الدوال والعمليات (Functions & Ops)",
-        titleEn: "Functions & Operations",
+        id: "operations",
+        titleAr: "العمليات الحسابية ودالة النوع (Operations & type)",
+        titleEn: "Basic Operations",
         content:
-          "أهم الدوال الأساسية للتعامل مع البيانات والمدخلات:\n- `print()`: لعرض المخرجات.\n- `input()`: لاستلام بيانات نصية من المستخدم.\n- `type()`: للتحقق من نوع البيانات المخزنة.",
-        code: '# إعطاء المتغيرات قيم ثابتة لعمل اختبار الجمع\nx = 10\ny = 20\nprint("the Sum =", x + y) # نقوم بالجمع مباشرة داخل دالة الطباعة لتوفير سطر جديد\n\n# دالة الإدخال تقوم بإيقاف البرنامج حتى يكتب المستخدم البيانات\nz = input("Enter: ")\n# التحقق من النوع وطباعته لمعرفة نوع متغير x\nprint(type(x))',
+          "يمكنك إجراء العمليات الحسابية المباشرة وطباعتها.\nاستخدم دالة `type()` لمعرفة نوع البيانات الخاص بالمتغير.",
+        code: 'x = 10\ny = 20\n\nprint("the Sum = ", x + y)\nprint("the Sub = ", x - y)\n\n# طب لو هنديش ارقام\nZ = x + y\nprint("Sumation", Z)\n\n# type () -> check type\n# type(Z) -> Z -> Int',
         algorithmAr:
-          "1. تخزين القيم 10 و 20 في المتغيرات x و y.\n2. استخدام دالة print لعرض النص 'the Sum =' متبوعاً بنتيجة جمع المتغيرين.\n3. إظهار رسالة الإدخال للمستخدم والانتظار حتى يعطي إجابة.\n4. استقبال النص المُدخل وتخزينه في z.\n5. سؤال النظام عن نوع متغير x (وهو صحيح int) وإرسال النتيجة إلى الشاشة للطباعة.",
+          "1. حساب الجمع x + y أو الطرح x - y.\n2. استخدام دالة type لمعرفة نوع المتغير Z.",
         lineByLineAr: [
           {
-            line: 'print("the Sum =", x + y)',
-            explanation: "طباعة نص ثابت بجانبه ناتج عملية الجمع (10+20 = 30).",
+            line: 'print("the Sum = ", x + y)',
+            explanation: "طباعة ناتج جمع المتغيرين مباشرة.",
           },
+          { line: "Z = x + y", explanation: "تخزين ناتج الجمع في متغير جديد." },
           {
-            line: 'input("Enter: ")',
-            explanation: "تنتظر هذه الدالة من المستخدم كتابة شيء وتخزنه كنص.",
-          },
-          {
-            line: "type(x)",
-            explanation: "تُرجع نوع بيانات المتغير x (مثلاً <class 'int'>).",
+            line: "type(Z)",
+            explanation: "معرفة نوع المتغير Z (هنا سيكون int).",
           },
         ],
       },
     ],
     problems: [
       {
-        id: "p1",
+        id: "p-print-name",
         titleAr: "طباعة الاسم والعمر",
-        titleEn: "Print Name & Age",
+        titleEn: "Print Name and Age",
         descriptionAr:
-          "اكتب برنامجاً يقوم بطباعة اسمك وعمرك بطريقتين: مباشرة أو بالمدخلات.",
-        descriptionEn: "Print your name and age directly or via user input.",
+          "اكتب برنامج لطباعة اسمك وعمرك، إما مباشرة أو عن طريق إدخال المستخدم.",
+        descriptionEn: "Program to print a name and age.",
         explanation:
-          "نستخدم print للثوابت و input للحصول على بيانات ديناميكية من المستخدم.",
-        code: '# الطريقة الأولى: الطباعة المباشرة من البرنامج\nprint("Doha Elsharkawy")\nprint("22")\n\n# الطريقة الثانية: طلب بيانات حقيقية من المستخدِم وتخزينها\nname = input("the name: ")\nage = input("the age: ")\n# طباعتها بعد الاستقبال بجانب بعضهما للفصل بينهما بمسافة تلقائية\nprint(name, age)',
+          "يمكنك طباعة النصوص والأرقام مباشرة، أو استخدام دالة `input()` لطلبها من المستخدم.",
+        flowchartData: "Start -> Print Name -> Print Age -> End",
+        code: 'print("Doha elsharkawy")\nprint("22")\n\n# OR:\nname = input("the name") \nage = input("the age")',
         algorithmAr:
-          "1. بداية البرنامج.\n2. طباعة نص مباشر يحتوي على الاسم.\n3. طباعة العمر كرقم أو نص بشكل مباشر.\n4. عرض رسالة تطالب المستخدم بكتابة الاسم وحفظ المدخل بالمتغير name.\n5. عرض رسالة أخرى لطلب العمر وحفظه في age.\n6. دمج الاسم والعمر معاً داخل print للظهور على سطر واحد.\n7. نهاية البرنامج.",
-        flowchartData: "Start -> Input Name -> Input Age -> Print Both -> End",
-        lineByLineAr: [
-          {
-            line: 'print("Doha Elsharkawy")',
-            explanation: "طباعة الاسم مباشرة كنص ثابت.",
-          },
-          {
-            line: 'name = input("the name: ")',
-            explanation:
-              "يطلب البرنامج من المستخدم ادخال الاسم ويخزنه في name.",
-          },
-          {
-            line: "print(name, age)",
-            explanation: "طباعة المتغيرين name و age معاً.",
-          },
-        ],
+          "1. طباعة الاسم باستخدام الدالة print.\n2. طباعة العمر باستخدام الدالة print.\n3. (طريقة أخرى): استخدام input لأخذ القيم من المستخدم.",
+        lineByLineAr: [],
       },
       {
-        id: "p2",
+        id: "p-area-rect",
         titleAr: "مساحة المستطيل",
-        titleEn: "Area of Rectangle",
-        descriptionAr:
-          "احسب مساحة المستطيل بمعلومية الطول (L=30) والعرض (W=40).",
-        descriptionEn: "Calculate rectangle area using L=30 and W=40.",
-        explanation: "القانون: المساحة = الطول × العرض.",
-        code: '# إعداد الطول والعرض الخاص بالمستطيل لحساب المساحة\nl = 30\nw = 40\n# تطبيق القانون الرياضي في متغير لحفظ الناتج\nArea = l * w\n# طباعة المساحة لكي تظهر على الشاشة\nprint("the Area =", Area)',
+        titleEn: "Area of a Rectangle",
+        descriptionAr: "احسب مساحة المستطيل (Area = الطول * العرض).",
+        descriptionEn: "Calculate the area of a rectangle.",
+        explanation: "ضرب الطول في العرض للحصول على المساحة.",
+        flowchartData: "Start -> l=30, w=40 -> Area=l*w -> Print Area -> End",
+        code: 'l = 30\nw = 40\nArea = 30 * 40 # Or Area = l * w\nprint("the Area = ", Area)\n\n# OR:\n# L = int(input("Enter L: "))\n# W = int(input("Enter W: "))\n# Area = L * W\n# print("Area = ", Area)',
         algorithmAr:
-          "1. ابدأ البرنامج بتعريف الطول L وإعطائه القيمة الثابتة 30.\n2. ثم عَرّف متغير العرض W واعطه القيمة 40.\n3. قم بضرب المتغيرين وتخزين ناتجهما في مكان جديد يسمى Area.\n4. استخدم دالة الطباعة لعرض النتيجة النهائية للمستخدم مصحوبة بنص توضيحي.\n5. انتهاء التشغيل.",
-        flowchartData:
-          "Start -> Set L=30, W=40 -> Area = L * W -> Print Area -> End",
+          "1. تعريف الطول l والعرض w.\n2. ضرب القيمتين وتخزين الناتج في متيغر Area.\n3. طباعة المساحة.",
         lineByLineAr: [
-          { line: "l = 30", explanation: "تحديد قيمة الطول بـ 30." },
-          { line: "w = 40", explanation: "تحديد قيمة العرض بـ 40." },
           {
-            line: "Area = l * w",
-            explanation: "حساب المساحة بضرب الطول في العرض.",
-          },
-          {
-            line: 'print("the Area =", Area)',
-            explanation: "طباعة الرقم النهائي للمساحة.",
+            line: "Area = 30 * 40",
+            explanation: "حساب المساحة بضرب الطول (30) في العرض (40).",
           },
         ],
       },
       {
-        id: "p3",
-        titleAr: "متوسط 3 أرقام",
+        id: "p-avg-3",
+        titleAr: "احسب متوسط 3 ارقام",
         titleEn: "Average of 3 Numbers",
-        descriptionAr: "احسب المتوسط الحسابي لثلاثة أرقام مدخلة من المستخدم.",
-        descriptionEn: "Calculate the average of 3 numbers from input.",
-        explanation: "المتوسط = (مجموع الأرقام) / 3.",
-        code: '# قراءة الأرقام من واجهة التشغيل وتحويلها على الفور لأرقام صحيحة لإجراء عمليات حسابية لاحقا\nx = int(input("first number: "))\ny = int(input("sec. number: "))\nz = int(input("third number: "))\n# استخدام الأقواس لإجبار بايثون على حساب الجمع قبل قسمته على العدد الكلي 3\ns = (x + y + z) / 3\n# عرض النتيجة النهائية للمتوسط الحسابي\nprint("Avg =", s)',
-        algorithmAr:
-          "1. إظهار رسالة للمستخدم تطلب الرقم الأول، استقبال النص وتحويله فورا לרقم وتخزينه في x.\n2. فعل نفس الشيء لطلب وتخزين الرقم الثاني في y.\n3. إعادة الأمر للمرة الثالثة للرقم z.\n4. حساب المجموع الكلي عن طريق جمع المتغيرات الثلاثة بين أقواس رياضية.\n5. قسمة المجموع على عدد الأرقام (3) للحصول على المتوسط وتخزينه في s.\n6. طباعة المخرجات وعرض المتوسط s.\n7. نهاية مسار المعالجة.",
+        descriptionAr:
+          "برنامج لحساب المتوسط لثلاثة أرقام يدخلها المستخدم (المتوسط = مجموع الأرقام / عددها).",
+        descriptionEn: "Calculate the average of 3 input numbers.",
+        explanation: "جمع الأرقام الثلاثة ثم قسمتها على 3.",
         flowchartData:
-          "Start -> Input X, Y, Z -> (X+Y+Z)/3 -> Print Result -> End",
+          "Start -> Input x, y, z -> S = (x+y+z)/3 -> Print S -> End",
+        code: '# ملحوظة: يجب تحويل المدخلات لأرقام (int) لعمل الحسابات\nx = int(input("first number"))\ny = int(input("Sec. number"))\nz = int(input("third. number"))\n\nS = (x + y + z) / 3\nprint("Avg = ", S)',
+        algorithmAr:
+          "1. طلب الرقم الأول x من المستخدم.\n2. طلب الرقم الثاني y من المستخدم.\n3. طلب الرقم الثالث z من المستخدم.\n4. جمع الأرقام وقسمتهم على 3 ووضع الناتج في S.\n5. طباعة المتوسط S.",
         lineByLineAr: [
           {
-            line: "x = int(input(...))",
-            explanation:
-              "نقرأ المدخل ونحوله لرقم صحيح (int) لأن الـ input بطبعها نصية.",
-          },
-          {
-            line: "s = (x + y + z) / 3",
-            explanation:
-              "جمع الثلاث أرقام أولاً داخل الأقواس ثم القسمة على عددهم 3.",
-          },
-          {
-            line: 'print("Avg =", s)',
-            explanation: "إظهار قيمة المتوسط الحسابي.",
+            line: "S = (x + y + z) / 3",
+            explanation: "عملية حساب المتوسط بإضافة الأرقام وقسمتها.",
           },
         ],
       },
